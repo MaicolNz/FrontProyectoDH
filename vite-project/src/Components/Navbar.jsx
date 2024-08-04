@@ -1,24 +1,25 @@
-import React from 'react'
-import { routes } from './utils/routes';
-import { Link, useNavigate } from 'react-router-dom'
-
+import React from 'react';
 
 const Navbar = () => {
-    const navigate = useNavigate();
+  return (
+    <nav>
+      <div className='background-nav'>
+      <div>
+        <img src="/public/images/Logos/Logo White.png" alt="" />
+      </div>
+      <div className="hero">
+      <ul className='nav'>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/products">Productos</a></li>
+        <li><a href="/contact">Contacto</a></li>
+        <li><a href="/about">Sobre Nosotros</a></li>
+      </ul>
+          <h1>TU MÚSICA</h1>
+          <h1>NUESTRO INSTRUMENTO</h1>
+      </div>
+      </div>
+    </nav>
+  );
+};
 
-    return (
-        <nav>
-            <button onClick={() => navigate(-1)}>volver</button>
-            <Link to={routes.home}>
-                <h4>Home</h4>
-            </Link>
-            <Link to={routes.contact}>
-                <h4>Contacto</h4>
-            </Link>
-            <button>Iniciar sesion</button>
-            <button>Crear usuario</button>
-        </nav>
-    )
-}
-
-export default Navbar
+export default Navbar;
