@@ -3,6 +3,7 @@
         "id": 1,
         "instrumento": "Guitarra clasica Yamaha",
         "categoria": "cuerda",
+        "img" : "/vite-project/public/images/Guitarra Clasica Yamaha.jpg",
         "detalle": "la mejor guitarra",
         "proveedor": {
             "name": "a",
@@ -17,6 +18,7 @@
         "id": 2,
         "instrumento": "Piano Acustico Yamaha",
         "categoria": "teclado",
+        "img" : "/vite-project/public/images/Piano Acustico Yamaha.png",
         "detalle": "piano de gran calidad",
         "proveedor": {
             "name": "b",
@@ -31,6 +33,7 @@
         "id": 3,
         "instrumento": "Violin Cervini",
         "categoria": "cuerda", 
+        "img" : "/vite-project/public/images/Violin Cervini.jpg",
         "detalle": "ideal para comenzar a practicar",
         "proveedor": {
             "name": "c",
@@ -45,6 +48,7 @@
         "id": 4,
         "instrumento": "Saxo Memphis",
         "categoria": "viento",
+        "img" : "/vite-project/public/images/Saxo Memphis.jpg",
         "detalle": "el mejor saxo",
         "proveedor": {
             "name": "c",
@@ -59,6 +63,7 @@
         "id": 5,
         "instrumento": "Bongo Memphis",
         "categoria": "percusion",
+        "img" : "/vite-project/public/images/Bango Memphis.jpg",
         "detalle" : "construido de madera resistente",
         "proveedor": {
             "name": "b",
@@ -73,6 +78,7 @@
         "id": 6,
         "instrumento": "Bajo Electrico Ibanez",
         "categoria": "cuerda",
+        "img" : "/vite-project/public/images/Bajo Electrico Ibanez.jpg",
         "detalle" : "mastil delgado y rapido",
         "proveedor": {
             "name": "d",
@@ -87,6 +93,7 @@
         "id": 7,
         "instrumento": "Ukelele Mahalo Mh2",
         "categoria": "cuerda",
+        "img" : "/vite-project/public/images/Ukelele Mahalo.jpg",
         "detalle" : "tamaño soprano",
         "proveedor": {
             "name": "d",
@@ -101,6 +108,7 @@
         "id": 8,
         "instrumento": "Trompeta Lincoln",
         "categoria": "viento",
+        "img" : "/vite-project/public/images/Trompeta Lincoln.jpg",
         "detalle" : "tres pistones de acero inoxidable",
         "proveedor": {
             "name": "e",
@@ -115,6 +123,7 @@
         "id": 9,
         "instrumento": "Bateria Mapex Tornado",
         "categoria": "percusion",
+        "img" : "/vite-project/public/images/Bateria Mapex Tornado.jpg",
         "detalle" : "completa: incluye asiento, platillos y atriles",
         "proveedor": {
             "name": "e",
@@ -129,6 +138,7 @@
         "id": 10,
         "instrumento": "Acordeon Memphis",
         "categoria": "teclado",
+        "img" : "/vite-project/public/images/Acordeon Memphis.jpg",
         "detalle" : "42 notas, incluye colgante y estuche de madera",
         "proveedor": {
             "name": "e",
