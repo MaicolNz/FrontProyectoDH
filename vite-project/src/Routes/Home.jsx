@@ -16,33 +16,38 @@ const Home = () => {
   ];
 
   return (
-    <Layout>
+    <div>
       <section className="categories">
-        <h2>Categorías</h2>
+        <div style={{ backgroundColor: '#F1EFEB', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-32px' }}>
+        <h2 style={{ fontSize: '36px', fontWeight: 'lighter', color: 'black' }}>CATEGORÍAS</h2>
+        </div>
         <div className="category-list">
           {categories.map((category, index) => (
             <div key={index} className="category-item">
               <img src={category.image} alt={category.name} />
-              <p>{category.name}</p>
+              <p style={{ fontSize: '30px', fontWeight: 'lighter', color: 'black' }}>{category.name}</p>
             </div>
           ))}
         </div>
       </section>
       <section className="featured-products">
-        <h2>Destacados</h2>
+        <div style={{ backgroundColor: '#F1EFEB', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-32px' }}>
+        <h2 style={{ fontSize: '36px', fontWeight: 'lighter', color: 'black' }} >DESTACADOS</h2>
+        </div>
         <div className="product-list">
-          {instruments.slice(0, 10).map((instrument, index) => (
-            <Card 
-              key={index} 
-              instrumento={instrument.instrumento} 
-              detalle={instrument.detalle} 
-              precioAlquiler={instrument.precioAlquiler}
-              image={`/public/images/${instrument.instrumento.toLowerCase().replace(/ /g, '_')}.jpg`} 
-            />
-          ))}
+        {
+  instruments.map((instrument, index) => (
+    <Card 
+      key={instrument.id} 
+      instrumento={instrument.instrumento} 
+      image={instrument.img} 
+      id={instrument.id}
+    />
+  ))
+}
         </div>
       </section>
-    </Layout>
+    </div>
   );
 };
 
