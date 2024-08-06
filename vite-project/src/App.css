@@ -4,7 +4,7 @@
   text-decoration: white;
   color: white;
   align-items: center;
-  margin-top: -100px;
+  margin-top: -80px;
   
 }
 
@@ -41,7 +41,8 @@
 .category-list, .product-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 90px;
 }
 
 .category-item, .product-card {
@@ -57,6 +58,15 @@
 
 .category-item p, .product-card p, .product-card h3 {
   margin: 0.5em 0;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas de igual tamaño */
+    gap: 1px; /* Espacio entre las tarjetas */
+    margin: 0 auto; /* Centra la cuadrícula si es necesario */
+    max-width: 1600px;
+    padding: 20px; /* Ajusta el padding si es necesario */
 }
 
 .product-card {
@@ -96,14 +106,12 @@ height: 200px;
 } 
 
 .background-nav {
-  background-image: url('../public/images/logos/hero.png');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/images/logos/hero.png');
   background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
   background-position: center; /* Centra la imagen en el contenedor */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   height: 100vh; /* Ajusta la altura del contenedor a la altura completa de la vista */
   width: 100%; /* Ajusta el ancho del contenedor al ancho completo */
-
-
 }
 
 
