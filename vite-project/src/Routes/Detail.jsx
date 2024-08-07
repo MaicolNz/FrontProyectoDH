@@ -54,6 +54,7 @@ const Detail = () => {
                     display: 'flex', 
                     flexDirection: 'column', 
                     gap: '20px', 
+                    //padding: '250px 0px 0px 0px',
                     transform: 'translate(0%, -4%)', 
                     alignContent: 'space-between'
                 }}>
@@ -85,7 +86,7 @@ const Detail = () => {
                     width: '32%', 
                     height: '250px', 
                     border: '1px solid grey', 
-                    padding: '70px' 
+                    padding: '70px', 
                 }} src={instrumento.img} alt={instrumento.instrumento} />
                 <div style={{ 
                     display: 'flex', 
