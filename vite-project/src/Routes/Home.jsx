@@ -37,11 +37,13 @@ const Home = () => {
         <div className="product-list">
         {
   instruments.map((instrument, index) => (
-    <Card 
+    <Card
       key={instrument.id} 
       instrumento={instrument.instrumento} 
       image={instrument.img} 
       id={instrument.id}
+      categoria={instrument.categoria}
+      detalle={instrument.detalle}
     />
   ))
 }

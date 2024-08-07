@@ -1,6 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <nav>
       <div className='background-nav'>
@@ -22,6 +27,58 @@ const Navbar = () => {
           <h1 style={{fontWeight: 'bold', fontSize: '64px', letterSpacing: '4px' }}>NUESTRO INSTRUMENTO</h1>
       </div>
       </div>
+
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '100px'}}><button 
+          onClick={toggleDropdown}
+          style={{
+            backgroundColor: '#000A19',
+            color: 'white',
+            borderRadius: '5px',
+            width: '150px',
+            height: '40px',
+            border: 'none',
+            cursor: 'pointer',
+            position: 'relative'
+          }}
+        >
+          Categorías
+        </button>
+        {isOpen && (
+          <select
+            style={{
+             
+            }}
+            onChange={() => setIsOpen(false)} // Opcional: cerrar el dropdown al seleccionar una opción
+          >
+            <option value="">Opción 1</option>
+            <option value="">Opción 2</option>
+            <option value="">Opción 3</option>
+          </select>
+        )} <label>
+        Fecha de inicio:
+        <input 
+          type="date" 
+          style={{
+            borderRadius: '5px',
+            border: '1px solid #ccc',
+            padding: '5px',
+            width: '150px'
+          }}
+        />
+      </label>
+      <label>
+        Fecha de entrega:
+        <input 
+          type="date" 
+          style={{
+            borderRadius: '5px',
+            border: '1px solid #ccc',
+            padding: '5px',
+            width: '150px'
+          }}
+        />
+      </label><button>BUSCAR</button></div>
+      
       </div>
     </nav>
   );

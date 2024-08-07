@@ -4,7 +4,8 @@
         "instrumento": "Guitarra Clasica Yamaha",
         "categoria": "cuerda",
         "img" : "/public/images/Guitarra Clasica Yamaha.jpg",
-        "detalle": "la mejor guitarra",
+        "detalle" : "construido de madera resistente1",
+        "detalleView" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et feugiat risus. Sed tempus purus vitae mauris efficitur sagittis. Morbi nec ex a nulla suscipit aliquam. Proin malesuada vel felis quis placerat. Curabitur sodales laoreet lectus, vitae venenatis tellus ullamcorper nec. Praesent tempor ac augue at pretium. Suspendisse sed porta dolor. Praesent ultricies, sem eget tincidunt euismod, urna urna suscipit ipsum, vel facilisis massa nisi non magna.Nunc sit amet lacus elit. Sed sit amet venenatis enim. Nunc quis posuere ex, sed luctus ligula. Maecenas lacinia elit tortor, eu dignissim nisi accumsan in. Donec volutpat vitae magna tincidunt condimentum. Aliquam sed bibendum lectus. Cras ut cursus massa, ut pellentesque urna. Duis porttitor et quam eget laoreet.",
         "proveedor": {
             "name": "a",
             "email": "proveedora@gmail.com",
@@ -19,7 +20,8 @@
         "instrumento": "Piano Acustico Yamaha",
         "categoria": "teclado",
         "img" : "/public/images/Piano Acustico Yamaha.png",
-        "detalle": "piano de gran calidad",
+        "detalle" : "construido de madera resistente2",
+        "detalleView" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et feugiat risus. Sed tempus purus vitae mauris efficitur sagittis. Morbi nec ex a nulla suscipit aliquam. Proin malesuada vel felis quis placerat. Curabitur sodales laoreet lectus, vitae venenatis tellus ullamcorper nec. Praesent tempor ac augue at pretium. Suspendisse sed porta dolor. Praesent ultricies, sem eget tincidunt euismod, urna urna suscipit ipsum, vel facilisis massa nisi non magna.Nunc sit amet lacus elit. Sed sit amet venenatis enim. Nunc quis posuere ex, sed luctus ligula. Maecenas lacinia elit tortor, eu dignissim nisi accumsan in. Donec volutpat vitae magna tincidunt condimentum. Aliquam sed bibendum lectus. Cras ut cursus massa, ut pellentesque urna. Duis porttitor et quam eget laoreet.",
         "proveedor": {
             "name": "b",
             "email": "proveedorb@gmail.com",
@@ -34,7 +36,8 @@
         "instrumento": "Violin Cervini",
         "categoria": "cuerda",
         "img" : "/public/images/Violin Cervini.jpg",
-        "detalle": "ideal para comenzar a practicar",
+        "detalle" : "construido de madera resistente3",
+        "detalleView" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et feugiat risus. Sed tempus purus vitae mauris efficitur sagittis. Morbi nec ex a nulla suscipit aliquam. Proin malesuada vel felis quis placerat. Curabitur sodales laoreet lectus, vitae venenatis tellus ullamcorper nec. Praesent tempor ac augue at pretium. Suspendisse sed porta dolor. Praesent ultricies, sem eget tincidunt euismod, urna urna suscipit ipsum, vel facilisis massa nisi non magna.Nunc sit amet lacus elit. Sed sit amet venenatis enim. Nunc quis posuere ex, sed luctus ligula. Maecenas lacinia elit tortor, eu dignissim nisi accumsan in. Donec volutpat vitae magna tincidunt condimentum. Aliquam sed bibendum lectus. Cras ut cursus massa, ut pellentesque urna. Duis porttitor et quam eget laoreet.",
         "proveedor": {
             "name": "c",
             "email": "proveedorc@gmail.com",
@@ -49,7 +52,8 @@
         "instrumento": "Saxo Memphis",
         "categoria": "viento",
         "img" : "/public/images/Saxo Memphis.jpg",
-        "detalle": "el mejor saxo",
+        "detalle" : "construido de madera resistente4",
+        "detalleView" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et feugiat risus. Sed tempus purus vitae mauris efficitur sagittis. Morbi nec ex a nulla suscipit aliquam. Proin malesuada vel felis quis placerat. Curabitur sodales laoreet lectus, vitae venenatis tellus ullamcorper nec. Praesent tempor ac augue at pretium. Suspendisse sed porta dolor. Praesent ultricies, sem eget tincidunt euismod, urna urna suscipit ipsum, vel facilisis massa nisi non magna.Nunc sit amet lacus elit. Sed sit amet venenatis enim. Nunc quis posuere ex, sed luctus ligula. Maecenas lacinia elit tortor, eu dignissim nisi accumsan in. Donec volutpat vitae magna tincidunt condimentum. Aliquam sed bibendum lectus. Cras ut cursus massa, ut pellentesque urna. Duis porttitor et quam eget laoreet.",
         "proveedor": {
             "name": "c",
             "email": "proveedorc@gmail.com",
@@ -64,7 +68,8 @@
         "instrumento": "Bongo Memphis",
         "categoria": "percusion",
         "img" : "/public/images/Bango Memphis.jpg",
-        "detalle" : "construido de madera resistente",
+        "detalle" : "construido de madera resistente5",
+        "detalleView" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et feugiat risus. Sed tempus purus vitae mauris efficitur sagittis. Morbi nec ex a nulla suscipit aliquam. Proin malesuada vel felis quis placerat. Curabitur sodales laoreet lectus, vitae venenatis tellus ullamcorper nec. Praesent tempor ac augue at pretium. Suspendisse sed porta dolor. Praesent ultricies, sem eget tincidunt euismod, urna urna suscipit ipsum, vel facilisis massa nisi non magna.Nunc sit amet lacus elit. Sed sit amet venenatis enim. Nunc quis posuere ex, sed luctus ligula. Maecenas lacinia elit tortor, eu dignissim nisi accumsan in. Donec volutpat vitae magna tincidunt condimentum. Aliquam sed bibendum lectus. Cras ut cursus massa, ut pellentesque urna. Duis porttitor et quam eget laoreet.",
         "proveedor": {
             "name": "b",
             "email": "proveedorb@gmail.com",
@@ -79,7 +84,8 @@
         "instrumento": "Bajo Electrico Ibanez",
         "categoria": "cuerda",
         "img" : "/public/images/Bajo Electrico Ibanez.jpg",
-        "detalle" : "mastil delgado y rapido",
+        "detalle" : "construido de madera resistente6",
+        "detalleView" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et feugiat risus. Sed tempus purus vitae mauris efficitur sagittis. Morbi nec ex a nulla suscipit aliquam. Proin malesuada vel felis quis placerat. Curabitur sodales laoreet lectus, vitae venenatis tellus ullamcorper nec. Praesent tempor ac augue at pretium. Suspendisse sed porta dolor. Praesent ultricies, sem eget tincidunt euismod, urna urna suscipit ipsum, vel facilisis massa nisi non magna.Nunc sit amet lacus elit. Sed sit amet venenatis enim. Nunc quis posuere ex, sed luctus ligula. Maecenas lacinia elit tortor, eu dignissim nisi accumsan in. Donec volutpat vitae magna tincidunt condimentum. Aliquam sed bibendum lectus. Cras ut cursus massa, ut pellentesque urna. Duis porttitor et quam eget laoreet.",
         "proveedor": {
             "name": "d",
             "email": "proveedord@gmail.com",
@@ -94,7 +100,8 @@
         "instrumento": "Ukelele Mahalo Mh2",
         "categoria": "cuerda",
         "img" : "/public/images/Ukelele Mahalo.jpg",
-        "detalle" : "tamaño soprano",
+        "detalle" : "construido de madera resistente7",
+        "detalleView" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et feugiat risus. Sed tempus purus vitae mauris efficitur sagittis. Morbi nec ex a nulla suscipit aliquam. Proin malesuada vel felis quis placerat. Curabitur sodales laoreet lectus, vitae venenatis tellus ullamcorper nec. Praesent tempor ac augue at pretium. Suspendisse sed porta dolor. Praesent ultricies, sem eget tincidunt euismod, urna urna suscipit ipsum, vel facilisis massa nisi non magna.Nunc sit amet lacus elit. Sed sit amet venenatis enim. Nunc quis posuere ex, sed luctus ligula. Maecenas lacinia elit tortor, eu dignissim nisi accumsan in. Donec volutpat vitae magna tincidunt condimentum. Aliquam sed bibendum lectus. Cras ut cursus massa, ut pellentesque urna. Duis porttitor et quam eget laoreet.",
         "proveedor": {
             "name": "d",
             "email": "proveedord@gmail.com",
@@ -109,7 +116,8 @@
         "instrumento": "Trompeta Lincoln",
         "categoria": "viento",
         "img" : "/public/images/Trompeta Lincoln.jpg",
-        "detalle" : "tres pistones de acero inoxidable",
+        "detalle" : "construido de madera resistente8",
+        "detalleView" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et feugiat risus. Sed tempus purus vitae mauris efficitur sagittis. Morbi nec ex a nulla suscipit aliquam. Proin malesuada vel felis quis placerat. Curabitur sodales laoreet lectus, vitae venenatis tellus ullamcorper nec. Praesent tempor ac augue at pretium. Suspendisse sed porta dolor. Praesent ultricies, sem eget tincidunt euismod, urna urna suscipit ipsum, vel facilisis massa nisi non magna.Nunc sit amet lacus elit. Sed sit amet venenatis enim. Nunc quis posuere ex, sed luctus ligula. Maecenas lacinia elit tortor, eu dignissim nisi accumsan in. Donec volutpat vitae magna tincidunt condimentum. Aliquam sed bibendum lectus. Cras ut cursus massa, ut pellentesque urna. Duis porttitor et quam eget laoreet.",
         "proveedor": {
             "name": "e",
             "email": "proveedore@gmail.com",
@@ -124,7 +132,8 @@
         "instrumento": "Bateria Mapex Tornado",
         "categoria": "percusion",
         "img" : "/public/images/Bateria Mapex Tornado.jpg",
-        "detalle" : "completa: incluye asiento, platillos y atriles",
+        "detalle" : "construido de madera resistente9",
+        "detalleView" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et feugiat risus. Sed tempus purus vitae mauris efficitur sagittis. Morbi nec ex a nulla suscipit aliquam. Proin malesuada vel felis quis placerat. Curabitur sodales laoreet lectus, vitae venenatis tellus ullamcorper nec. Praesent tempor ac augue at pretium. Suspendisse sed porta dolor. Praesent ultricies, sem eget tincidunt euismod, urna urna suscipit ipsum, vel facilisis massa nisi non magna.Nunc sit amet lacus elit. Sed sit amet venenatis enim. Nunc quis posuere ex, sed luctus ligula. Maecenas lacinia elit tortor, eu dignissim nisi accumsan in. Donec volutpat vitae magna tincidunt condimentum. Aliquam sed bibendum lectus. Cras ut cursus massa, ut pellentesque urna. Duis porttitor et quam eget laoreet.",
         "proveedor": {
             "name": "e",
             "email": "proveedore@gmail.com",
@@ -139,7 +148,8 @@
         "instrumento": "Acordeon Memphis",
         "categoria": "teclado",
         "img" : "/public/images/Acordeon Memphis.jpg",
-        "detalle" : "42 notas, incluye colgante y estuche de madera",
+        "detalle" : "construido de madera resistente10",
+        "detalleView" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et feugiat risus. Sed tempus purus vitae mauris efficitur sagittis. Morbi nec ex a nulla suscipit aliquam. Proin malesuada vel felis quis placerat. Curabitur sodales laoreet lectus, vitae venenatis tellus ullamcorper nec. Praesent tempor ac augue at pretium. Suspendisse sed porta dolor. Praesent ultricies, sem eget tincidunt euismod, urna urna suscipit ipsum, vel facilisis massa nisi non magna.Nunc sit amet lacus elit. Sed sit amet venenatis enim. Nunc quis posuere ex, sed luctus ligula. Maecenas lacinia elit tortor, eu dignissim nisi accumsan in. Donec volutpat vitae magna tincidunt condimentum. Aliquam sed bibendum lectus. Cras ut cursus massa, ut pellentesque urna. Duis porttitor et quam eget laoreet.",
         "proveedor": {
             "name": "e",
             "email": "proveedore@gmail.com",
