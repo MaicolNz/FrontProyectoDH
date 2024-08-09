@@ -12,7 +12,9 @@ const Card = ({ instrumento, image, id, categoria, detalle,  }) => {
 
     return (
         <div className="product-card">
-            <img src={image} alt={instrumento}/>
+            <div style={{ width: '60%', backgroundColor: '#EAEAEB', borderRadius: '20px'}}>
+            <img src={image} alt={instrumento} style={{  height: '350px'}}/>
+            </div>
         <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
             <p style={{marginBottom: '40px', display: 'flex', justifyContent: 'flex-start', marginLeft: '10px', color: 'grey'}}>{categoria}</p>
             <h4 style={{display: 'flex', justifyContent: 'flex-start', marginLeft: '10px'}}>{instrumento}</h4>
