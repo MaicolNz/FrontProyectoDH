@@ -14,8 +14,10 @@ const Footer = () => {
           <li><img src="/public/images/icons/Instagram.svg" alt="" /></li>
         </ul>
         <p>Copyright © 2024. All rights reserved.</p>
-
-        <input type="text" placeholder='Ingrese su email...' style={{ width: '300px', height: '20px', borderRadius: '20px', border: 'none', padding: '10px' }} />
+        <div>
+          <input type="text" placeholder='Ingrese su email...' style={{ width: '170px', height: '20px', borderRadius: '20px 0 0 20px', border: 'none', padding: '10px' }} />
+          <button style={{ backgroundColor: 'black', color: 'white', width: '120px', height: '40px', borderRadius: '0 20px 20px 0', border: 'none', padding: '10px' }}>Suscribirme</button>
+        </div>
       </div>
     </footer>
   );
