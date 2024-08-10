@@ -69,6 +69,7 @@
   align-items: center;
   margin-top: -80px;
   visibility: visible;
+  background-color: #F1EFEB  !important;
 }
 
 .hero.open {

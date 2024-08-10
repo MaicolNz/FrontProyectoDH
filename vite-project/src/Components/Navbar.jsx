@@ -40,20 +40,19 @@ const Navbar = () => {
           </div>
         </div>
         <div
-  style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' /* Negro con 50% de opacidad */ }}
   className={`hero ${isMenuOpen ? "open" : ""}`}
 >
           <ul className="nav">
-            <li style={{ fontWeight: "lighter", fontSize: "16px" }}>
+            <li style={{ fontWeight: "lighter", fontSize: "16px", backgroundColor: "black", borderRadius: "20px", width: "150px", height: "40px", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}>
               <a href="/">INICIO</a>
             </li>
-            <li style={{ fontWeight: "lighter", fontSize: "16px" }}>
+            <li style={{ fontWeight: "lighter", fontSize: "16px", backgroundColor: "black", borderRadius: "20px", width: "250px", height: "40px", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}>
               <a href="/products">ALQUILER DE INSTRUMENTOS</a>
             </li>
-            <li style={{ fontWeight: "lighter", fontSize: "16px" }}>
+            <li style={{ fontWeight: "lighter", fontSize: "16px", backgroundColor: "black", borderRadius: "20px", width: "150px", height: "40px", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}>
               <a href="/contact">CATEGORÍAS</a>
             </li>
-            <li style={{ fontWeight: "lighter", fontSize: "16px" }}>
+            <li style={{ fontWeight: "lighter", fontSize: "16px", backgroundColor: "black", borderRadius: "20px", width: "150px", height: "40px", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}>
               <a href="/about">CONTACTO</a>
             </li>
             <div className="log-button">
