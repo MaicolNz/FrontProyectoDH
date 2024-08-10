@@ -2,37 +2,36 @@ import React, { useState, useEffect } from 'react';
 import Card from '../Components/Card';
 import instruments from '../Components/utils/instruments.json';
 import Layout from '../Layout/Layout';
-import '../index.css'; // Importar los estilos globales
-import '../App.css'; // Importar los estilos específicos
+import '../index.css';
+import '../App.css';
 
 const Home = () => {
-  // Estado para almacenar los instrumentos en orden aleatorio
+
   const [shuffledInstruments, setShuffledInstruments] = useState([]);
 
   useEffect(() => {
-    // Función para mezclar la lista de instrumentos
+
     const shuffleArray = (array) => {
       let currentIndex = array.length, randomIndex;
 
-      // Mientras queden elementos por mezclar
+
       while (currentIndex !== 0) {
-        // Seleccionar un elemento restante
+
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
 
-        // Intercambiar el elemento con el elemento en la posición actual
+
         [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
       }
 
       return array;
     };
 
-    // Mezclar los instrumentos y actualizar el estado
-    const shuffled = shuffleArray([...instruments]); // Copia para no modificar el array original
+    
+    const shuffled = shuffleArray([...instruments]); 
     setShuffledInstruments(shuffled);
-  }, []); // Ejecutar solo una vez al montar
+  }, []); 
 
-  // Categorías con imágenes
   const categories = [
     { name: 'Teclado', image: '/images/categoria/Teclado.jpg' },
     { name: 'Cuerda', image: '/images/categoria/Cuerda.jpg' },

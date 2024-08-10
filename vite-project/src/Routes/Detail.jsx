@@ -13,6 +13,9 @@ const Detail = () => {
     const handleClick = () => {
         navigate(`/`);
     };
+    const handleClickView = () => {
+        navigate(`/DetailView/${id}`);
+    };
 
     const handleIncrease = () => {
         setCount(count + 1);
@@ -34,7 +37,7 @@ const Detail = () => {
             backgroundRepeat: 'none',
             backgroundPosition: 'center',
             backgroundSize: 'cover',
-            height: '80vh'
+            height: '100vh'
         }}>
             <div style={{ 
                 backgroundColor: 'white', 
@@ -97,7 +100,7 @@ const Detail = () => {
                 }}>
                     <div style={{ display: 'flex', gap: '5px'}}>
                         <img src="../public/images/icons/iconBack.svg" alt="" />
-                        <p style={{ fontWeight: 'bold' }} onClick={handleClick}>Volver atras</p>
+                        <p style={{ fontWeight: 'bold', cursor: 'pointer' }} onClick={handleClick}>Volver atras</p>
                     </div>
                     <div style={{ 
                         display: 'flex', 
@@ -107,7 +110,7 @@ const Detail = () => {
                         <img src="" alt="none" />
                         <img src="none" alt="none" />
                         <img src="" alt="none" />
-                        <p style={{ fontWeight: 'bold' }}>Ver mas</p>
+                        <p style={{ fontWeight: 'bold', cursor: 'pointer' }}  onClick={handleClickView}>Ver mas </p>
                     </div>
                 </div>
             </div>
