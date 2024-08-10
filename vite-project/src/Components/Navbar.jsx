@@ -39,7 +39,10 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className={`hero ${isMenuOpen ? "open" : ""}`}>
+        <div
+  style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' /* Negro con 50% de opacidad */ }}
+  className={`hero ${isMenuOpen ? "open" : ""}`}
+>
           <ul className="nav">
             <li style={{ fontWeight: "lighter", fontSize: "16px" }}>
               <a href="/">INICIO</a>

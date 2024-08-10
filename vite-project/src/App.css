@@ -69,6 +69,7 @@
   align-items: center;
   margin-top: -80px;
   visibility: visible;
+  
 }
 
 .hero.open {
@@ -79,6 +80,8 @@
   display: flex;
   gap: 100px;
   list-style-type: none;
+  position: fixed;
+
 }
 
 .nav li a {
@@ -89,8 +92,8 @@
 .log-button{
   display: flex;
   position: absolute;
-  top: 40px;
-  right: 100px;
+  top: -70px;
+  left: 900px;
 }
 
 @media (max-width: 768px) {
