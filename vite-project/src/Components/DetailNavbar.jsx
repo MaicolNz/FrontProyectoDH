@@ -23,10 +23,10 @@ const DetailNavbar = () => {
         </div>
         <div className="heroDetail">
           <ul className='navDetail' style={{ display: 'flex', justifyContent: 'center', padding: '10px 0', listStyle: 'none', margin: '0', position: 'relative', top: '-100px' }}>
-            <li style={{ fontWeight: 'lighter', fontSize: '16px', marginRight: '20px' }}><a href="/">INICIO</a></li>
-            <li style={{ fontWeight: 'lighter', fontSize: '16px', marginRight: '20px' }}><a href="/products">ALQUILER DE INSTRUMENTOS</a></li>
-            <li style={{ fontWeight: 'lighter', fontSize: '16px', marginRight: '20px' }}><a href="/contact">CATEGORÍAS</a></li>
-            <li style={{ fontWeight: 'lighter', fontSize: '16px' }}><a href="/about">CONTACTO</a></li>
+          <li style={{ fontWeight: "lighter", fontSize: "16px", backgroundColor: "black", borderRadius: "20px", width: "150px", height: "40px", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}><a href="/">INICIO</a></li>
+          <li style={{ fontWeight: "lighter", fontSize: "16px", backgroundColor: "black", borderRadius: "20px", width: "250px", height: "40px", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}><a href="/products">ALQUILER DE INSTRUMENTOS</a></li>
+          <li style={{ fontWeight: "lighter", fontSize: "16px", backgroundColor: "black", borderRadius: "20px", width: "150px", height: "40px", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}><a href="/contact">CATEGORÍAS</a></li>
+          <li style={{ fontWeight: "lighter", fontSize: "16px", backgroundColor: "black", borderRadius: "20px", width: "150px", height: "40px", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}><a href="/about">CONTACTO</a></li>
           </ul>
         </div>
       </div>
