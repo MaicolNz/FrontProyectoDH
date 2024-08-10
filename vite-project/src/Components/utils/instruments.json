@@ -2,11 +2,11 @@
     {
         "id": 1,
         "instrumento": "Guitarra Clasica Yamaha",
-        "categoria": "cuerda",
+        "categoria": "Cuerda",
         "img": "/public/images/GuitarraYamaha.svg",
         "imgView1": "/public/images/GuitarraYamaha1.svg",
         "imgView2": "/public/images/GuitarraYamaha2.svg",
-        "detalle": "construido de madera resistente1",
+        "detalle": "Descripción del producto",
         "detalleView": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis mollis imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse et auctor massa. Etiam viverra est mauris, non posuere turpis congue ac. Ut tincidunt iaculis ipsum nec rhoncus. Nam condimentum ante eu malesuada iaculis. Aenean eu orci nisl. Praesent accumsan massa et tristique placerat. Aliquam ut ex eu nisl rhoncus elementum. Suspendisse varius ipsum et libero lacinia, ut molestie felis tincidunt.Proin id turpis vitae diam venenatis fermentum. Vivamus rhoncus finibus vestibulum. Integer malesuada est justo, non lobortis quam sollicitudin in. Suspendisse ornare, quam fringilla ullamcorper iaculis, nibh libero fringilla sem, a maximus sem justo sit amet magna. Aenean sed sem vel ante fringilla elementum.",
         "proveedor": {
             "name": "a",
@@ -20,11 +20,11 @@
     {
         "id": 2,
         "instrumento": "Piano Acustico Yamaha",
-        "categoria": "teclado",
+        "categoria": "Teclado",
         "img": "/public/images/PianoYamaha.svg",
         "imgView1": "/public/images/PianoYamaha1.svg",
         "imgView2": "/public/images/PianoYamaha2.svg",
-        "detalle": "construido de madera resistente2",
+        "detalle": "Descripción del producto",
         "detalleView": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis mollis imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse et auctor massa. Etiam viverra est mauris, non posuere turpis congue ac. Ut tincidunt iaculis ipsum nec rhoncus. Nam condimentum ante eu malesuada iaculis. Aenean eu orci nisl. Praesent accumsan massa et tristique placerat. Aliquam ut ex eu nisl rhoncus elementum. Suspendisse varius ipsum et libero lacinia, ut molestie felis tincidunt.Proin id turpis vitae diam venenatis fermentum. Vivamus rhoncus finibus vestibulum. Integer malesuada est justo, non lobortis quam sollicitudin in. Suspendisse ornare, quam fringilla ullamcorper iaculis, nibh libero fringilla sem, a maximus sem justo sit amet magna. Aenean sed sem vel ante fringilla elementum.",
         "proveedor": {
             "name": "b",
@@ -38,11 +38,11 @@
     {
         "id": 3,
         "instrumento": "Violin Cervini",
-        "categoria": "cuerda",
+        "categoria": "Cuerda",
         "img": "/public/images/ViolinCervini.svg",
         "imgView1": "/public/images/ViolinCervini1.svg",
         "imgView2": "/public/images/ViolinCervini2.svg",
-        "detalle": "construido de madera resistente3",
+        "detalle": "Descripción del producto",
         "detalleView": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis mollis imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse et auctor massa. Etiam viverra est mauris, non posuere turpis congue ac. Ut tincidunt iaculis ipsum nec rhoncus. Nam condimentum ante eu malesuada iaculis. Aenean eu orci nisl. Praesent accumsan massa et tristique placerat. Aliquam ut ex eu nisl rhoncus elementum. Suspendisse varius ipsum et libero lacinia, ut molestie felis tincidunt.Proin id turpis vitae diam venenatis fermentum. Vivamus rhoncus finibus vestibulum. Integer malesuada est justo, non lobortis quam sollicitudin in. Suspendisse ornare, quam fringilla ullamcorper iaculis, nibh libero fringilla sem, a maximus sem justo sit amet magna. Aenean sed sem vel ante fringilla elementum.",
         "proveedor": {
             "name": "c",
@@ -56,11 +56,11 @@
     {
         "id": 4,
         "instrumento": "Saxo Memphis",
-        "categoria": "viento",
+        "categoria": "Viento",
         "img": "/public/images/SaxoMemphis.svg",
         "imgView1": "/public/images/SaxoMemphis1.svg",
         "imgView2": "/public/images/SaxoMemphis2.svg",
-        "detalle": "construido de madera resistente4",
+        "detalle": "Descripción del producto",
         "detalleView": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis mollis imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse et auctor massa. Etiam viverra est mauris, non posuere turpis congue ac. Ut tincidunt iaculis ipsum nec rhoncus. Nam condimentum ante eu malesuada iaculis. Aenean eu orci nisl. Praesent accumsan massa et tristique placerat. Aliquam ut ex eu nisl rhoncus elementum. Suspendisse varius ipsum et libero lacinia, ut molestie felis tincidunt.Proin id turpis vitae diam venenatis fermentum. Vivamus rhoncus finibus vestibulum. Integer malesuada est justo, non lobortis quam sollicitudin in. Suspendisse ornare, quam fringilla ullamcorper iaculis, nibh libero fringilla sem, a maximus sem justo sit amet magna. Aenean sed sem vel ante fringilla elementum.",
         "proveedor": {
             "name": "c",
@@ -74,11 +74,11 @@
     {
         "id": 5,
         "instrumento": "Bongo Memphis",
-        "categoria": "percusion",
+        "categoria": "Percusion",
         "img": "/public/images/BongoMemphis.svg",
         "imgView1": "/public/images/BongoMemphis1.svg",
         "imgView2": "/public/images/BongoMemphis2.svg",
-        "detalle": "construido de madera resistente5",
+        "detalle": "Descripción del producto",
         "detalleView": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis mollis imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse et auctor massa. Etiam viverra est mauris, non posuere turpis congue ac. Ut tincidunt iaculis ipsum nec rhoncus. Nam condimentum ante eu malesuada iaculis. Aenean eu orci nisl. Praesent accumsan massa et tristique placerat. Aliquam ut ex eu nisl rhoncus elementum. Suspendisse varius ipsum et libero lacinia, ut molestie felis tincidunt.Proin id turpis vitae diam venenatis fermentum. Vivamus rhoncus finibus vestibulum. Integer malesuada est justo, non lobortis quam sollicitudin in. Suspendisse ornare, quam fringilla ullamcorper iaculis, nibh libero fringilla sem, a maximus sem justo sit amet magna. Aenean sed sem vel ante fringilla elementum.",
         "proveedor": {
             "name": "b",
@@ -92,11 +92,11 @@
     {
         "id": 6,
         "instrumento": "Bajo Electrico Ibanez",
-        "categoria": "cuerda",
+        "categoria": "Cuerda",
         "img": "/public/images/BajoIbanez.svg",
         "imgView1": "/public/images/BajoIbanez1.svg",
         "imgView2": "/public/images/BajoIbanez2.svg",
-        "detalle": "construido de madera resistente6",
+        "detalle": "Descripción del producto",
         "detalleView": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis mollis imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse et auctor massa. Etiam viverra est mauris, non posuere turpis congue ac. Ut tincidunt iaculis ipsum nec rhoncus. Nam condimentum ante eu malesuada iaculis. Aenean eu orci nisl. Praesent accumsan massa et tristique placerat. Aliquam ut ex eu nisl rhoncus elementum. Suspendisse varius ipsum et libero lacinia, ut molestie felis tincidunt.Proin id turpis vitae diam venenatis fermentum. Vivamus rhoncus finibus vestibulum. Integer malesuada est justo, non lobortis quam sollicitudin in. Suspendisse ornare, quam fringilla ullamcorper iaculis, nibh libero fringilla sem, a maximus sem justo sit amet magna. Aenean sed sem vel ante fringilla elementum.",
         "proveedor": {
             "name": "d",
@@ -110,11 +110,11 @@
     {
         "id": 7,
         "instrumento": "Ukelele Mahalo Mh2",
-        "categoria": "cuerda",
+        "categoria": "Cuerda",
         "img": "/public/images/UkeleleMahalo.svg",
         "imgView1": "/public/images/UkeleleMahalo1.svg",
         "imgView2": "/public/images/UkeleleMahalo2.svg",
-        "detalle": "construido de madera resistente7",
+        "detalle": "Descripción del producto",
         "detalleView": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis mollis imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse et auctor massa. Etiam viverra est mauris, non posuere turpis congue ac. Ut tincidunt iaculis ipsum nec rhoncus. Nam condimentum ante eu malesuada iaculis. Aenean eu orci nisl. Praesent accumsan massa et tristique placerat. Aliquam ut ex eu nisl rhoncus elementum. Suspendisse varius ipsum et libero lacinia, ut molestie felis tincidunt.Proin id turpis vitae diam venenatis fermentum. Vivamus rhoncus finibus vestibulum. Integer malesuada est justo, non lobortis quam sollicitudin in. Suspendisse ornare, quam fringilla ullamcorper iaculis, nibh libero fringilla sem, a maximus sem justo sit amet magna. Aenean sed sem vel ante fringilla elementum.",
         "proveedor": {
             "name": "d",
@@ -128,11 +128,11 @@
     {
         "id": 8,
         "instrumento": "Trompeta Lincoln",
-        "categoria": "viento",
+        "categoria": "Viento",
         "img": "/public/images/TrompetaLincoln.svg",
         "imgView1": "/public/images/TrompetaLincoln1.svg",
         "imgView2": "/public/images/TrompetaLincoln2.svg",
-        "detalle": "construido de madera resistente8",
+        "detalle": "Descripción del producto",
         "detalleView": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis mollis imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse et auctor massa. Etiam viverra est mauris, non posuere turpis congue ac. Ut tincidunt iaculis ipsum nec rhoncus. Nam condimentum ante eu malesuada iaculis. Aenean eu orci nisl. Praesent accumsan massa et tristique placerat. Aliquam ut ex eu nisl rhoncus elementum. Suspendisse varius ipsum et libero lacinia, ut molestie felis tincidunt.Proin id turpis vitae diam venenatis fermentum. Vivamus rhoncus finibus vestibulum. Integer malesuada est justo, non lobortis quam sollicitudin in. Suspendisse ornare, quam fringilla ullamcorper iaculis, nibh libero fringilla sem, a maximus sem justo sit amet magna. Aenean sed sem vel ante fringilla elementum.",
         "proveedor": {
             "name": "e",
@@ -146,11 +146,11 @@
     {
         "id": 9,
         "instrumento": "Bateria Mapex Tornado",
-        "categoria": "percusion",
+        "categoria": "Percusion",
         "img": "/public/images/BateriaTornado.svg",
         "imgView1": "/public/images/BateriaTornado1.svg",
         "imgView2": "/public/images/BateriaTornado2.svg",
-        "detalle": "construido de madera resistente9",
+        "detalle": "Descripción del producto",
         "detalleView": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis mollis imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse et auctor massa. Etiam viverra est mauris, non posuere turpis congue ac. Ut tincidunt iaculis ipsum nec rhoncus. Nam condimentum ante eu malesuada iaculis. Aenean eu orci nisl. Praesent accumsan massa et tristique placerat. Aliquam ut ex eu nisl rhoncus elementum. Suspendisse varius ipsum et libero lacinia, ut molestie felis tincidunt.Proin id turpis vitae diam venenatis fermentum. Vivamus rhoncus finibus vestibulum. Integer malesuada est justo, non lobortis quam sollicitudin in. Suspendisse ornare, quam fringilla ullamcorper iaculis, nibh libero fringilla sem, a maximus sem justo sit amet magna. Aenean sed sem vel ante fringilla elementum.",
         "proveedor": {
             "name": "e",
@@ -164,11 +164,11 @@
     {
         "id": 10,
         "instrumento": "Acordeon Memphis",
-        "categoria": "teclado",
+        "categoria": "Teclado",
         "img": "/public/images/AcordeonMemphis.svg",
         "imgView1": "/public/images/AcordeonMemphis1.svg",
         "imgView2": "/public/images/AcordeonMemphis2.svg",
-        "detalle": "construido de madera resistente10",
+        "detalle": "Descripción del producto",
         "detalleView": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis mollis imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse et auctor massa. Etiam viverra est mauris, non posuere turpis congue ac. Ut tincidunt iaculis ipsum nec rhoncus. Nam condimentum ante eu malesuada iaculis. Aenean eu orci nisl. Praesent accumsan massa et tristique placerat. Aliquam ut ex eu nisl rhoncus elementum. Suspendisse varius ipsum et libero lacinia, ut molestie felis tincidunt.Proin id turpis vitae diam venenatis fermentum. Vivamus rhoncus finibus vestibulum. Integer malesuada est justo, non lobortis quam sollicitudin in. Suspendisse ornare, quam fringilla ullamcorper iaculis, nibh libero fringilla sem, a maximus sem justo sit amet magna. Aenean sed sem vel ante fringilla elementum.",
         "proveedor": {
             "name": "e",

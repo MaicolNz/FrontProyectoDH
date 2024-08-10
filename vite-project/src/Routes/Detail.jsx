@@ -40,18 +40,18 @@ const Detail = () => {
             height: '100vh'
         }}>
             <div style={{ 
-                backgroundColor: 'white', 
-                position: 'absolute', 
-                backgroundSize: '10px', 
-                display: 'flex', 
-                justifyContent: 'space-around', 
-                top: '60%', 
-                left: '50%', 
-                transform: 'translate(-50%, -50%)', 
-                padding: '20px', 
-                width: '60%', 
-                height: '60vh', 
-                alignItems: 'center'
+          backgroundColor: "white",
+          position: "relative",
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "40px",
+          borderRadius: "15px",
+          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+          width: "70%",
+          maxWidth: "1000px",
+          alignItems: "center",
+          flexDirection: "row",
+          transform: 'translate(38%, 37%)'
             }}>
                 <div style={{ 
                     display: 'flex', 
@@ -88,15 +88,16 @@ const Detail = () => {
                 <img style={{ 
                     width: '32%', 
                     height: '250px', 
-                    border: '1px solid grey', 
-                    padding: '70px', 
+                    border: '1px solid LIGHTgrey', 
+                    padding: '70px',
+                    borderRadius: '15px' 
                 }} src={instrumento.img} alt={instrumento.instrumento} />
                 <div style={{ 
                     display: 'flex', 
                     flexDirection: 'column', 
-                    gap: '70px', 
+                    gap: '150px', 
                     top: '10%', 
-                    transform: 'translate(0%, -53%)'
+                    transform: 'translate(0%, -60%)'
                 }}>
                     <div style={{ display: 'flex', gap: '5px'}}>
                         <img src="../public/images/icons/iconBack.svg" alt="" />
@@ -107,9 +108,6 @@ const Detail = () => {
                         flexDirection: 'column', 
                         gap: '20px'
                     }}>
-                        <img src="" alt="none" />
-                        <img src="none" alt="none" />
-                        <img src="" alt="none" />
                         <p style={{ fontWeight: 'bold', cursor: 'pointer' }}  onClick={handleClickView}>Ver mas </p>
                     </div>
                 </div>
