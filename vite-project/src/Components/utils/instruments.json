@@ -5,7 +5,7 @@
         "categoria": "Cuerda",
         "img": "/public/images/GuitarraYamaha.svg",
         "imgView1": "/public/images/GuitarraYamaha1.svg",
-        "imgView2": "/public/images/GuitarraYamaha2.svg",
+        "imgView2": "/public/images/GuitarraYamaha1.svg",
         "detalle": "Descripción del producto",
         "detalleView": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis mollis imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse et auctor massa. Etiam viverra est mauris, non posuere turpis congue ac. Ut tincidunt iaculis ipsum nec rhoncus. Nam condimentum ante eu malesuada iaculis. Aenean eu orci nisl. Praesent accumsan massa et tristique placerat. Aliquam ut ex eu nisl rhoncus elementum. Suspendisse varius ipsum et libero lacinia, ut molestie felis tincidunt.Proin id turpis vitae diam venenatis fermentum. Vivamus rhoncus finibus vestibulum. Integer malesuada est justo, non lobortis quam sollicitudin in. Suspendisse ornare, quam fringilla ullamcorper iaculis, nibh libero fringilla sem, a maximus sem justo sit amet magna. Aenean sed sem vel ante fringilla elementum.",
         "proveedor": {
@@ -23,7 +23,7 @@
         "categoria": "Teclado",
         "img": "/public/images/PianoYamaha.svg",
         "imgView1": "/public/images/PianoYamaha1.svg",
-        "imgView2": "/public/images/PianoYamaha2.svg",
+        "imgView2": "/public/images/PianoYamaha1.svg",
         "detalle": "Descripción del producto",
         "detalleView": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis mollis imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse et auctor massa. Etiam viverra est mauris, non posuere turpis congue ac. Ut tincidunt iaculis ipsum nec rhoncus. Nam condimentum ante eu malesuada iaculis. Aenean eu orci nisl. Praesent accumsan massa et tristique placerat. Aliquam ut ex eu nisl rhoncus elementum. Suspendisse varius ipsum et libero lacinia, ut molestie felis tincidunt.Proin id turpis vitae diam venenatis fermentum. Vivamus rhoncus finibus vestibulum. Integer malesuada est justo, non lobortis quam sollicitudin in. Suspendisse ornare, quam fringilla ullamcorper iaculis, nibh libero fringilla sem, a maximus sem justo sit amet magna. Aenean sed sem vel ante fringilla elementum.",
         "proveedor": {
@@ -40,8 +40,8 @@
         "instrumento": "Violin Cervini",
         "categoria": "Cuerda",
         "img": "/public/images/ViolinCervini.svg",
-        "imgView1": "/public/images/ViolinCervini1.svg",
-        "imgView2": "/public/images/ViolinCervini2.svg",
+        "imgView1": "/public/images/ViolinCervini.svg",
+        "imgView2": "/public/images/ViolinCervini.svg",
         "detalle": "Descripción del producto",
         "detalleView": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis mollis imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse et auctor massa. Etiam viverra est mauris, non posuere turpis congue ac. Ut tincidunt iaculis ipsum nec rhoncus. Nam condimentum ante eu malesuada iaculis. Aenean eu orci nisl. Praesent accumsan massa et tristique placerat. Aliquam ut ex eu nisl rhoncus elementum. Suspendisse varius ipsum et libero lacinia, ut molestie felis tincidunt.Proin id turpis vitae diam venenatis fermentum. Vivamus rhoncus finibus vestibulum. Integer malesuada est justo, non lobortis quam sollicitudin in. Suspendisse ornare, quam fringilla ullamcorper iaculis, nibh libero fringilla sem, a maximus sem justo sit amet magna. Aenean sed sem vel ante fringilla elementum.",
         "proveedor": {

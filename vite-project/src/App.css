@@ -69,7 +69,6 @@
   align-items: center;
   margin-top: -80px;
   visibility: visible;
-  
 }
 
 .hero.open {
@@ -229,6 +228,14 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-left: 16rem;
+
+}
+
+@media (max-width: 1122px) {
+  .product-list {
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    margin-left: 40px; /* Opcional: eliminar margen izquierdo en pantallas pequeñas */
+  }
 }
 
 .product-card {
