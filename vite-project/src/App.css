@@ -200,6 +200,12 @@
 
 .navDetail {
   display: flex;
+  justify-content: center;
+  padding: 10px;
+  list-style: none;
+  margin: 0;
+  position: relative;
+  top: -100px;
   /* gap: 100px; */
   list-style-type: none;
   flex-direction: column;
@@ -208,12 +214,26 @@
 }
 
 
-.navDetail li a {
-  color: white;
-  text-decoration: none;
+.navDetail li {
+  font-weight: lighter;
   font-size: 16px;
+  width: 250px;
+  /*background-color: black;
+  border-radius: 20px;
+  height: 40px; */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+
+  }
 }
+
 
 .heroDetail {
   display: flex;
