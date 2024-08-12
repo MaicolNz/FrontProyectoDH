@@ -46,7 +46,9 @@ const Navbar = () => {
             <li>
               <a href="/about">CONTACTO</a>
             </li>
-            <div className="log-button">
+
+          </ul>
+          <div className="log-button">
               <li>
                 <button>
                   CREAR CUENTA
@@ -58,7 +60,6 @@ const Navbar = () => {
                 </button>
               </li>
             </div>
-          </ul>
         </div>
 
         <div className="hero-content">
