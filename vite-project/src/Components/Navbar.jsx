@@ -1,12 +1,8 @@
 import React, { useState } from "react";
+import HamburgerMenu from "./HamburgerMenu";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navbar = () => {
-  const [selectedCategory, setSelectedCategory] = useState("");
-
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-  };
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -14,86 +10,34 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
-      <div className="background-nav">
-        <div className="block">
-          <a href="/">
-            <img
-              src="/public/images/Logos/Logo White.png"
-              alt="Logo"
-              style={{ marginTop: "-20px" }}
-            />
-          </a>
-          <div className="menu-icon" onClick={toggleMenu}>
-            <div className={`hamburger ${isMenuOpen ? "open" : ""}`}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        </div>
-        <div className={`hero ${isMenuOpen ? "open" : ""}`}>
-          <ul className="nav">
-            <li>
-              <a href="/">INICIO</a>
+    <nav className="navbar navbar-expand-lg navbar-light bg-dark sticky-top">
+      <div className="container">
+        <a className="navbar-brand" href="/">
+          <img
+            src="../../public/images/logos/Logo White.png"
+            alt="Logo"
+            className="d-inline-block align-top"
+          />
+        </a>
+        <HamburgerMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+        <div className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`} id="navbarNav">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link" href="/">INICIO</a>
             </li>
-            <li>
-              <a href="/products">ALQUILER DE INSTRUMENTOS</a>
+            <li className="nav-item">
+              <a className="nav-link" href="/products">ALQUILER DE INSTRUMENTOS</a>
             </li>
-            <li>
-              <a href="/contact">CATEGORÍAS</a>
+            <li className="nav-item">
+              <a className="nav-link" href="/contact">CATEGORÍAS</a>
             </li>
-            <li>
-              <a href="/about">CONTACTO</a>
+            <li className="nav-item">
+              <a className="nav-link" href="/about">CONTACTO</a>
             </li>
-
           </ul>
-          <div className="log-button">
-              <li>
-                <button>
-                  CREAR CUENTA
-                </button>
-              </li>
-              <li>
-                <button>
-                  INICIAR SESIÓN
-                </button>
-              </li>
-            </div>
-        </div>
-
-        <div className="hero-content">
-
-          <div className="hero-music">
-            <h1>
-              TU MÚSICA
-            </h1>
-            <h1>
-              NUESTRO INSTRUMENTO
-            </h1>
-          </div>
-
-
-          <div className="search-bar">
-            <select className="category-select">
-              <option value="">Instrumento</option>
-              <option value="cuerda">Cuerda</option>
-              <option value="teclado">Teclado</option>
-              <option value="viento">Viento</option>
-              <option value="percusion">Percusión</option>
-              <option value="accesorios">Accesorios</option>
-            </select>
-            <input
-              type="date"
-              className="date-input"
-              placeholder="Fecha de inicio"
-            />
-            <input
-              type="date"
-              className="date-input"
-              placeholder="Fecha de entrega"
-            />
-            <button className="search-button">Buscar</button>
+          <div className="d-flex">
+            <a className="btn btn-outline-primary me-2" href="/login">Log in</a>
+            <a className="btn btn-primary" href="/signup">Crear Cuenta</a>
           </div>
         </div>
       </div>

@@ -1,36 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../Components/Card';
 import instruments from '../Components/utils/instruments.json';
-import Layout from '../Layout/Layout';
-import '../index.css';
-import '../App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = () => {
-
   const [shuffledInstruments, setShuffledInstruments] = useState([]);
 
   useEffect(() => {
-
     const shuffleArray = (array) => {
       let currentIndex = array.length, randomIndex;
 
-
       while (currentIndex !== 0) {
-
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
-
-
         [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
       }
 
       return array;
     };
 
-    
-    const shuffled = shuffleArray([...instruments]); 
+    const shuffled = shuffleArray([...instruments]);
     setShuffledInstruments(shuffled);
-  }, []); 
+  }, []);
 
   const categories = [
     { name: 'Teclado', image: '/images/categoria/Teclado.jpg' },
@@ -41,34 +32,41 @@ const Home = () => {
   ];
 
   return (
-    <div>
-      <section className="categories">
-        <div className="categories-div-text">
+    <div className="container">
+        <section className="categories py-5">
+        <div className="text-center mb-4">
           <h2 className="categories-title">CATEGORÍAS</h2>
         </div>
-        <div className="category-list">
+        <div className="row justify-content-space-around">
           {categories.map((category, index) => (
-            <div key={index} className="category-item">
-              <img src={category.image} alt={category.name} />
-              <p>{category.name}</p>
+            <div key={index} className="col-lg-2 col-sm-4 col-md- mb-4">
+              <div className="card h-100">
+                <img src={category.image} alt={category.name} className="card-img-top" />
+                <div className="card-body text-center">
+                  <p className="card-text">{category.name}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
       </section>
-      <section className="featured-products">
-        <div className="categories-div-text">
+
+      {/* Sección de Productos Destacados */}
+      <section className="featured-products py-5">
+        <div className="text-center mb-4">
           <h2 className="categories-title">DESTACADOS</h2>
         </div>
-        <div className="product-list">
+        <div className="row">
           {shuffledInstruments.map((instrument) => (
-            <Card
-              key={instrument.id} 
-              instrumento={instrument.instrumento} 
-              image={instrument.img} 
-              id={instrument.id}
-              categoria={instrument.categoria}
-              detalle={instrument.detalle}
-            />
+            <div key={instrument.id} className="col-6 col-sm-4 col-md-3 mb-4">
+              <Card
+                instrumento={instrument.instrumento}
+                image={instrument.img}
+                id={instrument.id}
+                categoria={instrument.categoria}
+                detalle={instrument.detalle}
+              />
+            </div>
           ))}
         </div>
       </section>
