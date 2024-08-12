@@ -43,21 +43,21 @@ const Home = () => {
   return (
     <div>
       <section className="categories">
-        <div style={{ backgroundColor: '#F1EFEB', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-32px' }}>
-          <h2 style={{ fontSize: '36px', fontWeight: 'lighter', color: 'black' }}>CATEGORÍAS</h2>
+        <div className="categories-div-text">
+          <h2 className="categories-title">CATEGORÍAS</h2>
         </div>
         <div className="category-list">
           {categories.map((category, index) => (
             <div key={index} className="category-item">
               <img src={category.image} alt={category.name} />
-              <p style={{ fontSize: '30px', fontWeight: 'lighter', color: 'black' }}>{category.name}</p>
+              <p>{category.name}</p>
             </div>
           ))}
         </div>
       </section>
       <section className="featured-products">
-        <div style={{ backgroundColor: '#F1EFEB', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-32px' }}>
-          <h2 style={{ fontSize: '36px', fontWeight: 'lighter', color: 'black' }}>DESTACADOS</h2>
+        <div className="categories-div-text">
+          <h2 className="categories-title">DESTACADOS</h2>
         </div>
         <div className="product-list">
           {shuffledInstruments.map((instrument) => (

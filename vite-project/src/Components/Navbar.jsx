@@ -16,14 +16,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className="background-nav">
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "20px",
-          }}
-        >
+        <div className="block">
           <a href="/">
             <img
               src="/public/images/Logos/Logo White.png"
@@ -39,48 +32,28 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div
-  className={`hero ${isMenuOpen ? "open" : ""}`}
->
+        <div className={`hero ${isMenuOpen ? "open" : ""}`}>
           <ul className="nav">
-            <li style={{ fontWeight: "lighter", fontSize: "16px", backgroundColor: "black", borderRadius: "20px", width: "150px", height: "40px", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <li>
               <a href="/">INICIO</a>
             </li>
-            <li style={{ fontWeight: "lighter", fontSize: "16px", backgroundColor: "black", borderRadius: "20px", width: "250px", height: "40px", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <li>
               <a href="/products">ALQUILER DE INSTRUMENTOS</a>
             </li>
-            <li style={{ fontWeight: "lighter", fontSize: "16px", backgroundColor: "black", borderRadius: "20px", width: "150px", height: "40px", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <li>
               <a href="/contact">CATEGORÍAS</a>
             </li>
-            <li style={{ fontWeight: "lighter", fontSize: "16px", backgroundColor: "black", borderRadius: "20px", width: "150px", height: "40px", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <li>
               <a href="/about">CONTACTO</a>
             </li>
             <div className="log-button">
               <li>
-                <button
-                  style={{
-                    marginRight: "20px",
-                    borderRadius: "20px",
-                    height: "40px",
-                    width: "150px",
-                    backgroundColor: "black",
-                    color: "white",
-                  }}
-                >
+                <button>
                   CREAR CUENTA
                 </button>
               </li>
               <li>
-                <button
-                  style={{
-                    marginRight: "20px",
-                    borderRadius: "20px",
-                    height: "40px",
-                    width: "150px",
-                    backgroundColor: "black",
-                    color: "white",
-                  }}
-                >
+                <button>
                   INICIAR SESIÓN
                 </button>
               </li>
@@ -88,38 +61,17 @@ const Navbar = () => {
           </ul>
         </div>
 
-        
-
         <div className="hero-content">
 
-        <div className="hero-music"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <h1
-            style={{
-              fontWeight: "bold",
-              fontSize: "64px",
-              marginBottom: "-45px",
-              letterSpacing: "4px",
-            }}
-          >
-            TU MÚSICA
-          </h1>
-          <h1
-            style={{
-              fontWeight: "bold",
-              fontSize: "64px",
-              letterSpacing: "4px",
-            }}
-          >
-            NUESTRO INSTRUMENTO
-          </h1>
-        </div>
-          
+          <div className="hero-music">
+            <h1>
+              TU MÚSICA
+            </h1>
+            <h1>
+              NUESTRO INSTRUMENTO
+            </h1>
+          </div>
+
 
           <div className="search-bar">
             <select className="category-select">
