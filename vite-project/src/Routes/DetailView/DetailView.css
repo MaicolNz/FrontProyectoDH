@@ -1,0 +1,62 @@
+/* DetailView.css */
+
+/* Estilo para la imagen principal con efecto de zoom */
+.gallery-image {
+    max-width: 100%;
+    border: 2px solid #ddd; /* Enmarcar la imagen */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-image:hover {
+    transform: scale(1.05); /* Zoom en la imagen */
+  }
+  
+  /* Estilo para las miniaturas de la galería */
+  .gallery-thumbnail {
+    width: 100%;
+    height: auto;
+    border: 2px solid #ddd; /* Enmarcar las miniaturas */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-thumbnail:hover {
+    transform: scale(1.05); /* Zoom en las miniaturas */
+  }
+  
+  /* Estilos para el modal */
+  .modal-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .modal-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .left-arrow {
+    left: 10px;
+  }
+  
+  .right-arrow {
+    right: 10px;
+  }
+  
+  /* Ajustes para el modal en pantallas pequeñas */
+  @media (max-width: 576px) {
+    .modal-image {
+      max-width: 90vw; /* Ajusta el ancho máximo para pantallas pequeñas */
+    }
+  }
+  
