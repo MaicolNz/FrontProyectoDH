@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`} id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link" href="/">INICIO</a>
+              <a className="nav-link" href="/">INICIO aajahashakhsas</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/products">ALQUILER DE INSTRUMENTOS</a>
