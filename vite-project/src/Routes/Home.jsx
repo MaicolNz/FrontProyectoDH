@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Card from '../Components/Card';
 import instruments from '../Components/utils/instruments.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Pagination } from 'react-bootstrap';
 
 const Home = () => {
   const [shuffledInstruments, setShuffledInstruments] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const instrumentsPerPage = 10; // Número de instrumentos por página
 
   useEffect(() => {
     const shuffleArray = (array) => {
@@ -22,6 +25,20 @@ const Home = () => {
     const shuffled = shuffleArray([...instruments]);
     setShuffledInstruments(shuffled);
   }, []);
+
+   // Calcula los índices de los instrumentos para la página actual
+   const indexOfLastInstrument = currentPage * instrumentsPerPage;
+   const indexOfFirstInstrument = indexOfLastInstrument - instrumentsPerPage;
+   const currentInstruments = shuffledInstruments.slice(indexOfFirstInstrument, indexOfLastInstrument);
+
+  // Cambia de página
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  // Calcula el total de páginas
+  const totalPages = Math.ceil(shuffledInstruments.length / instrumentsPerPage);
+
 
   const categories = [
     { name: 'Teclado', image: '/images/categoria/Teclado.jpg' },
@@ -69,8 +86,22 @@ const Home = () => {
             />
           </div>
         ))}
+
+         {/* Paginación */}
+         <Pagination className="justify-content-center">
+          <Pagination.First onClick={() => handlePageChange(1)} disabled={currentPage === 1} />
+          <Pagination.Prev onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} />
+          {[...Array(totalPages).keys()].map(number => (
+            <Pagination.Item key={number + 1} active={number + 1 === currentPage} onClick={() => handlePageChange(number + 1)}>
+              {number + 1}
+            </Pagination.Item>
+          ))}
+          <Pagination.Next onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} />
+          <Pagination.Last onClick={() => handlePageChange(totalPages)} disabled={currentPage === totalPages} />
+        </Pagination>
       </div>
-    </section>    </div>
+    </section>
+    </div>
   );
 };
 
