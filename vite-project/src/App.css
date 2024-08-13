@@ -49,3 +49,34 @@
   padding: 30px 0;
   margin: 0;
 }
+
+/*CARDS CATEGORIAS*/
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card-img-top {
+  width: 150px;
+  height: 150px;
+  border: 0.5px solid rgb(234, 233, 233);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.card-body {
+  margin-top: 20px;
+}
+.category-text {
+  font-size: 12px;
+  color: var(--color-green-gray);
+  margin-bottom: 20px;
+}
+.card-title {
+  margin: 20px 0 60px 0;
+}
+.card-detail{
+  margin: 60px 0;
+}
