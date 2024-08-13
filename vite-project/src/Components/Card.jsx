@@ -11,17 +11,13 @@ const Card = ({ instrumento, image, id, categoria, detalle }) => {
     };
 
     return (
-        <div className="card mb-4" style={{ maxWidth: "100%" }}>
+        <div className=" card card-dest mb-4" style={{ maxWidth: "100%" }}>
             <div className="row g-0">
-                <div
-                    className="col-md-6 d-flex align-items-center"
-                    style={{ backgroundColor: "#EAEAEB", borderRadius: "20px" }}
-                >
+                <div className="card-bg col-md-6 d-flex align-items-center">
                     <img
                         src={image}
                         alt={instrumento}
-                        className="img-fluid rounded-start"
-                        style={{ objectFit: "contain" }}
+                        className="img-card"
                     />
                 </div>
                 <div className="col-md-6">
@@ -32,11 +28,11 @@ const Card = ({ instrumento, image, id, categoria, detalle }) => {
                             <p className="card-detail">{detalle}</p>
                         </div>
                         <p
-                            className="text-end text-success"
+                            className="card-link text-end"
                             style={{ cursor: "pointer" }}
                             onClick={handleClick}
                         >
-                            Ver más
+                            VER MÁS <i className="bi bi-chevron-right ms-1"></i>
                         </p>
                     </div>
                 </div>
