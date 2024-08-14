@@ -7,7 +7,7 @@ import { Pagination } from 'react-bootstrap';
 const Home = () => {
   const [shuffledInstruments, setShuffledInstruments] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const instrumentsPerPage = 10; // Número de instrumentos por página
+  const instrumentsPerPage = 10; 
 
   useEffect(() => {
     const shuffleArray = (array) => {
@@ -26,19 +26,15 @@ const Home = () => {
     setShuffledInstruments(shuffled);
   }, []);
 
-   // Calcula los índices de los instrumentos para la página actual
    const indexOfLastInstrument = currentPage * instrumentsPerPage;
    const indexOfFirstInstrument = indexOfLastInstrument - instrumentsPerPage;
    const currentInstruments = shuffledInstruments.slice(indexOfFirstInstrument, indexOfLastInstrument);
 
-  // Cambia de página
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-  // Calcula el total de páginas
   const totalPages = Math.ceil(shuffledInstruments.length / instrumentsPerPage);
-
 
   const categories = [
     { name: 'Teclado', image: '/images/categoria/Teclado.jpg' },
@@ -49,59 +45,60 @@ const Home = () => {
   ];
 
   return (
-    <div className="container">
-        <section className="categories py-5">
-        <div className="text-center mb-4">
-          <h2 className="categories-title">CATEGORÍAS</h2>
-        </div>
-        <div className="row justify-content-between">
-          {categories.map((category, index) => (
-            <div key={index} className="category-card col-lg-2 col-sm-4 col-md- mb-4">
-              <div className="h-100">
-                <img src={category.image} alt={category.name} className="card-img-top" />
-                <div className="card-body text-center">
-                  <h6 className="card-text">{category.name}</h6>
-                </div>
+      <div className="container">
+          <section className="categories py-5">
+              <div className="text-center mb-4">
+                  <h2 className="categories-title">CATEGORÍAS</h2>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+              <div className="row justify-content-between">
+                  {categories.map((category, index) => (
+                      <div key={index} className="category-card col-lg-2 col-sm-4 col-md-4 mb-4">
+                          <div className="h-100">
+                              <img src={category.image} alt={category.name} className="card-img-top" />
+                              <div className="card-body text-center">
+                                  <h6 className="card-text">{category.name}</h6>
+                              </div>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </section>
 
-      {/* Sección de Productos Destacados */}
+          {/* Sección de Productos Destacados */}
+          <section className="featured-products py-5">
+              <div className="text-center mb-4">
+                  <h2 className="categories-title">DESTACADOS</h2>
+              </div>
+              <div className="row">
+                  {currentInstruments.map((instrument) => (
+                      <div key={instrument.id} className="col-12 col-md-6 mb-4">
+                          <Card
+                              instrumento={instrument.instrumento}
+                              image={instrument.img}
+                              id={instrument.id}
+                              categoria={instrument.categoria}
+                              detalle={instrument.detalle}
+                          />
+                      </div>
+                  ))}
+              </div>
+          </section>
 
-      <section className="featured-products py-5">
-      <div className="text-center mb-4">
-        <h2 className="categories-title">DESTACADOS</h2>
+          {/* Paginación */}
+          <section className="pagination-sec">
+              <Pagination className="justify-content-center">
+                  <Pagination.First onClick={() => handlePageChange(1)} disabled={currentPage === 1} />
+                  <Pagination.Prev onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} />
+                  {[...Array(totalPages).keys()].map((number) => (
+                      <Pagination.Item key={number + 1} active={number + 1 === currentPage} onClick={() => handlePageChange(number + 1)}>
+                          {number + 1}
+                      </Pagination.Item>
+                  ))}
+                  <Pagination.Next onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} />
+                  <Pagination.Last onClick={() => handlePageChange(totalPages)} disabled={currentPage === totalPages} />
+              </Pagination>
+          </section>
       </div>
-      <div className="row">
-        {instruments.map((instrument) => (
-          <div key={instrument.id} className="col-12 col-md-6 mb-4">
-            <Card
-              instrumento={instrument.instrumento}
-              image={instrument.img}
-              id={instrument.id}
-              categoria={instrument.categoria}
-              detalle={instrument.detalle}
-            />
-          </div>
-        ))}
-
-         {/* Paginación */}
-         <Pagination className="justify-content-center">
-          <Pagination.First onClick={() => handlePageChange(1)} disabled={currentPage === 1} />
-          <Pagination.Prev onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} />
-          {[...Array(totalPages).keys()].map(number => (
-            <Pagination.Item key={number + 1} active={number + 1 === currentPage} onClick={() => handlePageChange(number + 1)}>
-              {number + 1}
-            </Pagination.Item>
-          ))}
-          <Pagination.Next onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} />
-          <Pagination.Last onClick={() => handlePageChange(totalPages)} disabled={currentPage === totalPages} />
-        </Pagination>
-      </div>
-    </section>
-    </div>
   );
 };
 
