@@ -175,6 +175,8 @@
   background-color: var(--color-black);
   color: var(--color-white);
 }
+
+
 /* TABLET */ 
 @media (max-width: 768px) {
   .row {
@@ -230,22 +232,23 @@
 /* MOBILE */ 
 
 @media (max-width: 480px ) {
+  /*Destacados*/
   .card-dest {
     flex-direction: column;
-    max-height: none; /* Permitir que la altura se ajuste automáticamente */
+    max-height: none; 
   }
   .card-bg {
     border-radius: 20px 20px 0 0;
-    max-height: 200px; /* Ajustar la altura de la imagen en móvil */
+    max-height: 200px;
   }
   .img-card {
-    max-width: 100%; /* Ajustar el tamaño de la imagen en móvil */
-    max-height: 150px; /* Limitar la altura en móvil */
+    max-width: 100%; 
+    max-height: 150px; 
   }
   .card-body {
-    margin-top: 10px; /* Reducir el margen superior en móvil */
+    margin-top: 10px;
   }
   .category-text, .card-title, .card-detail, .card-link {
-    margin: 10px 0; /* Ajustar los márgenes en móvil */
+    margin: 10px 0;
   }
 }
