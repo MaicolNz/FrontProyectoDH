@@ -18,12 +18,15 @@
   .gallery-thumbnail {
     width: 100px;
     height: 100px;
-    border: 2px solid #ddd; /* Enmarcar las miniaturas */
-    border-radius: 8px; /* Bordes redondeados */
+    border: 2px solid #ddd;
+    border-radius: 8px;
     cursor: pointer;
     transition: transform 0.3s ease;
-    ;
-  }
+    -webkit-transition: transform 0.3s ease;
+    -moz-transition: transform 0.3s ease;
+    -ms-transition: transform 0.3s ease;
+    -o-transition: transform 0.3s ease;
+}
   
   .gallery-thumbnail:hover {
     transform: scale(1.05); /* Zoom en las miniaturas */

@@ -88,11 +88,11 @@ const DetailView = () => {
         {/* Galería de imágenes secundarias */}
         <Row className='g-3'>
           {images.map((img, index) => (
-            <Col xs={6} md={4} lg={4} key={index}>
+            <Col className="d-flex justify-content-center"xs={6} md={4} lg={4} key={index}>
               <img
                 src={img}
                 alt={`Vista ${index + 1}`}
-                className='img-fluid gallery-thumbnail img-secundaria d-flex justify-content-center'
+                className='img-fluid gallery-thumbnail img-secundaria'
                 onClick={() => handleShow(index)}  // Muestra el modal con la imagen correspondiente al hacer clic
               />
             </Col>
