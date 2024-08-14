@@ -137,15 +137,44 @@
 }
 
 /*DETALLE DEL PRODUCTO*/
-.bg-color {
+.container.bg-color {
   background-color: var(--color-white);
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .detail-block-content h1 {
   color: var(--color-black);
+  margin-bottom: 20px;
 }
-
-
-
+.hero-content.detail-hero {
+  padding: 50px 0;
+}
+.detail-detalleView {
+  font-size: 1.125rem;
+  margin-bottom: 15px;
+  max-width: 600px;
+}
+.detail-precio {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.btn.btn-detail {
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+.img-border{
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.img-thumbnail.img-detail {
+    border: none;
+    max-width: 100%;
+    height: auto;
+}
+.btn.btn-detail.btn-rent {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
 /* TABLET */ 
 @media (max-width: 768px) {
   .row {
