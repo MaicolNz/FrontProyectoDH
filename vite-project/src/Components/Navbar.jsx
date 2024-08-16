@@ -37,7 +37,7 @@ const Navbar = () => {
           </ul>
           <div className="d-flex">
             <a className="btn btn-outline-primary me-2" href="/login">Log in</a>
-            <a className="btn btn-primary" href="/signup">Crear Cuenta</a>
+            <a className="btn btn-primary" href="/register">Crear Cuenta</a>
           </div>
         </div>
       </div>

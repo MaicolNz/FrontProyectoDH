@@ -4,6 +4,9 @@ import Home from '../src/Routes/Home';
 import Detail from '../src/Routes/Detail';
 import Layout from '../src/Layout/Layout';
 import DetailView from '../src/Routes/DetailView';
+import Login from '../src/Components/Login';
+import Register from '../src/Components/Register';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
@@ -13,6 +16,8 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/detail/:id" element={<Detail />} />
             <Route path="/DetailView/:id" element={<DetailView />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
         </Routes>
       </Layout>
 </Router>

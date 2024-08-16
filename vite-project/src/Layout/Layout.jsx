@@ -6,11 +6,13 @@ import HeroContent from '../Components/HeroContent';
 
 const Layout = ({ children }) => {
   const location = useLocation();
+
   return (
     <>
       <Navbar />
       <div>
-      <HeroContent />
+        {/* Mostrar HeroContent solo si la ruta es "/" */}
+        {location.pathname === '/' && <HeroContent />}
         {children}
       </div>
       <Footer />
