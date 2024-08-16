@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="container">
         <a className="navbar-brand" href="/">
           <img
-            src="../../public/images/logos/Logo White.png"
+            src="/images/logos/Logo White.png"
             alt="Logo"
             className="d-inline-block align-top"
           />
