@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavDropdown, Button } from 'react-bootstrap';
 import { useAuth } from '../context/AuthContext'; 
+
 const UserMenu = () => {
   const { isLoggedIn, logout } = useAuth();
 
@@ -17,9 +18,14 @@ const UserMenu = () => {
           <NavDropdown.Item onClick={logout}>Cerrar sesión</NavDropdown.Item>
         </NavDropdown>
       ) : (
-        <Button href="/login" variant="outline-primary">
-          Iniciar sesión
-        </Button>
+        <div className="d-flex"> {/* Contenedor para alinear los botones */}
+          <Button href="/login" variant="outline-primary">
+            Iniciar sesión
+          </Button>
+          <Button href="/register" variant="outline-primary" className="ms-2">
+            Crear Cuenta
+          </Button>
+        </div>
       )}
     </>
   );
