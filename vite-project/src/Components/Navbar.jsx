@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import UserMenu from "./Sesion"; 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -36,8 +37,8 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="d-flex">
-            <a className="btn btn-outline-primary me-2" href="/login">Log in</a>
-            <a className="btn btn-primary" href="/register">Crear Cuenta</a>
+            <UserMenu />
+
           </div>
         </div>
       </div>
