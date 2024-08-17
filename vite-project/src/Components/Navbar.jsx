@@ -38,6 +38,7 @@ const Navbar = () => {
           </ul>
           <div className="d-flex">
             <UserMenu />
+
           </div>
         </div>
       </div>

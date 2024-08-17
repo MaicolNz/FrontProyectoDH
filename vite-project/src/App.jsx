@@ -8,6 +8,8 @@ import Detail from './Routes/Detail/Detail';
 import DetailView from './Routes/DetailView/DetailView';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap/dist/js/bootstrap.bundle.min'; 
+import Login from './Components/Login';
+import Register from './Components/Register';
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/detail/:id" element={<Detail />} />
             <Route path="/detailview/:id" element={<DetailView />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </Layout>
       </Router>
