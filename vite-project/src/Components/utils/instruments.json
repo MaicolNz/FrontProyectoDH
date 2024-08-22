@@ -82,7 +82,7 @@
     {
         "id": 5,
         "instrumento": "Bongo Memphis",
-        "categoria": "Percusion",
+        "categoria": "Percusión",
         "img": "/images/jpeg/BongoMemphis.jpeg",
         "imgView1": "/images/jpeg/BongoMemphis1.jpeg",
         "imgView2": "/images/jpeg/BongoMemphis2.jpeg",
@@ -162,7 +162,7 @@
     {
         "id": 9,
         "instrumento": "Bateria Mapex",
-        "categoria": "Percusion",
+        "categoria": "Percusión",
         "img": "/images/jpeg/BateriaTornado.jpeg",
         "imgView1": "/images/jpeg/BateriaTornado1.jpeg",
         "imgView2": "/images/jpeg/BateriaTornado2.jpeg",
