@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import instruments from '../../Components/utils/instruments.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Detail = () => {
     const { id } = useParams();
@@ -20,17 +19,6 @@ const Detail = () => {
     if (!instrumento) {
         return <div>Instrumento no encontrado</div>;
     }
-    const getIconForKey = (key) => {
-        switch (key) {
-            case 'material de construccion': return 'tools'; // Icono de caja para material 
-            case 'portabilidad': return 'suitcase'; // Icono de maleta para portabilidad
-            case 'tecnologia': return 'cogs'; // Icono de engranajes para tecnología
-            case 'clasificacion': return 'star'; // Icono de estrella para clasificación
-            case 'tamaño': return 'ruler'; // Icono de regla para tamaño
-            case 'peso': return 'weight'; // Icono de peso para peso
-            default: return 'info-circle'; // Icono por defecto si no se encuentra una coincidencia
-        }
-    };
 
     return (
         <div className="hero-content-detail detail-hero">
@@ -67,17 +55,6 @@ const Detail = () => {
                             <p className="detail-precio">
                                 ${instrumento.precioAlquiler}/día
                             </p>
-                            <div className="detail-caracteristicas mt-4">
-                                <h5>Características:</h5>
-                                <ul className="list-unstyled">
-                                    {Object.entries(instrumento.caracteristicas).map(([key, value]) => (
-                                        <li key={key} className="mb-2 fs-9 d-flex align-items-center">
-                                            <i className={`fas fa-${getIconForKey(key)} me-2`}></i>
-                                            {key.charAt(0).toUpperCase() + key.slice(1)}: {value}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
                             <div className="d-flex align-items-center mt-4">
                                 <button
                                     onClick={handleClickView}

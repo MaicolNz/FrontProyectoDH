@@ -6,13 +6,15 @@
         "img": "/images/jpeg/GuitarraYamaha.jpeg",
         "imgView1": "/images/jpeg/GuitarraYamaha1.jpeg",
         "imgView2": "/images/jpeg/GuitarraYamaha2.jpeg",
-        "detalle": " Su sonido sorprende por su calidad.",
+        "detalle": "Su sonido sorprende por su calidad.",
         "detalleView": "El modelo C40 ha sido galardonado en la última edición de los premios de la industria musical (M.I.A., Music Industry Awards). Desde su lanzamiento a principios de la década de los ‘90s, nuestra querida C40 ha ido coleccionando premios y reconocimientos, estableciéndose por derecho propio como la guitarra clásica mejor valorada entre profesores, alumnos y guitarristas principiantes, gracias a su increíble relación calidad-precio. La guitarra destaca por su excepcional sonido, confort y prestaciones, dignas de instrumentos de precio superior.",
-        "proveedor": {
-            "name": "a",
-            "email": "proveedora@gmail.com",
-            "cel": "099123456",
-            "precioProveedor": 15
+        "caracteristicas": {
+            "material de construccion": "Madera maciza (tapa) y contrachapado (laterales y fondo)",
+            "portabilidad": "Si",
+            "tecnologia": "No disponible",
+            "clasificacion": "Tamaño 4/4 (Estándar)",
+            "tamaño": "102 cm (longitud total)",
+            "peso": "1.8 kg"
         },
         "precioAlquiler": 5,
         "stock": 10
@@ -25,12 +27,14 @@
         "imgView1": "/images/jpeg/PianoYamaha1.jpeg",
         "imgView2": "/images/jpeg/PianoYamaha2.jpeg",
         "detalle": "Piano de cola Yamaha GB1K-PE.",
-        "detalleView": "La introducción del Yamaha b3 en la gama de la serie b hace que se acerque a profesionales los estándares sin dejar de ser fiel a la filosodía de diseño de valor y precio accesible de la serie b. Se añadió al b3 el sistema silenciador. Es un SILENT Piano™ tipo SC3. Acción Yamaha de 88 teclas. Material de la tapa armónica: Abeto macizo 3 pedales (suave/pedal silenciador/amortiguador) Acabado: Ébano pulido (Ancho/Alto/Profundidad) 149 cm/ 109 cm/ 54 cm Peso: 201 kg Voces preestablecidas: 10 256 polifonía (máx.) Sensor clave: sensor óptico de detección continua sin contacto Conectividad: USB A DISPOSITIVO Y USB A HOST No incluye los auriculares que se ven en la imagen Imagen ilustrativa",
-        "proveedor": {
-            "name": "b",
-            "email": "proveedorb@gmail.com",
-            "cel": "099123456",
-            "precioProveedor": 10
+        "detalleView": "La introducción del Yamaha b3 en la gama de la serie b hace que se acerque a profesionales los estándares sin dejar de ser fiel a la filosofía de diseño de valor y precio accesible de la serie b. Se añadió al b3 el sistema silenciador. Es un SILENT Piano™ tipo SC3. Acción Yamaha de 88 teclas. Material de la tapa armónica: Abeto macizo 3 pedales (suave/pedal silenciador/amortiguador) Acabado: Ébano pulido (Ancho/Alto/Profundidad) 149 cm/ 109 cm/ 54 cm Peso: 201 kg Voces preestablecidas: 10 256 polifonía (máx.) Sensor clave: sensor óptico de detección continua sin contacto Conectividad: USB A DISPOSITIVO Y USB A HOST No incluye los auriculares que se ven en la imagen Imagen ilustrativa",
+        "caracteristicas": {
+            "material": "Madera y metal",
+            "portabilidad": "No",
+            "tecnologia": "Silenciador Silent Piano™",
+            "clasificacion": "88 teclas",
+            "tamaño": "149x109x54 cm",
+            "peso": "201 kg"
         },
         "precioAlquiler": 5,
         "stock": 5
@@ -43,12 +47,14 @@
         "imgView1": "/images/jpeg/ViolinCervini1.jpeg",
         "imgView2": "/images/jpeg/ViolinCervini2.jpeg",
         "detalle": "Violín Cervini HV50, Ideal para estudio.",
-        "detalleView": "El violín Cervini By Cremona tiene una tapa de abeto y un diapasón de madera. Espaciado y altura adecuados para permitir posiciones precisas de los dedos y entonación. Tiene la mentonera de madera estilo Stradivarius de perfil bajo para mayor comodidad. El violín tiene un acabado rojo tradicional, arco  de madera y estuche de espuma.",
-        "proveedor": {
-            "name": "c",
-            "email": "proveedorc@gmail.com",
-            "cel": "099123456",
-            "precioProveedor": 20
+        "detalleView": "El violín Cervini By Cremona tiene una tapa de abeto y un diapasón de madera. Espaciado y altura adecuados para permitir posiciones precisas de los dedos y entonación. Tiene la mentonera de madera estilo Stradivarius de perfil bajo para mayor comodidad. El violín tiene un acabado rojo tradicional, arco de madera y estuche de espuma.",
+        "caracteristicas": {
+            "material": "Abeto y madera",
+            "portabilidad": "Si",
+            "tecnologia": "-",
+            "clasificacion": "-",
+            "tamaño": "Estándar",
+            "peso": "0.5 kg"
         },
         "precioAlquiler": 5,
         "stock": 7
@@ -61,12 +67,14 @@
         "imgView1": "/images/jpeg/SaxoMemphis1.jpeg",
         "imgView2": "/images/jpeg/SaxoMemphis2.jpeg",
         "detalle": "Fina terminación dorada ideal para estudiantes.",
-        "detalleView": "Si buscas un saxofón para inciarte en su mundo, y que tenga una buena calidad por un buen precio, sin duda el saxofón Memphis es el tuyo. Un kit de saxo totalmente completo, con todo lo necesario para inciarte y tener un instrumento de calidad y que cumpla su función al cien por cien.",
-        "proveedor": {
-            "name": "c",
-            "email": "proveedorc@gmail.com",
-            "cel": "099123456",
-            "precioProveedor": 30
+        "detalleView": "Si buscas un saxofón para iniciarte en su mundo, y que tenga una buena calidad por un buen precio, sin duda el saxofón Memphis es el tuyo. Un kit de saxo totalmente completo, con todo lo necesario para iniciarte y tener un instrumento de calidad y que cumpla su función al cien por cien.",
+        "caracteristicas": {
+            "material": "Aleación de metal",
+            "portabilidad": "Si",
+            "tecnologia": "-",
+            "clasificacion": "Soprano",
+            "tamaño": "Estándar",
+            "peso": "1.5 kg"
         },
         "precioAlquiler": 4,
         "stock": 8
@@ -80,11 +88,13 @@
         "imgView2": "/images/jpeg/BongoMemphis2.jpeg",
         "detalle": "Construído en madera resistente. Fina terminación.",
         "detalleView": "Los bongos Memphis ZHB1011 son una opción básica y práctica para quienes desean iniciarse en el mundo de la percusión. Con un diseño sencillo y funcional, ofrecen un sonido adecuado para sesiones de práctica y música casual. Su construcción robusta los hace ideales para músicos en movimiento.",
-        "proveedor": {
-            "name": "b",
-            "email": "proveedorb@gmail.com",
-            "cel": "099123456",
-            "precioProveedor": 13
+        "caracteristicas": {
+            "material": "Madera",
+            "portabilidad": "Si",
+            "tecnologia": "-",
+            "clasificacion": "-",
+            "tamaño": "Estándar",
+            "peso": "2 kg"
         },
         "precioAlquiler": 6,
         "stock": 5
@@ -98,11 +108,13 @@
         "imgView2": "/images/jpeg/BajoIbanez2.jpeg",
         "detalle": "Electrónica activa polivalente y poderosa.",
         "detalleView": "Los GSR ofrecen la famosa elegancia, comodidad, tono y facilidad de ejecución de Soundgear. GSR Soundgears no solo se ve y funciona mejor que todo lo demás en su rango de precios, sino que su rigurosa inspección y configuración es la misma que la de los modelos más caros de Ibanez. El GSR180 cuenta con un mástil de arce y un diapasón Purpleheart y viene equipado con pastillas Ibanez DXJ para un dulce tono de bobina simple. El puente B10 permite una entonación totalmente ajustable y una sólida estabilidad de afinación.",
-        "proveedor": {
-            "name": "d",
-            "email": "proveedord@gmail.com",
-            "cel": "099123456",
-            "precioProveedor": 14
+        "caracteristicas": {
+            "material": "Madera y metal",
+            "portabilidad": "Si",
+            "tecnologia": "Electrónica activa",
+            "clasificacion": "4 cuerdas",
+            "tamaño": "Estándar",
+            "peso": "3 kg"
         },
         "precioAlquiler": 4,
         "stock": 7
@@ -115,12 +127,14 @@
         "imgView1": "/images/jpeg/UkeleleMahalo1.jpeg",
         "imgView2": "/images/jpeg/UkeleleMahalo2.jpeg",
         "detalle": "Hay uno que está hecho especialmente para ti.",
-        "detalleView": "Los ukeleles de mayor ventas del mundo, Los ukeleles Mahalo han sido totalmente rediseñados y mejorados en este rango, incluyendo sus nuevos colores Independientemente de su personalidad, los increíbles colores de los Mahalo permiten gritar su individualidad en el mundo. Disponible en un gran abanico de colores vibrantes y brillo completo y con cuellos y cuerpos de sengon. Los ukeleles Mahalo vienen con funda de transporte ofreciendo una relación calidad/precio inmejorable.",
-        "proveedor": {
-            "name": "d",
-            "email": "proveedord@gmail.com",
-            "cel": "099123456",
-            "precioProveedor": 10
+        "detalleView": "Los ukeleles de mayor ventas del mundo, Los ukeleles Mahalo han sido totalmente rediseñados y mejorados en este rango, incluyendo sus nuevos colores. Independientemente de su personalidad, los increíbles colores de los Mahalo permiten gritar su individualidad en el mundo. Disponible en un gran abanico de colores vibrantes y brillo completo y con cuellos y cuerpos de sengon. Los ukeleles Mahalo vienen con funda de transporte ofreciendo una relación calidad/precio inmejorable.",
+        "caracteristicas": {
+            "material": "Madera",
+            "portabilidad": "Si",
+            "tecnologia": "-",
+            "clasificacion": "-",
+            "tamaño": "21\"",
+            "peso": "0.5 kg"
         },
         "precioAlquiler": 3,
         "stock": 10
@@ -134,11 +148,13 @@
         "imgView2": "/images/jpeg/TrompetaLincoln2.jpeg",
         "detalle": "Cuerpo aleación de metal de alta calidad.",
         "detalleView": "Afinada en Bb, Cuerpo yellow brass, 3 pistones de acero inoxidable. Diámetro de campana 125 mm. Incluye un estuche rígido forrado en cuero en su exterior y revestido de pana acolchada en su interior, boquilla C7, guantes, paño de limpieza y lubricante.",
-        "proveedor": {
-            "name": "e",
-            "email": "proveedore@gmail.com",
-            "cel": "099123456",
-            "precioProveedor": 20
+        "caracteristicas": {
+            "material": "Aleación de metal",
+            "portabilidad": "Si",
+            "tecnologia": "-",
+            "clasificacion": "Bb",
+            "tamaño": "Estándar",
+            "peso": "1.2 kg"
         },
         "precioAlquiler": 10,
         "stock": 3
@@ -152,11 +168,13 @@
         "imgView2": "/images/jpeg/BateriaTornado2.jpeg",
         "detalle": "5 cuerpos. Incluye asiento, platillos y atriles",
         "detalleView": "Las Baterías de Tornado son las baterías más económicas de Mapex. Son consideradas unas baterías de estudio, listas para acceder al mundo de la percusión primando la calidad-precio. Se trata de un pack con todo lo necesario para comenzar el aprendizaje de la Bateria.",
-        "proveedor": {
-            "name": "e",
-            "email": "proveedore@gmail.com",
-            "cel": "099123456",
-            "precioProveedor": 50
+        "caracteristicas": {
+            "material": "Madera y metal",
+            "portabilidad": "No",
+            "tecnologia": "-",
+            "clasificacion": "5 cuerpos",
+            "tamaño": "Estándar",
+            "peso": "15 kg"
         },
         "precioAlquiler": 12,
         "stock": 2
@@ -170,11 +188,13 @@
         "imgView2": "/images/jpeg/AcordeonMemphis2.jpeg",
         "detalle": "Ideal para músicos de todos los niveles.",
         "detalleView": "El acordeón Memphis de 80 bajos con estuche azul es un instrumento cromático a piano ideal para músicos de todos los niveles. Con 37 teclas y 7 voces este acordeón ofrece un sonido potente y versátil. El estuche incluido garantiza una protección adecuada y facilita su transporte a cualquier lugar. Perfecto para interpretar una amplia variedad de géneros musicales, este modelo FT1309BK de Memphis es una excelente elección para quienes buscan calidad y comodidad en un solo instrumento. Incluye correas para poder tocar de pie o sentado con el instrumento sujeto al cuerpo.",
-        "proveedor": {
-            "name": "e",
-            "email": "proveedore@gmail.com",
-            "cel": "099123456",
-            "precioProveedor": 25
+        "caracteristicas": {
+            "material": "Metal y plástico",
+            "portabilidad": "Si",
+            "tecnologia": "-",
+            "clasificacion": "80 bajos",
+            "tamaño": "Estándar",
+            "peso": "4 kg"
         },
         "precioAlquiler": 7,
         "stock": 3
