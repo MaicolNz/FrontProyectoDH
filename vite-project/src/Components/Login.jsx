@@ -3,15 +3,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [loginMessage, setLoginMessage] = useState('');
 
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
 
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     if (!emailRegex.test(value)) {
       setEmailError('Por favor ingresa un correo electrónico válido.');
     } else {
@@ -19,15 +20,40 @@ const Login = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    // Opcional: Añadir validaciones de contraseña aquí
+    setPasswordError('');
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!emailError && email) {
+    if (!emailError && email && password) {
+      try {
+        const response = await fetch('http://localhost:3306/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams({
+            correo: email,
+            contraseña: password
+          })
+        });
 
-      console.log('Formulario enviado con éxito');
+        if (response.ok) {
+          const result = await response.text();
+          setLoginMessage(result);
+        } else {
+          const error = await response.text();
+          setLoginMessage(error);
+        }
+      } catch (error) {
+        setLoginMessage('Error en la conexión con el servidor.');
+      }
     } else {
-
-      console.log('Por favor, corrige los errores antes de enviar.');
+      setLoginMessage('Por favor, corrige los errores antes de enviar.');
     }
   };
 
@@ -50,7 +76,15 @@ const Login = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">Contraseña</label>
-            <input type="password" className="form-control" id="password" placeholder="Ingresá tu contraseña" />
+            <input 
+              type="password" 
+              className="form-control" 
+              id="password" 
+              placeholder="Ingresá tu contraseña" 
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            {passwordError && <div className="text-danger mt-2">{passwordError}</div>}
           </div>
           <div className="d-flex justify-content-between align-items-center mb-3">
             <div className="form-check">
@@ -64,6 +98,7 @@ const Login = () => {
             <button type="submit" className="btn btn-dark">Aceptar</button>
           </div>
         </form>
+        {loginMessage && <div className="mt-3 text-center">{loginMessage}</div>}
       </div>
     </div>
   );

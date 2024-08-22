@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom"; // Importa useLocation
 import HamburgerMenu from "./HamburgerMenu";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import UserMenu from "./Sesion"; 
+import UserMenu from "./Sesion";
+
 const Navbar = () => {
+  const location = useLocation(); // Obtén la ruta actual
+  const isAdminPanel = location.pathname.startsWith('/Admin'); // Ajusta la condición según necesites
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -20,30 +24,41 @@ const Navbar = () => {
             className="d-inline-block align-top"
           />
         </a>
-        <HamburgerMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
-        <div className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`} id="navbarNav">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link" href="/">INICIO</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/products">ALQUILER DE INSTRUMENTOS</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/contact">CATEGORÍAS</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/about">CONTACTO</a>
-            </li>
-          </ul>
+        
+        
+        {isAdminPanel ? (
+          <><h1 className="text-light">Administrador</h1>
           <div className="d-flex">
             <UserMenu />
-
-          </div>
-        </div>
+          </div></>
+        ) : (
+          <>
+            <HamburgerMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+            <div className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`} id="navbarNav">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <a className="nav-link" href="/">INICIO</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/products">ALQUILER DE INSTRUMENTOS</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/contact">CATEGORÍAS</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/about">CONTACTO</a>
+                </li>
+              </ul>
+              <div className="d-flex">
+                <UserMenu />
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </nav>
   );
 };
 
 export default Navbar;
+

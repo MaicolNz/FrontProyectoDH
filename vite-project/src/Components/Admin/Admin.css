@@ -1,0 +1,29 @@
+
+/* Estilos para los botones sin borde y fondo */
+.btn-custom {
+    border: none;
+    background: none;
+    color: white;
+    text-align: left;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Estilo para el botón seleccionado */
+  .btn-custom.selected {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Estilo para la barra <hr> */
+  .hr-custom {
+    border: 0;
+    border-top: 1px solid transparent;
+    transition: border-top-color 0.3s ease;
+  }
+  
+  /* Estilo para la barra <hr> cuando el botón está seleccionado */
+  .hr-custom.selected {
+    border-top-color: white;
+  }
+  
