@@ -46,8 +46,8 @@ const Home = () => {
 
   return (
       <div className="container">
-          <section className="categories py-5">
-              <div className="text-center mb-4">
+          <section className="categories py-2">
+              <div className="text-center mb-2">
                   <h2 className="categories-title">CATEGORÍAS</h2>
               </div>
               <div className="row justify-content-between">
@@ -65,7 +65,7 @@ const Home = () => {
           </section>
 
           {/* Sección de Productos Destacados */}
-          <section className="featured-products py-5">
+          <section className="featured-products py-2">
               <div className="text-center mb-4">
                   <h2 className="categories-title">DESTACADOS</h2>
               </div>

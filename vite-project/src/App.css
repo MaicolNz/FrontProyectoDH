@@ -2,14 +2,18 @@
 .nav-link {
   color: var(--color-white) !important;
 }
+
 .menu-icon {
   width: 500px;
   margin: 0 auto;
 }
-.navbar-nav{
+
+.navbar-nav {
   margin: 0 auto;
 }
-.navbar-brand img, .logo-footer {
+
+.navbar-brand img,
+.logo-footer {
   width: 100px;
   height: 100px;
 }
@@ -36,6 +40,7 @@
   /* max-height: max-content; */
   width: 100%;
 }
+
 .hero-content-detail {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/images/logos/hero.png');
   background-size: cover;
@@ -52,7 +57,7 @@
   margin: 60px 0;
 }
 
-/* CATEGORÍAS */ 
+/* CATEGORÍAS */
 
 .categories-title {
   text-align: center;
@@ -69,11 +74,13 @@
   -o-border-radius: 20px !important;
   max-height: 400px;
 }
+
 .category-card {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .card-img-top {
   width: 150px;
   height: 150px;
@@ -84,6 +91,7 @@
   -ms-border-radius: 50% !important;
   -o-border-radius: 50% !important;
 }
+
 /* CARDS DESTACADOS*/
 .card-bg {
   max-height: 400px;
@@ -94,27 +102,33 @@
   -ms-border-radius: 20px 0 0 20px;
   -o-border-radius: 20px 0 0 20px;
 }
+
 .card-body {
   margin-top: 20px;
 }
+
 .img-card {
-  max-width: 100%; 
-  height: auto; 
+  max-width: 100%;
+  height: auto;
   margin: 0 auto;
 }
+
 .category-text {
   font-size: 14px;
   color: var(--color-green-gray);
   margin-bottom: 10px;
 }
+
 .card-title {
   margin: 10px 0;
   font-size: 18px;
 }
-.card-detail{
+
+.card-detail {
   margin: 10px 0;
   font-size: 14px;
 }
+
 .card-link {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
@@ -127,6 +141,7 @@
 .copy-text {
   font-size: 14px;
 }
+
 .suscribe-form {
   border-radius: 50px 0 0 50px !important;
   -webkit-border-radius: 50px 0 0 50px !important;
@@ -134,10 +149,12 @@
   -ms-border-radius: 50px 0 0 50px !important;
   -o-border-radius: 50px 0 0 50px !important;
 }
-.suscribe-form::placeholder{
+
+.suscribe-form::placeholder {
   font-size: 12px;
 }
-.suscribe-btn{
+
+.suscribe-btn {
   font-size: 14px !important;
   border-radius: 0 50px 50px 0 !important;
   -webkit-border-radius: 0 50px 50px 0 !important;
@@ -151,24 +168,30 @@
   background-color: var(--color-white);
   padding: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-height: max-content;/**/
+  max-height: max-content;
+  /**/
   padding-bottom: 400px;
   border-radius: 30px;
 }
-.instrument-title{
-  margin-top: 10px!important;
-  color: black!important;
+
+.instrument-title {
+  margin-top: 10px !important;
+  color: black !important;
 }
+
 .detail-block-content h1 {
   color: var(--color-black);
   margin-bottom: 20px;
-  overflow: hidden;/**/
+  overflow: hidden;
+  /**/
   text-overflow: ellipsis;
 }
+
 .hero-content.detail-hero {
   padding: 40px 0;
 }
-.detail-detalleView{
+
+.detail-detalleView {
   font-size: 20px;
   margin-bottom: 15px;
   max-width: 600px;
@@ -179,26 +202,31 @@
   font-weight: bold;
   margin-bottom: 20px;
 }
+
 .btn.btn-detail {
   padding: 10px 20px;
   font-size: 1rem;
 }
-.img-border{
+
+.img-border {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 .img-thumbnail.img-detail {
-    border: none;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;/**/
+  border: none;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  /**/
 }
+
 .btn.btn-detail.btn-rent {
   background-color: var(--color-black);
   color: var(--color-white);
 }
 
 /* CREAR CUENTA */
-.block-img{
+.block-img {
   max-width: 450px;
   width: 100%;
   border-radius: 30px 0 0 30px;
@@ -209,14 +237,14 @@
   background-color: rgba(90, 90, 90, 0.5);
 }
 
-.block-reg{
+.block-reg {
   max-width: 450px;
   width: 100%;
   border-radius: 0 30px 30px 0 !important;
 }
 
 
-/* TABLET */ 
+/* TABLET */
 @media (max-width: 768px) {
   .row {
     display: flex;
@@ -260,16 +288,20 @@
     font-size: 0.5rem;
     margin-bottom: 15px;
   }
-  .instrument-title{
+
+  .instrument-title {
     font-size: 26px;
   }
-  .hero-content h1{
+
+  .hero-content h1 {
     margin: 0px;
   }
+
   .img-thumbnail.img-detail {
     max-width: 80%;
   }
-  .detail-detalleView{
+
+  .detail-detalleView {
     font-size: 16px;
   }
 
@@ -277,42 +309,57 @@
     font-size: 1rem;
     align-self: flex-end;
   }
-  .block-img{
+
+  .block-img {
     display: none;
   }
-  .block-reg{
-    border-radius: 30px!important;
+
+  .block-reg {
+    border-radius: 30px !important;
   }
 }
 
 
-/* MOBILE */ 
+/* MOBILE */
 
-@media (max-width: 480px ) {
+@media (max-width: 480px) {
+
   /*Destacados*/
   .card-dest {
     flex-direction: column;
-    max-height: none; 
+    max-height: none;
   }
-  
+
+  .categories-title {
+    padding: 15px 0;
+  }
+
   .card-bg {
     border-radius: 20px 20px 0 0;
     max-height: 200px;
   }
+
   .container.bg-color {
-  max-width: 90%;
+    max-width: 90%;
   }
+
   .img-card {
-    max-width: 100%; 
-    max-height: 150px; 
+    max-width: 100%;
+    max-height: 150px;
   }
-  .instrument-title{
+
+  .instrument-title {
     font-size: 20px;
   }
+
   .card-body {
     margin-top: 10px;
   }
-  .category-text, .card-title, .card-detail, .card-link {
+
+  .category-text,
+  .card-title,
+  .card-detail,
+  .card-link {
     margin: 10px 0;
   }
 }
