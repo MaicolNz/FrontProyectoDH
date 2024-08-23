@@ -100,7 +100,7 @@ const Login = () => {
             />
             {passwordError && <div className="text-danger mt-2">{passwordError}</div>}
           </div>
-          <div className="d-flex justify-content-between align-items-center mb-3">
+          <div className="d-flex flex-column justify-content-between mb-3">
             <div className="form-check">
               <input 
               type="checkbox" 
@@ -117,7 +117,7 @@ const Login = () => {
             <button type="submit" className="btn btn-dark">Aceptar</button>
           </div>
         </form>
-        {loginMessage && <div className="mt-3 text-center">{loginMessage}</div>}
+        {loginMessage && <div className="mt-3 text-center login-msg">{loginMessage}</div>}
       </div>
     </div>
   );
