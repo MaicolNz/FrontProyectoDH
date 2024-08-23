@@ -18,7 +18,7 @@ const UserMenu = () => {
           <NavDropdown.Divider />
           <NavDropdown.Item onClick={logout}>Cerrar sesión</NavDropdown.Item>
           {isAdmin && (
-                      <><NavDropdown.Divider />
+            <><NavDropdown.Divider />
             <NavDropdown.Item href="/admin">Administrar</NavDropdown.Item></>
           )}
         </NavDropdown>
