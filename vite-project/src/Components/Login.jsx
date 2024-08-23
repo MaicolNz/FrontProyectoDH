@@ -1,17 +1,22 @@
+// Login.jsx
+
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [loginMessage, setLoginMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(value)) {
       setEmailError('Por favor ingresa un correo electrónico válido.');
@@ -22,7 +27,6 @@ const Login = () => {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-    // Opcional: Añadir validaciones de contraseña aquí
     setPasswordError('');
   };
 
@@ -31,20 +35,22 @@ const Login = () => {
 
     if (!emailError && email && password) {
       try {
-        const response = await fetch('http://localhost:3306/api/login', {
+        const response = await fetch('http://localhost:8080/api/login', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json',
           },
-          body: new URLSearchParams({
+          body: JSON.stringify({
             correo: email,
             contraseña: password
           })
         });
 
         if (response.ok) {
-          const result = await response.text();
-          setLoginMessage(result);
+          const userData = await response.json();
+          login(userData.usuario); // Pasa los datos del usuario al contexto
+          setLoginMessage('Inicio de sesión exitoso');
+          navigate('/');
         } else {
           const error = await response.text();
           setLoginMessage(error);
@@ -71,6 +77,7 @@ const Login = () => {
               placeholder="Ingresá tu email" 
               value={email} 
               onChange={handleEmailChange} 
+              autoComplete="email"
             />
             {emailError && <div className="text-danger mt-2">{emailError}</div>}
           </div>
@@ -83,6 +90,7 @@ const Login = () => {
               placeholder="Ingresá tu contraseña" 
               value={password}
               onChange={handlePasswordChange}
+              autoComplete="current-password"
             />
             {passwordError && <div className="text-danger mt-2">{passwordError}</div>}
           </div>
