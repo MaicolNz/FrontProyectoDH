@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button, Container, Pagination } from 'react-bootstrap';
-
+import { Table, Button, Container, Pagination, Row, Col } from 'react-bootstrap';
 
 // Datos ficticios de productos
 const productosFicticios = [
@@ -28,6 +27,11 @@ const AdminProductos = () => {
     const [totalPages, setTotalPages] = useState(Math.ceil(productosFicticios.length / 8));
     const [productosPorPagina] = useState(8);
 
+    useEffect(() => {
+        // Actualiza el número total de páginas cuando cambian los productos
+        setTotalPages(Math.ceil(productos.length / productosPorPagina));
+    }, [productos, productosPorPagina]);
+
     const handleEdit = (id) => {
         console.log('Editar producto con ID:', id);
         // Implementa la lógica para editar el producto
@@ -46,65 +50,75 @@ const AdminProductos = () => {
     const currentProductos = productos.slice(startIndex, startIndex + productosPorPagina);
 
     return (
-        <Container>
-            <h2>Panel de Productos</h2>
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Stock</th>
-                        <th>Categoría</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {currentProductos.map((producto) => (
-                        <tr key={producto.id}>
-                            <td>{producto.id}</td>
-                            <td>{producto.nombre}</td>
-                            <td>{producto.precio}</td>
-                            <td>{producto.stock}</td>
-                            <td>{producto.categoria}</td>
-                            <td>
-                                <Button 
-                                    variant="warning" 
-                                    onClick={() => handleEdit(producto.id)} 
-                                    className="me-2"
-                                >
-                                    Editar
-                                </Button>
-                                <Button 
-                                    variant="danger" 
-                                    onClick={() => handleDelete(producto.id)}
-                                >
-                                    Eliminar
-                                </Button>
-                            </td>
+        <Container className="d-flex flex-column min-vh-100">
+            <div className="flex-grow-1">
+                <Row className="mb-3">
+                    <Col>
+                        <h2>Panel de Productos</h2>
+                    </Col>
+                    <Col className="text-end">
+                        <Button variant="primary">Agregar Producto</Button>
+                    </Col>
+                </Row>
+                <Table striped bordered hover responsive>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Categoría</th>
+                            <th>Acciones</th>
                         </tr>
+                    </thead>
+                    <tbody>
+                        {currentProductos.map((producto) => (
+                            <tr key={producto.id}>
+                                <td>{producto.id}</td>
+                                <td>{producto.nombre}</td>
+                                <td>${producto.precio}</td>
+                                <td>{producto.stock}</td>
+                                <td>{producto.categoria}</td>
+                                <td>
+                                    <Button 
+                                        variant="warning" 
+                                        onClick={() => handleEdit(producto.id)} 
+                                        className="me-2"
+                                    >
+                                        Editar
+                                    </Button>
+                                    <Button 
+                                        variant="danger" 
+                                        onClick={() => handleDelete(producto.id)}
+                                    >
+                                        Eliminar
+                                    </Button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+                <Pagination className="justify-content-center">
+                    <Pagination.Prev 
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}
+                    />
+                    {[...Array(totalPages)].map((_, index) => (
+                        <Pagination.Item 
+                            key={index + 1}
+                            active={index + 1 === currentPage}
+                            onClick={() => handlePageChange(index + 1)}
+                        >
+                            {index + 1}
+                        </Pagination.Item>
                     ))}
-                </tbody>
-            </Table>
-            <Pagination>
-                <Pagination.Prev 
-                    onClick={() => handlePageChange(currentPage - 1)}
-                    disabled={currentPage === 1}
-                />
-                {[...Array(totalPages)].map((_, index) => (
-                    <Pagination.Item 
-                        key={index + 1}
-                        active={index + 1 === currentPage}
-                        onClick={() => handlePageChange(index + 1)}
-                    >
-                        {index + 1}
-                    </Pagination.Item>
-                ))}
-                <Pagination.Next 
-                    onClick={() => handlePageChange(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                />
-            </Pagination>
+                    <Pagination.Next 
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                    />
+                </Pagination>
+            </div>
+            {/* Aquí puedes agregar un footer si el layout no lo tiene */}
         </Container>
     );
 };

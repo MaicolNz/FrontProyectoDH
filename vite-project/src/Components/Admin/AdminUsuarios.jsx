@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button, Container, Pagination } from 'react-bootstrap';
+import { Table, Button, Container, Pagination, Row, Col } from 'react-bootstrap';
 import { useAuth } from '../../context/AuthContext';
 
 const AdminUsuarios = () => {
-    const { user, fetchUser } = useAuth(); // Añadido fetchUser
+    const { user, fetchUser, logout } = useAuth(); // Añadido logout
     const [usuarios, setUsuarios] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(1);
@@ -90,75 +90,82 @@ const AdminUsuarios = () => {
     };
 
     return (
-        <Container>
-            <h2>Panel de Usuarios</h2>
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Correo Electrónico</th>
-                        <th>Rol</th>
-                        <th>Administrador</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {usuarios.map((usuario) => (
-                        <tr key={usuario.id_usuario}>
-                            <td>{usuario.id_usuario}</td>
-                            <td>{usuario.nombre}</td>
-                            <td>{usuario.apellido}</td>
-                            <td>{usuario.correo}</td>
-                            <td>{usuario.esAdmin ? 'Admin' : 'Usuario'}</td>
-                            <td>
-                                {usuario.esAdmin ? (
-                                    <Button 
-                                        variant="primary" 
-                                        onClick={() => handleRemoveAdmin(usuario.id_usuario)} 
-                                        className="me-2"
-                                    >
-                                        -
-                                    </Button>
-                                ) : (
-                                    <Button 
-                                        variant="success" 
-                                        onClick={() => handleAddAdmin(usuario.id_usuario)} 
-                                        className="me-2"
-                                    >
-                                        +
-                                    </Button>
-                                )}
-                                <Button 
-                                    variant="danger" 
-                                    onClick={() => handleDelete(usuario.id_usuario)}
-                                >
-                                    -
-                                </Button>
-                            </td>
+        <Container className="d-flex flex-column min-vh-100">
+            <div className="flex-grow-1">
+                <Row className="mb-3">
+                    <Col>
+                        <h2>Panel de Usuarios</h2>
+                    </Col>
+                </Row>
+                <Table striped bordered hover responsive>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo Electrónico</th>
+                            <th>Rol</th>
+                            <th>Acciones</th>
                         </tr>
+                    </thead>
+                    <tbody>
+                        {usuarios.map((usuario) => (
+                            <tr key={usuario.id_usuario}>
+                                <td>{usuario.id_usuario}</td>
+                                <td>{usuario.nombre}</td>
+                                <td>{usuario.apellido}</td>
+                                <td>{usuario.correo}</td>
+                                <td>{usuario.esAdmin ? 'Admin' : 'Usuario'}</td>
+                                <td>
+                                    {usuario.esAdmin ? (
+                                        <Button 
+                                            variant="warning" 
+                                            onClick={() => handleRemoveAdmin(usuario.id_usuario)} 
+                                            className="me-2"
+                                        >
+                                            -
+                                        </Button>
+                                    ) : (
+                                        <Button 
+                                            variant="success" 
+                                            onClick={() => handleAddAdmin(usuario.id_usuario)} 
+                                            className="me-2"
+                                        >
+                                            +
+                                        </Button>
+                                    )}
+                                    <Button 
+                                        variant="danger" 
+                                        onClick={() => handleDelete(usuario.id_usuario)}
+                                    >
+                                        Eliminar
+                                    </Button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+                <Pagination className="justify-content-center">
+                    <Pagination.Prev 
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 0}
+                    />
+                    {[...Array(totalPages)].map((_, index) => (
+                        <Pagination.Item 
+                            key={index}
+                            active={index === currentPage}
+                            onClick={() => handlePageChange(index)}
+                        >
+                            {index + 1}
+                        </Pagination.Item>
                     ))}
-                </tbody>
-            </Table>
-            <Pagination>
-                <Pagination.Prev 
-                    onClick={() => handlePageChange(currentPage - 1)}
-                    disabled={currentPage === 0}
-                />
-                {[...Array(totalPages)].map((_, index) => (
-                    <Pagination.Item 
-                        key={index}
-                        active={index === currentPage}
-                        onClick={() => handlePageChange(index)}
-                    >
-                        {index + 1}
-                    </Pagination.Item>
-                ))}
-                <Pagination.Next 
-                    onClick={() => handlePageChange(currentPage + 1)}
-                    disabled={currentPage >= totalPages - 1}
-                />
-            </Pagination>
+                    <Pagination.Next 
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage >= totalPages - 1}
+                    />
+                </Pagination>
+            </div>
+            {/* Aquí puedes agregar un footer si el layout no lo tiene */}
         </Container>
     );
 };
