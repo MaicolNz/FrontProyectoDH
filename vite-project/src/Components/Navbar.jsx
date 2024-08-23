@@ -34,7 +34,7 @@ const Navbar = () => {
         ) : (
           <>
             <HamburgerMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
-            <div className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`} id="navbarNav">
+            <div className={`collapse navbar-collapse bg-dark ${isMenuOpen ? "show" : ""}`} id="navbarNav">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <a className="nav-link" href="/">INICIO</a>

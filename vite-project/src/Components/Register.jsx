@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Register = () => {
@@ -7,7 +8,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [emailError, setEmailError] = useState('');
-
+  const navigate = useNavigate();
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
@@ -54,6 +55,10 @@ const Register = () => {
     } else {
       console.log('Por favor, corrige los errores antes de enviar.');
     }
+  };
+
+  const handleGoBack = () => {
+    navigate('/'); 
   };
 
   return (
@@ -119,7 +124,7 @@ const Register = () => {
               <label className="form-check-label" htmlFor="terms">Acepto los términos y condiciones del servicio.</label>
             </div>
             <div className="d-flex justify-content-between">
-              <button type="button" className="btn btn-secondary">Volver atrás</button>
+              <button type="button" className="btn btn-secondary" onClick={handleGoBack}>Volver atrás</button>
               <button type="submit" className="btn btn-dark">Aceptar</button>
             </div>
           </form>
