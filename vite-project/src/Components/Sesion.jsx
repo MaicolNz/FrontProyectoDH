@@ -1,23 +1,26 @@
-// UserMenu.jsx
-
 import React from 'react';
 import { NavDropdown, Button } from 'react-bootstrap';
 import { useAuth } from '../context/AuthContext';
 
 const UserMenu = () => {
   const { isLoggedIn, logout, user } = useAuth();
+  const isAdmin = user ? user.esAdmin : false;
 
   return (
     <>
       {isLoggedIn ? (
         <NavDropdown
-          title={user ? `${user.nombre} ${user.apellido}` : 'Nombre Generico'}
+          title={user ? `${user.nombre} ${user.apellido}` : 'Nombre Genérico'}
           id="user-menu-dropdown"
           align="end"
         >
           <NavDropdown.Item href="/profile">Mi perfil</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item onClick={logout}>Cerrar sesión</NavDropdown.Item>
+          {isAdmin && (
+                      <><NavDropdown.Divider />
+            <NavDropdown.Item href="/admin">Administrar</NavDropdown.Item></>
+          )}
         </NavDropdown>
       ) : (
         <div className="d-flex">
