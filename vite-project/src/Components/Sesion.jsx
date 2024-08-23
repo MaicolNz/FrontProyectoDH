@@ -1,24 +1,29 @@
 import React from 'react';
 import { NavDropdown, Button } from 'react-bootstrap';
-import { useAuth } from '../context/AuthContext'; 
+import { useAuth } from '../context/AuthContext';
 
 const UserMenu = () => {
-  const { isLoggedIn, logout } = useAuth();
+  const { isLoggedIn, logout, user } = useAuth();
+  const isAdmin = user ? user.esAdmin : false;
 
   return (
     <>
       {isLoggedIn ? (
         <NavDropdown
-          title='Nombre Generico' // Cambiar esto por un icono si quieren
+          title={user ? `${user.nombre} ${user.apellido}` : 'Nombre Genérico'}
           id="user-menu-dropdown"
           align="end"
         >
           <NavDropdown.Item href="/profile">Mi perfil</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item onClick={logout}>Cerrar sesión</NavDropdown.Item>
+          {isAdmin && (
+            <><NavDropdown.Divider />
+            <NavDropdown.Item href="/admin">Administrar</NavDropdown.Item></>
+          )}
         </NavDropdown>
       ) : (
-        <div className="d-flex"> {/* Contenedor para alinear los botones */}
+        <div className="d-flex">
           <Button href="/login" variant="outline-primary">
             Iniciar sesión
           </Button>

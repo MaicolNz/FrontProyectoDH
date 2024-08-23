@@ -1,40 +1,64 @@
-// AuthContext.js
-import { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  // Cargar el estado de autenticación del localStorage
+  const [user, setUser] = useState(null); 
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    // Obtiene el estado de autenticación del localStorage o usa `false` si no está definido
     const saved = localStorage.getItem('isLoggedIn');
-    return saved === 'true'; // Convierte el valor de string a booleano
+    return saved === 'true';
   });
 
-  const login = () => {
+  const login = (userData) => {
+    setUser(userData);
     setIsLoggedIn(true);
-    localStorage.setItem('isLoggedIn', 'true'); // Guarda el estado en localStorage
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('user', JSON.stringify(userData));
   };
 
   const logout = () => {
+    setUser(null);
     setIsLoggedIn(false);
-    localStorage.removeItem('isLoggedIn'); // Elimina el estado del localStorage
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('user');
   };
 
-  // Limpia el estado de autenticación cuando el componente se desmonta
+  // Función para obtener la información actualizada del usuario usando el ID
+  const fetchUser = async (userId) => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/usuarios/${user.id_usuario}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include' // Asegúrate de incluir credenciales para manejar sesiones si es necesario
+      });
+
+      if (response.ok) {
+        const userData = await response.json();
+        setUser(userData);
+        localStorage.setItem('user', JSON.stringify(userData));
+      } else {
+        console.error('Error fetching current user:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching current user:', error);
+    }
+  };
+
   useEffect(() => {
-    return () => {
-      localStorage.removeItem('isLoggedIn');
-    };
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, user, login, logout, fetchUser }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+export const useAuth = () => useContext(AuthContext);
+
