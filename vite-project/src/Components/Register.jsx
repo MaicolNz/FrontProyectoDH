@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Register = () => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
-
+  const navigate = useNavigate();
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
@@ -29,6 +30,10 @@ const Register = () => {
     }
   };
 
+  const handleGoBack = () => {
+    navigate('/'); 
+  };
+
   return (
     <div className="container-fluid d-flex justify-content-center align-items-center vh-100 bg-dark text-white" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/images/logos/hero.png')`, backgroundSize: "cover", backgroundPosition: "center" }}>
       <div className="d-flex flex-row w-100 justify-content-center" style={{ alignItems: 'stretch' }}>
@@ -36,7 +41,6 @@ const Register = () => {
           <img src="/images/logos/Logo White.png" alt="logo" style={{ height: '200px', width: '200px'}}/>
         </div>
         <div className="block-reg card p-5">
-        {/* style={{ maxWidth: '450px', width: '100%', borderRadius: '0 30px 30px 0' }} */}
           <h2 className="text-center mb-4">Crea tu registro</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -69,7 +73,7 @@ const Register = () => {
               <label className="form-check-label" htmlFor="terms">Acepto los términos y condiciones del servicio.</label>
             </div>
             <div className="d-flex justify-content-between">
-              <button type="button" className="btn btn-secondary">Volver atrás</button>
+              <button type="button" className="btn btn-secondary" onClick={handleGoBack}>Volver atrás</button>
               <button type="submit" className="btn btn-dark">Aceptar</button>
             </div>
           </form>

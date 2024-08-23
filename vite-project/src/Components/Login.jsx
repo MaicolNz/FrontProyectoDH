@@ -7,6 +7,7 @@ const Login = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [loginMessage, setLoginMessage] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
 
   const handleEmailChange = (e) => {
     const value = e.target.value;
@@ -24,6 +25,10 @@ const Login = () => {
     setPassword(e.target.value);
     // Opcional: Añadir validaciones de contraseña aquí
     setPasswordError('');
+  };
+
+  const handleRememberMeChange = (e) => {
+    setRememberMe(e.target.checked);
   };
 
   const handleSubmit = async (e) => {
@@ -57,6 +62,15 @@ const Login = () => {
     }
   };
 
+  const handleCancel = () => {
+    setEmail('');
+    setPassword('');
+    setEmailError('');
+    setPasswordError('');
+    setLoginMessage('');
+    setRememberMe(false);
+  };
+
   return (
     <div className="container-fluid d-flex justify-content-center align-items-center vh-100 bg-dark text-white" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/images/logos/hero.png')`, backgroundSize: "cover", backgroundPosition: "center" }}>
       <div className="card p-5" style={{ maxWidth: '450px', width: '100%', borderRadius: '30px' }}>
@@ -88,13 +102,18 @@ const Login = () => {
           </div>
           <div className="d-flex justify-content-between align-items-center mb-3">
             <div className="form-check">
-              <input type="checkbox" className="form-check-input" id="remember" />
+              <input 
+              type="checkbox" 
+              className="form-check-input" 
+              id="remember" 
+              checked={rememberMe} 
+              onChange={handleRememberMeChange}/>
               <label className="form-check-label" htmlFor="remember">Recordar para el futuro</label>
             </div>
             <a href="#" className="text-white">¿Olvidaste tu contraseña?</a>
           </div>
           <div className="d-flex justify-content-between">
-            <button type="button" className="btn btn-secondary">Cancelar</button>
+            <button type="button" className="btn btn-secondary" onClick={handleCancel}>Cancelar</button>
             <button type="submit" className="btn btn-dark">Aceptar</button>
           </div>
         </form>
