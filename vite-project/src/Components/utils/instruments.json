@@ -29,7 +29,7 @@
         "detalle": "Piano de cola Yamaha GB1K-PE.",
         "detalleView": "La introducción del Yamaha b3 en la gama de la serie b hace que se acerque a profesionales los estándares sin dejar de ser fiel a la filosofía de diseño de valor y precio accesible de la serie b. Se añadió al b3 el sistema silenciador. Es un SILENT Piano™ tipo SC3. Acción Yamaha de 88 teclas. Material de la tapa armónica: Abeto macizo 3 pedales (suave/pedal silenciador/amortiguador) Acabado: Ébano pulido (Ancho/Alto/Profundidad) 149 cm/ 109 cm/ 54 cm Peso: 201 kg Voces preestablecidas: 10 256 polifonía (máx.) Sensor clave: sensor óptico de detección continua sin contacto Conectividad: USB A DISPOSITIVO Y USB A HOST No incluye los auriculares que se ven en la imagen Imagen ilustrativa",
         "caracteristicas": {
-            "material": "Madera y metal",
+            "material de construccion": "Madera y metal",
             "portabilidad": "No",
             "tecnologia": "Silenciador Silent Piano™",
             "clasificacion": "88 teclas",
@@ -49,7 +49,7 @@
         "detalle": "Violín Cervini HV50, Ideal para estudio.",
         "detalleView": "El violín Cervini By Cremona tiene una tapa de abeto y un diapasón de madera. Espaciado y altura adecuados para permitir posiciones precisas de los dedos y entonación. Tiene la mentonera de madera estilo Stradivarius de perfil bajo para mayor comodidad. El violín tiene un acabado rojo tradicional, arco de madera y estuche de espuma.",
         "caracteristicas": {
-            "material": "Abeto y madera",
+            "material de construccion": "Abeto y madera",
             "portabilidad": "Si",
             "tecnologia": "-",
             "clasificacion": "-",
@@ -69,7 +69,7 @@
         "detalle": "Fina terminación dorada ideal para estudiantes.",
         "detalleView": "Si buscas un saxofón para iniciarte en su mundo, y que tenga una buena calidad por un buen precio, sin duda el saxofón Memphis es el tuyo. Un kit de saxo totalmente completo, con todo lo necesario para iniciarte y tener un instrumento de calidad y que cumpla su función al cien por cien.",
         "caracteristicas": {
-            "material": "Aleación de metal",
+            "material de construccion": "Aleación de metal",
             "portabilidad": "Si",
             "tecnologia": "-",
             "clasificacion": "Soprano",
@@ -82,14 +82,14 @@
     {
         "id": 5,
         "instrumento": "Bongo Memphis",
-        "categoria": "Percusion",
+        "categoria": "Percusión",
         "img": "/images/jpeg/BongoMemphis.jpeg",
         "imgView1": "/images/jpeg/BongoMemphis1.jpeg",
         "imgView2": "/images/jpeg/BongoMemphis2.jpeg",
         "detalle": "Construído en madera resistente. Fina terminación.",
         "detalleView": "Los bongos Memphis ZHB1011 son una opción básica y práctica para quienes desean iniciarse en el mundo de la percusión. Con un diseño sencillo y funcional, ofrecen un sonido adecuado para sesiones de práctica y música casual. Su construcción robusta los hace ideales para músicos en movimiento.",
         "caracteristicas": {
-            "material": "Madera",
+            "material de construccion": "Madera",
             "portabilidad": "Si",
             "tecnologia": "-",
             "clasificacion": "-",
@@ -109,7 +109,7 @@
         "detalle": "Electrónica activa polivalente y poderosa.",
         "detalleView": "Los GSR ofrecen la famosa elegancia, comodidad, tono y facilidad de ejecución de Soundgear. GSR Soundgears no solo se ve y funciona mejor que todo lo demás en su rango de precios, sino que su rigurosa inspección y configuración es la misma que la de los modelos más caros de Ibanez. El GSR180 cuenta con un mástil de arce y un diapasón Purpleheart y viene equipado con pastillas Ibanez DXJ para un dulce tono de bobina simple. El puente B10 permite una entonación totalmente ajustable y una sólida estabilidad de afinación.",
         "caracteristicas": {
-            "material": "Madera y metal",
+            "material de construccion": "Madera y metal",
             "portabilidad": "Si",
             "tecnologia": "Electrónica activa",
             "clasificacion": "4 cuerdas",
@@ -129,7 +129,7 @@
         "detalle": "Hay uno que está hecho especialmente para ti.",
         "detalleView": "Los ukeleles de mayor ventas del mundo, Los ukeleles Mahalo han sido totalmente rediseñados y mejorados en este rango, incluyendo sus nuevos colores. Independientemente de su personalidad, los increíbles colores de los Mahalo permiten gritar su individualidad en el mundo. Disponible en un gran abanico de colores vibrantes y brillo completo y con cuellos y cuerpos de sengon. Los ukeleles Mahalo vienen con funda de transporte ofreciendo una relación calidad/precio inmejorable.",
         "caracteristicas": {
-            "material": "Madera",
+            "material de construccion": "Madera",
             "portabilidad": "Si",
             "tecnologia": "-",
             "clasificacion": "-",
@@ -149,7 +149,7 @@
         "detalle": "Cuerpo aleación de metal de alta calidad.",
         "detalleView": "Afinada en Bb, Cuerpo yellow brass, 3 pistones de acero inoxidable. Diámetro de campana 125 mm. Incluye un estuche rígido forrado en cuero en su exterior y revestido de pana acolchada en su interior, boquilla C7, guantes, paño de limpieza y lubricante.",
         "caracteristicas": {
-            "material": "Aleación de metal",
+            "material de construccion": "Aleación de metal",
             "portabilidad": "Si",
             "tecnologia": "-",
             "clasificacion": "Bb",
@@ -162,14 +162,14 @@
     {
         "id": 9,
         "instrumento": "Bateria Mapex",
-        "categoria": "Percusion",
+        "categoria": "Percusión",
         "img": "/images/jpeg/BateriaTornado.jpeg",
         "imgView1": "/images/jpeg/BateriaTornado1.jpeg",
         "imgView2": "/images/jpeg/BateriaTornado2.jpeg",
         "detalle": "5 cuerpos. Incluye asiento, platillos y atriles",
         "detalleView": "Las Baterías de Tornado son las baterías más económicas de Mapex. Son consideradas unas baterías de estudio, listas para acceder al mundo de la percusión primando la calidad-precio. Se trata de un pack con todo lo necesario para comenzar el aprendizaje de la Bateria.",
         "caracteristicas": {
-            "material": "Madera y metal",
+            "material de construccion": "Madera y metal",
             "portabilidad": "No",
             "tecnologia": "-",
             "clasificacion": "5 cuerpos",
@@ -189,7 +189,7 @@
         "detalle": "Ideal para músicos de todos los niveles.",
         "detalleView": "El acordeón Memphis de 80 bajos con estuche azul es un instrumento cromático a piano ideal para músicos de todos los niveles. Con 37 teclas y 7 voces este acordeón ofrece un sonido potente y versátil. El estuche incluido garantiza una protección adecuada y facilita su transporte a cualquier lugar. Perfecto para interpretar una amplia variedad de géneros musicales, este modelo FT1309BK de Memphis es una excelente elección para quienes buscan calidad y comodidad en un solo instrumento. Incluye correas para poder tocar de pie o sentado con el instrumento sujeto al cuerpo.",
         "caracteristicas": {
-            "material": "Metal y plástico",
+            "material de construccion": "Metal y plástico",
             "portabilidad": "Si",
             "tecnologia": "-",
             "clasificacion": "80 bajos",
