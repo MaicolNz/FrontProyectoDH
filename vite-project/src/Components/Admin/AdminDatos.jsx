@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { useAuth } from '../../context/AuthContext';
 
 const MisDatos = () => {
@@ -73,88 +73,109 @@ const MisDatos = () => {
   };
 
   return (
-    <Container>
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h2>Mis Datos</h2>
-        <Button
-          variant="primary"
-          onClick={() => setIsEditing(!isEditing)}
-        >
-          {isEditing ? 'Cancelar' : 'Editar'}
-        </Button>
-      </div>
-      <Form>
-        <Form.Group className="mb-3">
-          <Form.Label>Nombre</Form.Label>
-          <Form.Control
-            type="text"
-            name="nombre"
-            value={userData.nombre}
-            onChange={handleChange}
-            readOnly={!isEditing}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Apellido</Form.Label>
-          <Form.Control
-            type="text"
-            name="apellido"
-            value={userData.apellido}
-            onChange={handleChange}
-            readOnly={!isEditing}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Correo Electrónico</Form.Label>
-          <Form.Control
-            type="email"
-            name="correo"
-            value={userData.correo}
-            onChange={handleChange}
-            readOnly={!isEditing}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Dirección</Form.Label>
-          <Form.Control
-            type="text"
-            name="direccion"
-            value={userData.direccion}
-            onChange={handleChange}
-            readOnly={!isEditing}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Contraseña</Form.Label>
-          <Form.Control
-            type="password"
-            name="contraseña"
-            value={userData.contraseña}
-            onChange={handleChange}
-            readOnly={!isEditing}
-          />
-          <Form.Text className="text-muted">
-            Deja el campo vacío si no deseas cambiar la contraseña.
-          </Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Rol</Form.Label>
-          <Form.Control
-            type="text"
-            name="rol"
-            value={userData.rol}
-            readOnly
-          />
-        </Form.Group>
-        {isEditing && (
+    <Container className="d-flex flex-column min-vh-100">
+      <div className="flex-grow-1">
+        <div className="d-flex justify-content-between align-items-center mb-3">
+          <h2>Mis Datos</h2>
           <Button
-            variant="success"
-            onClick={handleSave}
+            variant="primary"
+            onClick={() => setIsEditing(!isEditing)}
           >
-            Guardar
+            {isEditing ? 'Cancelar' : 'Editar'}
           </Button>
-        )}
-      </Form>
+        </div>
+        <Form>
+          <Row>
+            <Col md={6} className="mb-3">
+              <Form.Group>
+                <Form.Label>Nombre</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="nombre"
+                  value={userData.nombre}
+                  onChange={handleChange}
+                  readOnly={!isEditing}
+                />
+              </Form.Group>
+            </Col>
+            <Col md={6} className="mb-3">
+              <Form.Group>
+                <Form.Label>Apellido</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="apellido"
+                  value={userData.apellido}
+                  onChange={handleChange}
+                  readOnly={!isEditing}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={6} className="mb-3">
+              <Form.Group>
+                <Form.Label>Correo Electrónico</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="correo"
+                  value={userData.correo}
+                  onChange={handleChange}
+                  readOnly={!isEditing}
+                />
+              </Form.Group>
+            </Col>
+            <Col md={6} className="mb-3">
+              <Form.Group>
+                <Form.Label>Dirección</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="direccion"
+                  value={userData.direccion}
+                  onChange={handleChange}
+                  readOnly={!isEditing}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={6} className="mb-3">
+              <Form.Group>
+                <Form.Label>Contraseña</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="contraseña"
+                  value={userData.contraseña}
+                  onChange={handleChange}
+                  readOnly={!isEditing}
+                />
+                <Form.Text className="text-muted">
+                  Deja el campo vacío si no deseas cambiar la contraseña.
+                </Form.Text>
+              </Form.Group>
+            </Col>
+            <Col md={6} className="mb-3">
+              <Form.Group>
+                <Form.Label>Rol</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="rol"
+                  value={userData.rol}
+                  readOnly
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          {isEditing && (
+            <Button
+              variant="success"
+              onClick={handleSave}
+              className="mt-3"
+            >
+              Guardar
+            </Button>
+          )}
+        </Form>
+      </div>
     </Container>
   );
 };
