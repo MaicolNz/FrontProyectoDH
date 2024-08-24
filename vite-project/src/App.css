@@ -29,9 +29,9 @@
 .navbar-toggler {
   background-color: var(--color-light-beige) !important;
 }
-.navbar-collapse.bg-dark{
-  padding: 20px;
-}
+.navbar-collapse.bg-dark {
+  padding: 20px ;
+
 
 /* HOME HERO */
 .hero-content {
