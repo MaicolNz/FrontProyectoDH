@@ -1,17 +1,24 @@
+// Login.jsx
+
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [loginMessage, setLoginMessage] = useState('');
+  const navigate = useNavigate();
+  const [rememberMe, setRememberMe] = useState(false);
+
 
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(value)) {
       setEmailError('Por favor ingresa un correo electrónico válido.');
@@ -22,8 +29,11 @@ const Login = () => {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-    // Opcional: Añadir validaciones de contraseña aquí
     setPasswordError('');
+  };
+
+  const handleRememberMeChange = (e) => {
+    setRememberMe(e.target.checked);
   };
 
   const handleSubmit = async (e) => {
@@ -31,20 +41,22 @@ const Login = () => {
 
     if (!emailError && email && password) {
       try {
-        const response = await fetch('http://localhost:3306/api/login', {
+        const response = await fetch('http://localhost:8080/api/login', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json',
           },
-          body: new URLSearchParams({
+          body: JSON.stringify({
             correo: email,
             contraseña: password
           })
         });
 
         if (response.ok) {
-          const result = await response.text();
-          setLoginMessage(result);
+          const userData = await response.json();
+          login(userData.usuario); // Pasa los datos del usuario al contexto
+          setLoginMessage('Inicio de sesión exitoso');
+          navigate('/');
         } else {
           const error = await response.text();
           setLoginMessage(error);
@@ -55,6 +67,15 @@ const Login = () => {
     } else {
       setLoginMessage('Por favor, corrige los errores antes de enviar.');
     }
+  };
+
+  const handleCancel = () => {
+    setEmail('');
+    setPassword('');
+    setEmailError('');
+    setPasswordError('');
+    setLoginMessage('');
+    setRememberMe(false);
   };
 
   return (
@@ -71,6 +92,7 @@ const Login = () => {
               placeholder="Ingresá tu email" 
               value={email} 
               onChange={handleEmailChange} 
+              autoComplete="email"
             />
             {emailError && <div className="text-danger mt-2">{emailError}</div>}
           </div>
@@ -83,22 +105,28 @@ const Login = () => {
               placeholder="Ingresá tu contraseña" 
               value={password}
               onChange={handlePasswordChange}
+              autoComplete="current-password"
             />
             {passwordError && <div className="text-danger mt-2">{passwordError}</div>}
           </div>
-          <div className="d-flex justify-content-between align-items-center mb-3">
+          <div className="d-flex flex-column justify-content-between mb-3">
             <div className="form-check">
-              <input type="checkbox" className="form-check-input" id="remember" />
+              <input 
+              type="checkbox" 
+              className="form-check-input" 
+              id="remember" 
+              checked={rememberMe} 
+              onChange={handleRememberMeChange}/>
               <label className="form-check-label" htmlFor="remember">Recordar para el futuro</label>
             </div>
             <a href="#" className="text-white">¿Olvidaste tu contraseña?</a>
           </div>
           <div className="d-flex justify-content-between">
-            <button type="button" className="btn btn-secondary">Cancelar</button>
+            <button type="button" className="btn btn-secondary" onClick={handleCancel}>Cancelar</button>
             <button type="submit" className="btn btn-dark">Aceptar</button>
           </div>
         </form>
-        {loginMessage && <div className="mt-3 text-center">{loginMessage}</div>}
+        {loginMessage && <div className="mt-3 text-center login-msg">{loginMessage}</div>}
       </div>
     </div>
   );

@@ -26,4 +26,31 @@
   .hr-custom.selected {
     border-top-color: white;
   }
-  
+  /* Estilos para los botones en el Offcanvas */
+.offcanvas-button {
+  background-color: black; /* Cambia el fondo del botón a negro */
+  color: white; /* Cambia el texto del botón a blanco */
+  border: 1px solid white; /* Añade un borde blanco opcional para contraste */
+}
+
+.offcanvas-button:hover {
+  background-color: darkgray; /* Color de fondo del botón cuando pasa el ratón por encima */
+  color: white; /* Mantén el color del texto blanco al pasar el ratón */
+}
+
+.offcanvas-header, .offcanvas-body {
+  background-color: #343a40; /* Color de fondo oscuro para el Offcanvas */
+  color: white; /* Color de texto blanco para el Offcanvas */
+}
+
+.offcanvas-title {
+  color: white; /* Color del título del Offcanvas */
+}
+/* Estilo para el botón de menú en resoluciones móviles */
+.menu-button {
+  position: fixed;
+  bottom: 20px; /* Ajusta la distancia desde el fondo según tus necesidades */
+  left: 50%;
+  transform: translateX(-50%); /* Centra el botón horizontalmente */
+  z-index: 1050; /* Asegúrate de que el botón esté por encima de otros elementos */
+}

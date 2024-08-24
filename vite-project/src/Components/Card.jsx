@@ -21,17 +21,13 @@ const Card = ({ instrumento, image, id, categoria, detalle }) => {
                     />
                 </div>
                 <div className="col-md-6">
-                    <div className="card-body d-flex flex-column justify-content-between">
-                        <div>
-                            <p className="category-text">{categoria}</p>
-                            <h5 className="card-title">{instrumento}</h5>
-                            <p className="card-detail">{detalle}</p>
-                        </div>
-                        <p
-                            className="card-link text-end"
+                    <div className="card-body d-flex flex-column">
+                        <p className="category-text">{categoria}</p>
+                        <h5 className="card-title">{instrumento}</h5>
+                        <p className="card-detail">{detalle}</p>
+                        <p className="card-link text-end"
                             style={{ cursor: "pointer" }}
-                            onClick={handleClick}
-                        >
+                            onClick={handleClick}>
                             VER MÁS <i className="bi bi-chevron-right ms-1"></i>
                         </p>
                     </div>

@@ -1,109 +1,171 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button, Container, Pagination } from 'react-bootstrap';
-
-// Datos ficticios de usuarios
-const usuariosFicticios = [
-    { id: 1, nombre: 'Juan', apellido: 'Pérez', email: 'juan.perez@example.com', rol: 'Admin' },
-    { id: 2, nombre: 'Ana', apellido: 'Gómez', email: 'ana.gomez@example.com', rol: 'Usuario' },
-    { id: 3, nombre: 'Luis', apellido: 'Martínez', email: 'luis.martinez@example.com', rol: 'Usuario' },
-    { id: 4, nombre: 'Marta', apellido: 'Fernández', email: 'marta.fernandez@example.com', rol: 'Admin' },
-    { id: 5, nombre: 'Carlos', apellido: 'López', email: 'carlos.lopez@example.com', rol: 'Editor' },
-    { id: 6, nombre: 'Laura', apellido: 'Rodríguez', email: 'laura.rodriguez@example.com', rol: 'Editor' },
-    { id: 7, nombre: 'Pedro', apellido: 'García', email: 'pedro.garcia@example.com', rol: 'Usuario' },
-    { id: 8, nombre: 'Isabel', apellido: 'Hernández', email: 'isabel.hernandez@example.com', rol: 'Admin' },
-    { id: 9, nombre: 'José', apellido: 'Morales', email: 'jose.morales@example.com', rol: 'Editor' },
-    { id: 10, nombre: 'Claudia', apellido: 'Castro', email: 'claudia.castro@example.com', rol: 'Usuario' },
-    { id: 11, nombre: 'Andrés', apellido: 'Torres', email: 'andres.torres@example.com', rol: 'Usuario' },
-    { id: 12, nombre: 'Carmen', apellido: 'Vázquez', email: 'carmen.vazquez@example.com', rol: 'Admin' },
-    { id: 13, nombre: 'Fernando', apellido: 'Jiménez', email: 'fernando.jimenez@example.com', rol: 'Editor' },
-    { id: 14, nombre: 'Patricia', apellido: 'Moreno', email: 'patricia.moreno@example.com', rol: 'Usuario' },
-    { id: 15, nombre: 'Jorge', apellido: 'Mendoza', email: 'jorge.mendoza@example.com', rol: 'Admin' },
-    { id: 16, nombre: 'María', apellido: 'Alonso', email: 'maria.alonso@example.com', rol: 'Editor' }
-];
+import { Table, Button, Container, Pagination, Row, Col } from 'react-bootstrap';
+import { useAuth } from '../../context/AuthContext';
 
 const AdminUsuarios = () => {
-    const [usuarios, setUsuarios] = useState(usuariosFicticios);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(Math.ceil(usuariosFicticios.length / 8));
-    const [usuariosPorPagina] = useState(8);
+    const { user, fetchUser, logout } = useAuth(); // Añadido logout
+    const [usuarios, setUsuarios] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [totalPages, setTotalPages] = useState(1);
 
-    const handleAddAdmin = (id) => {
-        console.log('Agregar usuario con ID:', id);
-        // Implementa la lógica para agregar el usuario
+    const fetchUsuarios = async (page = 0, size = 8) => {
+        try {
+            const response = await fetch(`http://localhost:8080/api/usuarios/paginated?page=${page}&size=${size}`);
+            const data = await response.json();
+            setUsuarios(data.content);
+            setTotalPages(data.totalPages);
+            setCurrentPage(data.currentPage);
+        } catch (error) {
+            console.error('Error fetching usuarios:', error);
+        }
     };
 
-    const handleDelete = (id) => {
-        console.log('Eliminar usuario con ID:', id);
-        // Implementa la lógica para eliminar el usuario
+    useEffect(() => {
+        fetchUsuarios(currentPage);
+    }, [currentPage]);
+
+    const handleAddAdmin = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:8080/api/usuarios/${id}/admin`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (response.ok) {
+                fetchUsuarios(currentPage);
+                if (user && user.id_usuario === id) {
+                    fetchUser(id); // Actualizar el usuario actual si es el mismo que se está modificando
+                }
+            } else {
+                console.error('Error assigning admin role');
+            }
+        } catch (error) {
+            console.error('Error adding admin:', error);
+        }
+    };
+
+    const handleRemoveAdmin = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:8080/api/usuarios/${id}/remove-admin`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            if (response.ok) {
+                fetchUsuarios(currentPage);
+                if (user && user.id_usuario === id) {
+                    fetchUser(id); // Actualizar el usuario actual si es el mismo que se está modificando
+                }
+            } else {
+                console.error('Error removing admin role');
+            }
+        } catch (error) {
+            console.error('Error removing admin:', error);
+        }
+    };
+
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:8080/api/usuarios/${id}`, {
+                method: 'DELETE'
+            });
+            if (response.ok) {
+                fetchUsuarios(currentPage);
+                if (user && user.id_usuario === id) {
+                    // Opcional: hacer logout si el usuario eliminado es el usuario actual
+                    logout();
+                }
+            } else {
+                console.error('Error deleting user:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error deleting user:', error);
+        }
     };
 
     const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
+        if (pageNumber >= 0 && pageNumber < totalPages) {
+            setCurrentPage(pageNumber);
+        }
     };
 
-    const startIndex = (currentPage - 1) * usuariosPorPagina;
-    const currentUsuarios = usuarios.slice(startIndex, startIndex + usuariosPorPagina);
-
     return (
-        <Container>
-            <h2>Panel de Usuarios</h2>
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Correo Electrónico</th>
-                        <th>Rol</th>
-                        <th>Administrador</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {currentUsuarios.map((usuario) => (
-                        <tr key={usuario.id}>
-                            <td>{usuario.id}</td>
-                            <td>{usuario.nombre}</td>
-                            <td>{usuario.apellido}</td>
-                            <td>{usuario.email}</td>
-                            <td>{usuario.rol}</td>
-                            <td>
-                                <Button 
-                                    variant="success" 
-                                    onClick={() => handleAddAdmin(usuario.id)} 
-                                    className="me-2"
-                                >
-                                    +
-                                </Button>
-                                <Button 
-                                    variant="danger" 
-                                    onClick={() => handleDelete(usuario.id)}
-                                >
-                                    -
-                                </Button>
-                            </td>
+        <Container className="d-flex flex-column min-vh-100">
+            <div className="flex-grow-1">
+                <Row className="mb-3">
+                    <Col>
+                        <h2>Panel de Usuarios</h2>
+                    </Col>
+                </Row>
+                <Table striped bordered hover responsive>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo Electrónico</th>
+                            <th>Rol</th>
+                            <th>Acciones</th>
                         </tr>
+                    </thead>
+                    <tbody>
+                        {usuarios.map((usuario) => (
+                            <tr key={usuario.id_usuario}>
+                                <td>{usuario.id_usuario}</td>
+                                <td>{usuario.nombre}</td>
+                                <td>{usuario.apellido}</td>
+                                <td>{usuario.correo}</td>
+                                <td>{usuario.esAdmin ? 'Admin' : 'Usuario'}</td>
+                                <td>
+                                    {usuario.esAdmin ? (
+                                        <Button 
+                                            variant="warning" 
+                                            onClick={() => handleRemoveAdmin(usuario.id_usuario)} 
+                                            className="me-2"
+                                        >
+                                            -
+                                        </Button>
+                                    ) : (
+                                        <Button 
+                                            variant="success" 
+                                            onClick={() => handleAddAdmin(usuario.id_usuario)} 
+                                            className="me-2"
+                                        >
+                                            +
+                                        </Button>
+                                    )}
+                                    <Button 
+                                        variant="danger" 
+                                        onClick={() => handleDelete(usuario.id_usuario)}
+                                    >
+                                        Eliminar
+                                    </Button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+                <Pagination className="justify-content-center">
+                    <Pagination.Prev 
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 0}
+                    />
+                    {[...Array(totalPages)].map((_, index) => (
+                        <Pagination.Item 
+                            key={index}
+                            active={index === currentPage}
+                            onClick={() => handlePageChange(index)}
+                        >
+                            {index + 1}
+                        </Pagination.Item>
                     ))}
-                </tbody>
-            </Table>
-            <Pagination>
-                <Pagination.Prev 
-                    onClick={() => handlePageChange(currentPage - 1)}
-                    disabled={currentPage === 1}
-                />
-                {[...Array(totalPages)].map((_, index) => (
-                    <Pagination.Item 
-                        key={index + 1}
-                        active={index + 1 === currentPage}
-                        onClick={() => handlePageChange(index + 1)}
-                    >
-                        {index + 1}
-                    </Pagination.Item>
-                ))}
-                <Pagination.Next 
-                    onClick={() => handlePageChange(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                />
-            </Pagination>
+                    <Pagination.Next 
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage >= totalPages - 1}
+                    />
+                </Pagination>
+            </div>
+            {/* Aquí puedes agregar un footer si el layout no lo tiene */}
         </Container>
     );
 };
