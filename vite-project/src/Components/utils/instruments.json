@@ -16,8 +16,7 @@
             "tamaño": "102 cm (longitud total)",
             "peso": "1.8 kg"
         },
-        "precioAlquiler": 5,
-        "stock": 10
+        "precioAlquiler": 5
     },
     {
         "id": 2,
@@ -36,8 +35,7 @@
             "tamaño": "149x109x54 cm",
             "peso": "201 kg"
         },
-        "precioAlquiler": 5,
-        "stock": 5
+        "precioAlquiler": 5
     },
     {
         "id": 3,
@@ -56,8 +54,7 @@
             "tamaño": "Estándar",
             "peso": "0.5 kg"
         },
-        "precioAlquiler": 5,
-        "stock": 7
+        "precioAlquiler": 5
     },
     {
         "id": 4,
@@ -76,8 +73,7 @@
             "tamaño": "Estándar",
             "peso": "1.5 kg"
         },
-        "precioAlquiler": 4,
-        "stock": 8
+        "precioAlquiler": 4
     },
     {
         "id": 5,
@@ -96,8 +92,7 @@
             "tamaño": "Estándar",
             "peso": "2 kg"
         },
-        "precioAlquiler": 6,
-        "stock": 5
+        "precioAlquiler": 6
     },
     {
         "id": 6,
@@ -116,8 +111,7 @@
             "tamaño": "Estándar",
             "peso": "3 kg"
         },
-        "precioAlquiler": 4,
-        "stock": 7
+        "precioAlquiler": 4
     },
     {
         "id": 7,
@@ -136,8 +130,7 @@
             "tamaño": "21\"",
             "peso": "0.5 kg"
         },
-        "precioAlquiler": 3,
-        "stock": 10
+        "precioAlquiler": 3
     },
     {
         "id": 8,
@@ -156,8 +149,7 @@
             "tamaño": "Estándar",
             "peso": "1.2 kg"
         },
-        "precioAlquiler": 10,
-        "stock": 3
+        "precioAlquiler": 10
     },
     {
         "id": 9,
@@ -176,8 +168,7 @@
             "tamaño": "Estándar",
             "peso": "15 kg"
         },
-        "precioAlquiler": 12,
-        "stock": 2
+        "precioAlquiler": 12
     },
     {
         "id": 10,
@@ -196,7 +187,6 @@
             "tamaño": "Estándar",
             "peso": "4 kg"
         },
-        "precioAlquiler": 7,
-        "stock": 3
+        "precioAlquiler": 7
     }
 ]
