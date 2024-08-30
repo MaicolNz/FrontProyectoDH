@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AdminMisDatos from '../Components/Admin/AdminDatos'; 
 import AdminUsuarios from '../Components/Admin/AdminUsuarios';
 import AdminProductos from '../Components/Admin/AdminProductos';
+import AdminCategorias from '../Components/Admin/AdminCategorias'; // Asegúrate de importar el nuevo componente
 import { Button, Col, Container, Row, Offcanvas } from 'react-bootstrap';
 import '../Components/Admin/Admin.css'; // Asegúrate de que este archivo está importado
 
@@ -15,6 +16,8 @@ const AdminPanel = () => {
                 return <AdminUsuarios />;
             case 'Productos':
                 return <AdminProductos />;
+            case 'Categorias':
+                return <AdminCategorias />;
             case 'MisDatos':
             default:
                 return <AdminMisDatos />;
@@ -50,6 +53,14 @@ const AdminPanel = () => {
                         Productos
                     </Button>
                     <hr className={`hr-custom ${selectedSection === 'Productos' ? 'selected' : ''}`} />
+                    <Button 
+                        variant="primary" 
+                        className={`btn-custom w-100 mb-2 ${selectedSection === 'Categorias' ? 'selected' : ''}`}
+                        onClick={() => setSelectedSection('Categorias')}
+                    >
+                        Categorías
+                    </Button>
+                    <hr className={`hr-custom ${selectedSection === 'Categorias' ? 'selected' : ''}`} />
                 </Col>
 
                 {/* Content area */}
@@ -84,6 +95,13 @@ const AdminPanel = () => {
                             Productos
                         </Button>
                         <hr className={`hr-custom ${selectedSection === 'Productos' ? 'selected' : ''}`} />
+                        <Button 
+                            className={`offcanvas-button w-100 mb-2 ${selectedSection === 'Categorias' ? 'selected' : ''}`}
+                            onClick={() => { setSelectedSection('Categorias'); setShowSidebar(false); }}
+                        >
+                            Categorías
+                        </Button>
+                        <hr className={`hr-custom ${selectedSection === 'Categorias' ? 'selected' : ''}`} />
                     </Offcanvas.Body>
                 </Offcanvas>
 
