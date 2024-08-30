@@ -10,7 +10,8 @@ const AdminUsuarios = () => {
 
     const fetchUsuarios = async (page = 0, size = 8) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/usuarios/paginated?page=${page}&size=${size}`);
+            // const response = await fetch(`http://localhost:8080/api/usuarios/paginated?page=${page}&size=${size}`);
+            const response = await fetch(`http://localhost:8080/api/admin/usuarios/paginated?page=${page}&size=${size}`);
             const data = await response.json();
             setUsuarios(data.content);
             setTotalPages(data.totalPages);
@@ -26,7 +27,8 @@ const AdminUsuarios = () => {
 
     const handleAddAdmin = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/usuarios/${id}/admin`, {
+            // const response = await fetch(`http://localhost:8080/api/usuarios/${id}/admin`, {
+            const response = await fetch(`http://localhost:8080/api/admin/usuarios/${id}/admin`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
@@ -47,7 +49,8 @@ const AdminUsuarios = () => {
 
     const handleRemoveAdmin = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/usuarios/${id}/remove-admin`, {
+            // const response = await fetch(`http://localhost:8080/api/usuarios/${id}/remove-admin`, {
+            const response = await fetch(`http://localhost:8080/api/admin/usuarios/${id}/remove-admin`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -66,7 +69,8 @@ const AdminUsuarios = () => {
 
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/usuarios/${id}`, {
+            // const response = await fetch(`http://localhost:8080/api/usuarios/${id}`, {
+            const response = await fetch(`http://localhost:8080/api/admin/usuarios/${id}`, {
                 method: 'DELETE'
             });
             if (response.ok) {

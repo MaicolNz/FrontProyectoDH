@@ -27,7 +27,8 @@ const Register = () => {
 
     if (!emailError && email && nombre && apellido && contraseña) {
       try {
-        const response = await fetch('http://localhost:8080/api/usuarios', {
+        // const response = await fetch('http://localhost:8080/api/usuarios', {
+        const response = await fetch('http://localhost:8080/auth/register ', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
