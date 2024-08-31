@@ -7,7 +7,7 @@ import { Pagination } from 'react-bootstrap';
 const Home = () => {
     const [shuffledInstruments, setShuffledInstruments] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState(null); // Nuevo estado para la categoría seleccionada
     const instrumentsPerPage = 10;
 
     useEffect(() => {
@@ -30,6 +30,7 @@ const Home = () => {
     const indexOfLastInstrument = currentPage * instrumentsPerPage;
     const indexOfFirstInstrument = indexOfLastInstrument - instrumentsPerPage;
 
+    // Filtrar instrumentos basados en la categoría seleccionada
     const filteredInstruments = selectedCategory
         ? shuffledInstruments.filter(instrument => instrument.categoria === selectedCategory)
         : shuffledInstruments;
@@ -59,10 +60,10 @@ const Home = () => {
                 <div className="row justify-content-between">
                     {categories.map((category, index) => (
                         <div key={index} className="category-card col-lg-2 col-sm-4 col-md-4 mb-4" onClick={() => {
-                            setSelectedCategory(category.name);
-                            setCurrentPage(1);
+                            setSelectedCategory(category.name); // Actualizar la categoría seleccionada
+                            setCurrentPage(1); // Reiniciar la página actual a 1 al cambiar de categoría
                         }}
-                            style={{ cursor: 'pointer' }}
+                            style={{ cursor: 'pointer' }} // Añadir cursor pointer
                         >
                             <div className="h-100">
                                 <img src={category.image} alt={category.name} className="card-img-top" />
@@ -75,6 +76,7 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* Sección de Productos */}
             <section className="featured-products py-2">
                 <div className="text-center mb-4">
                     <h2 className="categories-title">
@@ -89,8 +91,8 @@ const Home = () => {
                         currentInstruments.map((instrument) => (
                             <div key={instrument.id} className="col-12 col-md-6 mb-4">
                                 <Card
-                                    instrumento={instrument.nombre}  // Ajustado para el nuevo campo del JSON
-                                    image={instrument.imagenes[0]}  // Usando la primera imagen para el componente Card
+                                    instrumento={instrument.instrumento}
+                                    image={instrument.img}
                                     id={instrument.id}
                                     categoria={instrument.categoria}
                                     detalle={instrument.detalle}
@@ -103,6 +105,7 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* Paginación */}
             <section className="pagination-sec">
                 <Pagination className="justify-content-center">
                     <Pagination.First onClick={() => handlePageChange(1)} disabled={currentPage === 1} />
