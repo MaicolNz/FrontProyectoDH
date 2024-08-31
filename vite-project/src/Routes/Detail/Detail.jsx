@@ -20,15 +20,19 @@ const Detail = () => {
     if (!instrumento) {
         return <div>Instrumento no encontrado</div>;
     }
+
+    // Obtén la primera imagen del array de imágenes
+    const firstImage = instrumento.imagenes[0] || '/images/default-image.jpg'; // Ruta por defecto en caso de que no haya imagen
+
     const getIconForKey = (key) => {
         switch (key) {
-            case 'material de construccion': return 'tools'; // Icono de caja para material 
+            case 'material de construccion': return 'tools'; // Icono de caja para material
             case 'portabilidad': return 'suitcase'; // Icono de maleta para portabilidad
             case 'tecnologia': return 'cogs'; // Icono de engranajes para tecnología
             case 'clasificacion': return 'star'; // Icono de estrella para clasificación
             case 'tamaño': return 'ruler'; // Icono de regla para tamaño
             case 'peso': return 'weight'; // Icono de peso para peso
-            default: return 'info-circle'; // Icono por defecto si no se encuentra una coincidencia
+            default: return 'info-circle'; // Icono por defecto
         }
     };
 
@@ -37,7 +41,7 @@ const Detail = () => {
             <div className="container bg-color py-3">
                 <div className="d-flex justify-content-end">
                     <img
-                        src="../public/images/icons/iconBack.svg"
+                        src="/images/icons/iconBack.svg" // Cambia esta ruta según la estructura de tu proyecto
                         alt="Volver atrás"
                         onClick={handleClick}
                         style={{ cursor: 'pointer' }}
@@ -48,15 +52,14 @@ const Detail = () => {
                     </p>
                 </div>
                 <h1 className='instrument-title d-flex justify-content-center'>
-                    {instrumento.instrumento}
+                    {instrumento.nombre}
                 </h1>
                 <div className="detail-block-content">
                     <div className="row">
-
                         <div className="col-12 col-md-6 d-flex justify-content-center img-border">
                             <img
-                                src={instrumento.img}
-                                alt={instrumento.instrumento}
+                                src={firstImage}
+                                alt={instrumento.nombre}
                                 className="img-thumbnail img-detail img-fluid"
                             />
                         </div>
@@ -65,7 +68,7 @@ const Detail = () => {
                                 {instrumento.detalleView}
                             </div>
                             <p className="detail-precio">
-                                ${instrumento.precioAlquiler}/día
+                                ${instrumento.precio}/día
                             </p>
                             <div className="detail-caracteristicas mt-4">
                                 <h5>Características:</h5>
