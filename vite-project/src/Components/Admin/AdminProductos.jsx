@@ -24,8 +24,6 @@ const productosFicticios = [
     { id: 19, nombre: 'Producto S', precio: 1000, categoria: 'Percusión', detalle: '', detalleView: '', imagenes: ['', '', '', ''] },
     { id: 20, nombre: 'Producto T', precio: 1050, categoria: 'Accesorios', detalle: '', detalleView: '', imagenes: ['', '', '', ''] }
 ];
-
-
 const categoriasPermitidas = ['Teclado', 'Cuerda', 'Viento', 'Percusión', 'Accesorios'];
 
 const AdminProductos = () => {
@@ -34,7 +32,8 @@ const AdminProductos = () => {
     const [totalPages, setTotalPages] = useState(Math.ceil(productosFicticios.length / 8));
     const [productosPorPagina] = useState(8);
 
-    const [showAddForm, setShowAddForm] = useState(false);
+    const [showForm, setShowForm] = useState(false);
+    const [editProductId, setEditProductId] = useState(null);
     const [nombre, setNombre] = useState('');
     const [precio, setPrecio] = useState('');
     const [categoria, setCategoria] = useState('');
@@ -46,12 +45,27 @@ const AdminProductos = () => {
         setTotalPages(Math.ceil(productos.length / productosPorPagina));
     }, [productos, productosPorPagina]);
 
+    useEffect(() => {
+        if (editProductId !== null) {
+            const product = productos.find(p => p.id === editProductId);
+            if (product) {
+                setNombre(product.nombre);
+                setPrecio(product.precio);
+                setCategoria(product.categoria);
+                setDetalle(product.detalle);
+                setDetalleView(product.detalleView);
+                setImagenes(product.imagenes);
+                setShowForm(true);
+            }
+        }
+    }, [editProductId, productos]);
+
     const handleEdit = (id) => {
-        console.log('Editar producto con ID:', id);
+        setEditProductId(id);
     };
 
     const handleDelete = (id) => {
-        console.log('Eliminar producto con ID:', id);
+        setProductos(productos.filter(p => p.id !== id));
     };
 
     const handlePageChange = (pageNumber) => {
@@ -63,29 +77,44 @@ const AdminProductos = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newProduct = {
-            id: productos.length + 1,
-            nombre,
-            precio: parseFloat(precio),
-            categoria,
-            detalle,
-            detalleView,
-            imagenes
-        };
-        setProductos([...productos, newProduct]);
-        setNombre('');
-        setPrecio('');
-        setCategoria('');
-        setDetalle('');
-        setDetalleView('');
-        setImagenes(['', '', '', '']);
-        setShowAddForm(false);
+        if (editProductId !== null) {
+            // Editar producto existente
+            setProductos(productos.map(p =>
+                p.id === editProductId
+                    ? { ...p, nombre, precio: parseFloat(precio), categoria, detalle, detalleView, imagenes }
+                    : p
+            ));
+            setEditProductId(null);
+        } else {
+            // Agregar nuevo producto
+            const newProduct = {
+                id: productos.length + 1,
+                nombre,
+                precio: parseFloat(precio),
+                categoria,
+                detalle,
+                detalleView,
+                imagenes
+            };
+            setProductos([...productos, newProduct]);
+        }
+        resetForm();
     };
 
     const handleImageChange = (index, value) => {
         const newImagenes = [...imagenes];
         newImagenes[index] = value;
         setImagenes(newImagenes);
+    };
+
+    const resetForm = () => {
+        setNombre('');
+        setPrecio('');
+        setCategoria('');
+        setDetalle('');
+        setDetalleView('');
+        setImagenes(['', '', '', '']);
+        setShowForm(false);
     };
 
     return (
@@ -98,16 +127,31 @@ const AdminProductos = () => {
                     <Col className="text-end">
                         <Button 
                             variant="primary" 
-                            onClick={() => setShowAddForm(!showAddForm)}
+                            onClick={() => {
+                                resetForm();
+                                setEditProductId(null);
+                                setShowForm(!showForm);
+                            }}
                         >
-                            {showAddForm ? 'Cancelar' : 'Agregar Producto'}
+                            {showForm ? 'Cancelar' : (editProductId ? 'Cancelar Edición' : 'Agregar Producto')}
                         </Button>
                     </Col>
                 </Row>
 
-                {showAddForm && (
+                {showForm && (
                     <Form onSubmit={handleSubmit} className="mb-3">
-                        <Form.Group controlId="formNombre">
+                        {editProductId && (
+                            <Form.Group controlId="formProductId" className="mb-3">
+                                <Form.Label>ID del Producto</Form.Label>
+                                <Form.Control 
+                                    type="text" 
+                                    value={editProductId} 
+                                    readOnly
+                                    className="form-control"
+                                />
+                            </Form.Group>
+                        )}
+                        <Form.Group controlId="formNombre" className="mb-3">
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control 
                                 type="text" 
@@ -115,9 +159,10 @@ const AdminProductos = () => {
                                 value={nombre} 
                                 onChange={(e) => setNombre(e.target.value)}
                                 required
+                                className="form-control"
                             />
                         </Form.Group>
-                        <Form.Group controlId="formPrecio">
+                        <Form.Group controlId="formPrecio" className="mb-3">
                             <Form.Label>Precio</Form.Label>
                             <Form.Control 
                                 type="number" 
@@ -125,15 +170,17 @@ const AdminProductos = () => {
                                 value={precio} 
                                 onChange={(e) => setPrecio(e.target.value)}
                                 required
+                                className="form-control"
                             />
                         </Form.Group>
-                        <Form.Group controlId="formCategoria">
+                        <Form.Group controlId="formCategoria" className="mb-3">
                             <Form.Label>Categoría</Form.Label>
                             <Form.Control 
                                 as="select" 
                                 value={categoria} 
                                 onChange={(e) => setCategoria(e.target.value)}
                                 required
+                                className="form-control"
                             >
                                 <option value="">Seleccionar categoría</option>
                                 {categoriasPermitidas.map(cat => (
@@ -141,7 +188,7 @@ const AdminProductos = () => {
                                 ))}
                             </Form.Control>
                         </Form.Group>
-                        <Form.Group controlId="formDetalle">
+                        <Form.Group controlId="formDetalle" className="mb-3">
                             <Form.Label>Detalle</Form.Label>
                             <Form.Control 
                                 as="textarea" 
@@ -149,9 +196,10 @@ const AdminProductos = () => {
                                 placeholder="Ingrese los detalles del producto" 
                                 value={detalle} 
                                 onChange={(e) => setDetalle(e.target.value)}
+                                className="form-control"
                             />
                         </Form.Group>
-                        <Form.Group controlId="formDetalleView">
+                        <Form.Group controlId="formDetalleView" className="mb-3">
                             <Form.Label>Detalle de Vista</Form.Label>
                             <Form.Control 
                                 as="textarea" 
@@ -159,21 +207,23 @@ const AdminProductos = () => {
                                 placeholder="Ingrese los detalles de vista del producto" 
                                 value={detalleView} 
                                 onChange={(e) => setDetalleView(e.target.value)}
+                                className="form-control"
                             />
                         </Form.Group>
                         {[0, 1, 2, 3].map(index => (
-                            <Form.Group controlId={`formImagen${index}`} key={index}>
+                            <Form.Group controlId={`formImagen${index}`} className="mb-3" key={index}>
                                 <Form.Label>Imagen {index + 1}</Form.Label>
                                 <Form.Control 
                                     type="text" 
                                     placeholder={`Ingrese la URL de la imagen ${index + 1}`} 
                                     value={imagenes[index]} 
                                     onChange={(e) => handleImageChange(index, e.target.value)}
+                                    className="form-control"
                                 />
                             </Form.Group>
                         ))}
                         <Button variant="primary" type="submit" className="mt-3">
-                            Agregar Producto
+                            {editProductId ? 'Confirmar Edición' : 'Agregar Producto'}
                         </Button>
                     </Form>
                 )}
