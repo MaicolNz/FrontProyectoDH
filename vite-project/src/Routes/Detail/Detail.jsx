@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import instruments from '../../Components/utils/instruments.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import OccupiedDatesManager from '../../Components/OccupiedDatesManager.jsx'; // Ajusta la ruta según sea necesario
+import { Modal, Button } from 'react-bootstrap'; // Importa los componentes de Bootstrap para el modal
 
 const Detail = () => {
     const { id } = useParams();
     const instrumento = instruments.find(item => item.id === parseInt(id));
     const navigate = useNavigate();
+
+    const [selectedStartDate, setSelectedStartDate] = useState(null);
+    const [selectedEndDate, setSelectedEndDate] = useState(null);
+    const [showModal, setShowModal] = useState(false);
 
     const handleClick = () => {
         navigate(`/`);
@@ -15,6 +21,21 @@ const Detail = () => {
 
     const handleClickView = () => {
         navigate(`/DetailView/${id}`);
+    };
+
+    const handleDatesSelected = (start, end) => {
+        setSelectedStartDate(start);
+        setSelectedEndDate(end);
+    };
+
+    const handleReserve = () => {
+        setShowModal(true); // Muestra el modal con el detalle de la reserva
+    };
+
+    const handleConfirmReservation = () => {
+        setShowModal(false);
+        // Aquí puedes agregar la lógica para confirmar la reserva (enviar al backend, etc.)
+        console.log('Reserva confirmada:', selectedStartDate, selectedEndDate);
     };
 
     if (!instrumento) {
@@ -34,6 +55,12 @@ const Detail = () => {
             case 'peso': return 'weight'; // Icono de peso para peso
             default: return 'info-circle'; // Icono por defecto
         }
+    };
+
+    // Función para formatear la fecha en "día - mes - año"
+    const formatDate = (date) => {
+        if (!date) return 'No seleccionada';
+        return date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
     };
 
     return (
@@ -88,14 +115,44 @@ const Detail = () => {
                                 >
                                     Ver más
                                 </button>
-                                <button className="btn btn-detail btn-rent">
-                                    Alquilar
+                                <button
+                                    onClick={handleReserve}
+                                    className="btn btn-detail btn-rent"
+                                >
+                                    Iniciar Reserva
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div className="mt-4">
+                    <h4>Fechas Disponibles</h4>
+                    <OccupiedDatesManager 
+                        instrumentId={id} 
+                        onDatesSelected={handleDatesSelected} 
+                    />
+                </div>
             </div>
+
+            {/* Modal para confirmar reserva */}
+            <Modal show={showModal} onHide={() => setShowModal(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Confirmar Reserva</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p><strong>Instrumento:</strong> {instrumento.nombre}</p>
+                    <p><strong>Fecha de Inicio:</strong> {formatDate(selectedStartDate)}</p>
+                    <p><strong>Fecha de Fin:</strong> {formatDate(selectedEndDate)}</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowModal(false)}>
+                        Cancelar
+                    </Button>
+                    <Button variant="primary" onClick={handleConfirmReservation}>
+                        Confirmar Reserva
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 };

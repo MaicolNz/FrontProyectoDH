@@ -1,27 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 const HeroContent = () => {
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
-    const [occupiedDates, setOccupiedDates] = useState([
-        new Date(2024, 8, 5), // Ejemplo de fechas ocupadas
-        new Date(2024, 8, 10),
-        new Date(2024, 8, 15),
-    ]);
-
-    const isDateOccupied = (date) => {
-        return occupiedDates.some((occupiedDate) => {
-            return (
-                date.getFullYear() === occupiedDate.getFullYear() &&
-                date.getMonth() === occupiedDate.getMonth() &&
-                date.getDate() === occupiedDate.getDate()
-            );
-        });
-    };
-
     return (
         <div className="hero-content text-center py-5">
             <div className="container">
@@ -49,23 +29,17 @@ const HeroContent = () => {
                             </select>
                         </div>
                         <div className="col-md-3 mb-2">
-                            <DatePicker
-                                selected={startDate}
-                                onChange={(date) => setStartDate(date)}
-                                dateFormat="dd/MM/yyyy"
-                                filterDate={(date) => !isDateOccupied(date)}
+                            <input
+                                type="date"
                                 className="form-control"
-                                placeholderText="Fecha de inicio"
+                                placeholder="Fecha de inicio"
                             />
                         </div>
                         <div className="col-md-3 mb-2">
-                            <DatePicker
-                                selected={endDate}
-                                onChange={(date) => setEndDate(date)}
-                                dateFormat="dd/MM/yyyy"
-                                filterDate={(date) => !isDateOccupied(date)}
+                            <input
+                                type="date"
                                 className="form-control"
-                                placeholderText="Fecha de entrega"
+                                placeholder="Fecha de entrega"
                             />
                         </div>
                         <div className="col-md-2 mb-2">
