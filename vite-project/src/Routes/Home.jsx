@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../Components/Card';
 import instruments from '../Components/utils/instruments.json';
+import categoriasPermitidas from '../Components/utils/categoriasPermitidas'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Pagination } from 'react-bootstrap';
 
@@ -42,14 +43,6 @@ const Home = () => {
 
     const totalPages = Math.ceil(filteredInstruments.length / instrumentsPerPage);
 
-    const categories = [
-        { name: 'Teclado', image: '/images/categoria/Teclado.jpg' },
-        { name: 'Cuerda', image: '/images/categoria/Cuerda.jpg' },
-        { name: 'Viento', image: '/images/categoria/Viento.jpg' },
-        { name: 'Percusión', image: '/images/categoria/Percusion.jpg' },
-        { name: 'Accesorios', image: '/images/categoria/Accesorios.jpg' },
-    ];
-
     return (
         <div className="container">
             <section className="categories py-2">
@@ -57,7 +50,7 @@ const Home = () => {
                     <h2 className="categories-title">CATEGORÍAS</h2>
                 </div>
                 <div className="row justify-content-between">
-                    {categories.map((category, index) => (
+                    {categoriasPermitidas.map((category, index) => (
                         <div key={index} className="category-card col-lg-2 col-sm-4 col-md-4 mb-4" onClick={() => {
                             setSelectedCategory(category.name);
                             setCurrentPage(1);

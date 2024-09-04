@@ -138,7 +138,7 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
                         >
                             <option value="">Seleccionar categoría</option>
                             {categoriasPermitidas.map(cat => (
-                                <option key={cat} value={cat}>{cat}</option>
+                                <option key={cat.name} value={cat.name}>{cat.name}</option>
                             ))}
                         </Form.Control>
                     </Form.Group>
