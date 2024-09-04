@@ -6,7 +6,7 @@ const Register = () => {
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [email, setEmail] = useState('');
-  const [contraseña, setContraseña] = useState('');
+  const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const navigate = useNavigate();
   const handleEmailChange = (e) => {
@@ -25,7 +25,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!emailError && email && nombre && apellido && contraseña) {
+    if (!emailError && email && nombre && apellido && password) {
       try {
         // const response = await fetch('http://localhost:8080/api/usuarios', {
         const response = await fetch('http://localhost:8080/auth/register ', {
@@ -37,7 +37,7 @@ const Register = () => {
             nombre,
             apellido,
             email: email,
-            password: contraseña,
+            password: password,
           }),
         });
 
@@ -115,8 +115,8 @@ const Register = () => {
                 className="form-control"
                 id="password"
                 placeholder="Ingresá tu contraseña"
-                value={contraseña}
-                onChange={(e) => setContraseña(e.target.value)}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>

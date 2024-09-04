@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); 
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     const saved = localStorage.getItem('isLoggedIn');
     return saved === 'true';
@@ -23,19 +23,15 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('user');
   };
 
+  // Función para obtener la información actualizada del usuario usando el ID
   const fetchUser = async (userId) => {
-    if (!userId) {
-      console.error('No userId provided');
-      return;
-    }
-
     try {
-      const response = await fetch(`http://localhost:8080/api/usuarios/${userId}`, {
+      const response = await fetch(`http://localhost:8080/api/usuarios/${user.id_usuario}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include'
+        credentials: 'include' // Asegúrate de incluir credenciales para manejar sesiones si es necesario
       });
 
       if (response.ok) {
@@ -53,12 +49,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      try {
-        setUser(JSON.parse(storedUser));
-      } catch (error) {
-        console.error('Error parsing stored user data:', error);
-        localStorage.removeItem('user'); // Limpiar datos corruptos si es necesario
-      }
+      setUser(JSON.parse(storedUser));
     }
   }, []);
 
@@ -70,3 +61,4 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+
