@@ -14,6 +14,7 @@ const Detail = () => {
     const [selectedStartDate, setSelectedStartDate] = useState(null);
     const [selectedEndDate, setSelectedEndDate] = useState(null);
     const [showModal, setShowModal] = useState(false);
+    const [showConfirmationModal, setShowConfirmationModal] = useState(false); // Nuevo estado
 
     const handleClick = () => {
         navigate(`/`);
@@ -33,7 +34,8 @@ const Detail = () => {
     };
 
     const handleConfirmReservation = () => {
-        setShowModal(false);
+        setShowModal(false); // Oculta el primer modal
+        setShowConfirmationModal(true); 
         // Aquí puedes agregar la lógica para confirmar la reserva (enviar al backend, etc.)
         console.log('Reserva confirmada:', selectedStartDate, selectedEndDate);
     };
@@ -134,7 +136,7 @@ const Detail = () => {
                 </div>
             </div>
 
-            {/* Modal para confirmar reserva */}
+            {/* Primer Modal para confirmar reserva */}
             <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Confirmar Reserva</Modal.Title>
@@ -150,6 +152,24 @@ const Detail = () => {
                     </Button>
                     <Button variant="primary" onClick={handleConfirmReservation}>
                         Confirmar Reserva
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+            {/* Segundo Modal de confirmación */}
+            <Modal show={showConfirmationModal} onHide={() => setShowConfirmationModal(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Reserva Confirmada</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>¡La reserva ha sido confirmada exitosamente!</p>
+                    <p><strong>Instrumento seleccionado:</strong> {instrumento.nombre}</p>
+                    <p><strong>Fecha de Inicio:</strong> {formatDate(selectedStartDate)}</p>
+                    <p><strong>Fecha de Fin:</strong> {formatDate(selectedEndDate)}</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={() => setShowConfirmationModal(false)}>
+                        Cerrar
                     </Button>
                 </Modal.Footer>
             </Modal>
