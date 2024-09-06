@@ -12,6 +12,8 @@ const Layout = ({ children }) => {
   const location = useLocation();
   const showHeroContent = location.pathname === '/';
 
+  const [searchTerm, setSearchTerm] = useState('');
+  const [dateRange, setDateRange] = useState([null, null]);
   const [searchResults, setSearchResults] = useState([]);
   const [instrumentos, setInstrumentos] = useState([]);
   const [occupiedDates, setOccupiedDates] = useState({});
@@ -34,6 +36,8 @@ const Layout = ({ children }) => {
     console.log('Instrumentos:', instrumentos);
     console.log('Occupied Dates:', occupiedDates);
     // Lógica para filtrar instrumentos basado en searchTerm, startDate, endDate
+    setSearchTerm(searchTerm);
+    setDateRange([startDate, endDate]);
     const filteredInstruments = instrumentos.filter(instrumento => {
       const dates = occupiedDates[instrumento.id] || [];
       return dates.every(([start, end]) => {
@@ -48,12 +52,36 @@ const Layout = ({ children }) => {
     console.log("search", searchResults)
   };
   console.log("search carga y filtra bien los instrumentos", searchResults)
+
+  const handleClearFilters = () => {
+    setSearchTerm('');
+    setDateRange([null, null]);
+    setSearchResults([]);
+  };
+
   return (
     <>
       <Navbar />
       <div>
-        {showHeroContent && <HeroContent onSearch={handleSearch} />}
-        {showHeroContent ? <Home searchResults={searchResults} /> : children}
+        {showHeroContent && (
+          <HeroContent
+            onSearch={handleSearch}
+            searchTerm={searchTerm}
+            dateRange={dateRange}
+            onClearFilters={handleClearFilters}
+          />
+        )}
+        {showHeroContent ? (
+          <Home
+            searchResults={searchResults}
+            searchTerm={searchTerm}
+            startDate={dateRange[0]}
+            endDate={dateRange[1]}
+            onClearFilters={handleClearFilters}
+          />
+        ) : (
+          children
+        )}
       </div>
       <Footer />
     </>
