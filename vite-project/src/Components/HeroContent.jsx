@@ -17,10 +17,17 @@ const HeroContent = ({ onSearch, searchTerm, dateRange, onClearFilters }) => {
   };
 
   const handleClear = () => {
+    //puede utilizarse para limpiar los filtros desde el HeroContent
     setLocalSearchTerm('');
     setLocalDateRange([null, null]);
     onClearFilters();
   };
+
+  const isDateDisabled = (date) => {
+    const today = new Date();
+    // Deshabilitar fechas anteriores a hoy
+    return date < today.setHours(0, 0, 0, 0);
+};
 
   return (
     <div className="hero-content text-center py-5">
@@ -47,18 +54,21 @@ const HeroContent = ({ onSearch, searchTerm, dateRange, onClearFilters }) => {
                 endDate={endDate}
                 onChange={(update) => setLocalDateRange(update)}
                 dateFormat="dd/MM/yyyy"
+                filterDate={(date) => !isDateDisabled(date)}
                 className="form-control"
                 placeholderText="Selecciona rango de fechas"
                 isClearable
+                minDate={new Date()} // Esto asegura que solo se puedan seleccionar fechas desde hoy en adelante
+
               />
             </div>
             <div className="col-lg-4 col-md-6">
               <button className="btn btn-primary w-100" onClick={handleSearch}>
                 Buscar
               </button>
-              <button className="btn btn-secondary w-100 mt-2" onClick={handleClear}>
+              {/* <button className="btn btn-secondary w-100 mt-2" onClick={handleClear}>
                 Limpiar filtros
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

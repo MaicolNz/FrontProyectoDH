@@ -5,9 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const HomeBusqueda = ({ filteredInstruments, onClearFilters }) => {
   return (
     <div>
-      <h2>Filtrados</h2>
+      <h2>Resultados</h2>
       <button className="btn btn-secondary mb-3" onClick={onClearFilters}>
-        Limpiar filtros
+        Quitar filtros
       </button>
       <div className="row">
         {filteredInstruments.length > 0 ? (
