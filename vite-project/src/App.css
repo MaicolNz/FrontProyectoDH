@@ -52,6 +52,26 @@
   max-height: max-content;
   width: 100%;
 }
+/*Buscador*/
+.react-datepicker-wrapper{
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-title {
+  color: var(--color-white);
+  text-align: left;
+  margin-bottom: 20px;
+}
+.form-control.search-bar  {
+  height: 100% !important;
+}
+.react-datepicker-wrapper{
+  height: 100%;
+}
+.react-datepicker__input-container{
+  height: 100%;
+}
 
 
 .hero-content h1 {
@@ -268,6 +288,24 @@ input[type="email"], input[type="password"], .form-check-label, input[type="text
   background-color: var(--color-green-gray) !important;
   border-color: var(--color-green-gray) !important;
 }
+
+/* Boton de whatsapp*/
+
+.whatsapp-button {
+  position: fixed; 
+  right: 40px;
+  bottom: 160px;
+  z-index: 1000; 
+}
+
+
+.fa-whatsapp {
+  color: var(--color-success);
+  font-size: 36px;
+  cursor: pointer;
+}
+
+
 
 /* TABLET */
 @media (max-width: 768px) {

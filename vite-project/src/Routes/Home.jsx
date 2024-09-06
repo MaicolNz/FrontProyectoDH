@@ -13,6 +13,11 @@ const Home = () => {
         setSearchPerformed(true);
     };
 
+
+    const handleWhatsAppClick = () => {
+        window.open('https://wa.me/+59896422000', '_blank');
+    };
+
     return (
         <div className="container">
             {searchPerformed ? (
@@ -20,6 +25,14 @@ const Home = () => {
             ) : (
                 <HomeDestacados />
             )}
+
+            <a
+                id="whatsapp-button"
+                className="whatsapp-button"
+                onClick={handleWhatsAppClick}
+            >
+                <i className="fab fa-whatsapp"></i>
+            </a>
         </div>
     );
 };

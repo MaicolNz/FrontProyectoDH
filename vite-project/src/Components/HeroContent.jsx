@@ -34,16 +34,16 @@ const HeroContent = ({ onSearch }) => {
                 {/* Barra de búsqueda */}
                 <div className="search-bar mt-2">
                     <div className="row justify-content-center">
-                        <div className="col-md-3 mb-2">
+                        <div className="col-lg-4 col-md-6">
                             <input
                                 type="text"
-                                className="form-control"
+                                className="form-control search-bar"
                                 placeholder="Buscar instrumento"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                             />
                         </div>
-                        <div className="col-md-6 mb-2">
+                        <div className="col-lg-4 col-md-6">
                             <DatePicker
                                 selectsRange
                                 startDate={startDate}
@@ -51,12 +51,12 @@ const HeroContent = ({ onSearch }) => {
                                 onChange={(update) => setDateRange(update)}
                                 dateFormat="dd/MM/yyyy"
                                 filterDate={(date) => !isDateOccupied(date)}
-                                className="form-control"
+                                className="form-control search-bar"
                                 placeholderText="Selecciona rango de fechas"
                                 isClearable
                             />
                         </div>
-                        <div className="col-md-2 mb-2">
+                        <div className="col-lg-4 col-md-6">
                             <button className="btn btn-primary w-100" onClick={handleSearch}>
                                 Buscar
                             </button>
