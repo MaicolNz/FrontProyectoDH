@@ -55,6 +55,7 @@ const Login = () => {
 
         if (response.ok) {
           const userData = await response.json();
+          console.log('Datos del usuario:', userData);
           login(userData.usuario); // Pasa los datos del usuario al contexto
           setLoginMessage('Inicio de sesión exitoso');
           navigate('/');

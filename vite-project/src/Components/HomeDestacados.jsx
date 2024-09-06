@@ -5,7 +5,7 @@ import categoriasPermitidas from '../Components/utils/categoriasPermitidas';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Pagination } from 'react-bootstrap';
 
-const Home = () => {
+const HomeDestacados = () => {
     const [shuffledInstruments, setShuffledInstruments] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -135,4 +135,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default HomeDestacados;

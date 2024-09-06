@@ -3,8 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import instruments from '../../Components/utils/instruments.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import OccupiedDatesManager from '../../Components/OccupiedDatesManager.jsx'; // Ajusta la ruta según sea necesario
-import { Modal, Button } from 'react-bootstrap'; // Importa los componentes de Bootstrap para el modal
+import OccupiedDatesManager from '../../Components/OccupiedDatesManager.jsx'; 
+import { Modal, Button } from 'react-bootstrap'; 
 
 const Detail = () => {
     const { id } = useParams();
@@ -14,7 +14,7 @@ const Detail = () => {
     const [selectedStartDate, setSelectedStartDate] = useState(null);
     const [selectedEndDate, setSelectedEndDate] = useState(null);
     const [showModal, setShowModal] = useState(false);
-    const [showConfirmationModal, setShowConfirmationModal] = useState(false); // Nuevo estado
+    const [showConfirmationModal, setShowConfirmationModal] = useState(false); 
 
     const handleClick = () => {
         navigate(`/`);
@@ -70,7 +70,7 @@ const Detail = () => {
             <div className="container bg-color py-3">
                 <div className="d-flex justify-content-end">
                     <img
-                        src="/images/icons/iconBack.svg" // Cambia esta ruta según la estructura de tu proyecto
+                        src="/images/icons/iconBack.svg" 
                         alt="Volver atrás"
                         onClick={handleClick}
                         style={{ cursor: 'pointer' }}

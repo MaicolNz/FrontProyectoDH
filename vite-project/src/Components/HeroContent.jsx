@@ -3,23 +3,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const HeroContent = () => {
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
-    const [occupiedDates, setOccupiedDates] = useState([
-        new Date(2024, 8, 5), // Ejemplo de fechas ocupadas
-        new Date(2024, 8, 10),
-        new Date(2024, 8, 15),
-    ]);
-
+const HeroContent = ({ onSearch }) => {
+    const [dateRange, setDateRange] = useState([null, null]);
+    const [startDate, endDate] = dateRange;
+    const [searchTerm, setSearchTerm] = useState(""); // Estado para el término de búsqueda
     const isDateOccupied = (date) => {
-        return occupiedDates.some((occupiedDate) => {
-            return (
-                date.getFullYear() === occupiedDate.getFullYear() &&
-                date.getMonth() === occupiedDate.getMonth() &&
-                date.getDate() === occupiedDate.getDate()
-            );
-        });
+        // Aquí iría la lógica para verificar si una fecha está ocupada
+    };
+    const handleSearch = () => {
+        // Llamar a la función de búsqueda pasada como prop
+        onSearch({ searchTerm, startDate, endDate });
     };
 
     return (
@@ -33,43 +26,38 @@ const HeroContent = () => {
                     </h1>
                 </div>
 
+                {/* Título pequeño antes de la barra de búsqueda */}
+                <div className="search-title mt-4">
+                    <h5 style={{ color: 'white' }}>Reserva tu instrumento</h5>
+                </div>
+
                 {/* Barra de búsqueda */}
-                <div className="search-bar mt-4">
+                <div className="search-bar mt-2">
                     <div className="row justify-content-center">
                         <div className="col-md-3 mb-2">
-                            <select className="form-select" defaultValue="">
-                                <option value="" disabled>
-                                    Instrumento
-                                </option>
-                                <option value="cuerda">Cuerda</option>
-                                <option value="teclado">Teclado</option>
-                                <option value="viento">Viento</option>
-                                <option value="percusion">Percusión</option>
-                                <option value="accesorios">Accesorios</option>
-                            </select>
-                        </div>
-                        <div className="col-md-3 mb-2">
-                            <DatePicker
-                                selected={startDate}
-                                onChange={(date) => setStartDate(date)}
-                                dateFormat="dd/MM/yyyy"
-                                filterDate={(date) => !isDateOccupied(date)}
+                            <input
+                                type="text"
                                 className="form-control"
-                                placeholderText="Fecha de inicio"
+                                placeholder="Buscar instrumento"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
                             />
                         </div>
-                        <div className="col-md-3 mb-2">
+                        <div className="col-md-6 mb-2">
                             <DatePicker
-                                selected={endDate}
-                                onChange={(date) => setEndDate(date)}
+                                selectsRange
+                                startDate={startDate}
+                                endDate={endDate}
+                                onChange={(update) => setDateRange(update)}
                                 dateFormat="dd/MM/yyyy"
                                 filterDate={(date) => !isDateOccupied(date)}
                                 className="form-control"
-                                placeholderText="Fecha de entrega"
+                                placeholderText="Selecciona rango de fechas"
+                                isClearable
                             />
                         </div>
                         <div className="col-md-2 mb-2">
-                            <button className="btn btn-primary w-100">
+                            <button className="btn btn-primary w-100" onClick={handleSearch}>
                                 Buscar
                             </button>
                         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Register = () => {
@@ -27,8 +27,7 @@ const Register = () => {
 
     if (!emailError && email && nombre && apellido && password) {
       try {
-        // const response = await fetch('http://localhost:8080/api/usuarios', {
-        const response = await fetch('http://localhost:8080/auth/register ', {
+        const response = await fetch('http://localhost:8080/auth/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -43,23 +42,22 @@ const Register = () => {
 
         if (response.ok) {
           console.log('Usuario registrado exitosamente');
-          // Aquí puedes redirigir o mostrar un mensaje de éxito
+          navigate('/login');  // Redirigir a la página de inicio de sesión
         } else {
           const errorData = await response.json();
           console.error('Error en el registro:', errorData);
-          // Aquí puedes manejar errores de la API
         }
       } catch (error) {
         console.error('Error en la solicitud:', error);
-        // Aquí puedes manejar errores de red
       }
     } else {
       console.log('Por favor, corrige los errores antes de enviar.');
     }
   };
 
+
   const handleGoBack = () => {
-    navigate('/'); 
+    navigate('/');
   };
 
   return (
