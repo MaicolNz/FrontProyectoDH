@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 const UserMenu = () => {
   const { isLoggedIn, logout, user } = useAuth();
   // Verifica si el rol del usuario es ADMIN
-  const isAdmin = user ? user.role === 'ADMIN' : false;
+  const isAdmin = user ? user.role[0] === 'ADMIN' : false;
   console.log(user)
 
   return (

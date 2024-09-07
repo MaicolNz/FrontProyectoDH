@@ -4,8 +4,10 @@ import { useAuth } from '../context/AuthContext';
 
 const UserMenu = () => {
   const { isLoggedIn, logout, user } = useAuth();
-  const isAdmin = user ? user.esAdmin : false;
-  
+  // Verifica si el rol del usuario es ADMIN
+  const isAdmin = user ? user.role === 'ADMIN' : false;
+  console.log(user)
+
   return (
     <>
       {isLoggedIn ? (
@@ -18,8 +20,10 @@ const UserMenu = () => {
           <NavDropdown.Divider />
           <NavDropdown.Item onClick={logout}>Cerrar sesión</NavDropdown.Item>
           {isAdmin && (
-            <><NavDropdown.Divider />
-            <NavDropdown.Item href="/admin">Administrar</NavDropdown.Item></>
+            <>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/admin">Administrar</NavDropdown.Item>
+            </>
           )}
         </NavDropdown>
       ) : (
