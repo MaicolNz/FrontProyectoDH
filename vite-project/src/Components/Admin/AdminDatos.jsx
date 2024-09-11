@@ -25,7 +25,7 @@ const MisDatos = () => {
         correo: user.correo,
         direccion: user.direccion || '',
         contraseña: '', // Contraseña vacía para edición
-        rol: user.esAdmin ? 'Administrador' : 'Usuario'
+        rol: user.role[0] ? 'Administrador' : 'Usuario'
       });
       setOriginalPassword(user.contraseña); // Guardar la contraseña original
     }
