@@ -2,7 +2,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-import { InstrumentProvider } from './context/InstrumentContext';
 import Layout from './Layout/Layout';
 import Home from './Routes/Home';
 import Detail from './Routes/Detail/Detail';
@@ -11,13 +10,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Login from './Components/Login';
 import Register from './Components/Register';
-import AdminPanel from './Routes/AdminPanel';
 import AdminRoutes from './Routes/AdminRoutes';
 
 const App = () => {
   return (
     <AuthProvider>
-      <InstrumentProvider>
         <Router>
           <Layout>
             <Routes>
@@ -30,7 +27,6 @@ const App = () => {
             </Routes>
           </Layout>
         </Router>
-      </InstrumentProvider>
     </AuthProvider>
   );
 };

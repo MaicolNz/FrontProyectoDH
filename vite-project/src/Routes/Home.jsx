@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import HomeDestacados from '../Components/HomeDestacados';
 import HomeBusqueda from '../Components/HomeBusqueda';
 
