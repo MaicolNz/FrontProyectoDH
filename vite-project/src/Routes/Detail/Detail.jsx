@@ -15,6 +15,7 @@ const Detail = () => {
     const [selectedEndDate, setSelectedEndDate] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [showConfirmationModal, setShowConfirmationModal] = useState(false); 
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleClick = () => {
         navigate(`/`);
@@ -27,6 +28,7 @@ const Detail = () => {
     const handleDatesSelected = (start, end) => {
         setSelectedStartDate(start);
         setSelectedEndDate(end);
+        setErrorMessage(''); // Resetea el mensaje de error si se seleccionan fechas
     };
 
     const handleReserve = () => {
@@ -34,32 +36,33 @@ const Detail = () => {
     };
 
     const handleConfirmReservation = () => {
-        setShowModal(false); // Oculta el primer modal
-        setShowConfirmationModal(true); 
-        // Aquí puedes agregar la lógica para confirmar la reserva (enviar al backend, etc.)
-        console.log('Reserva confirmada:', selectedStartDate, selectedEndDate);
+        if (!selectedStartDate || !selectedEndDate) {
+            setErrorMessage('Debe seleccionar las fechas de alquiler');
+        } else {
+            setShowModal(false); // Oculta el primer modal
+            setShowConfirmationModal(true); 
+            console.log('Reserva confirmada:', selectedStartDate, selectedEndDate);
+        }
     };
 
     if (!instrumento) {
         return <div>Instrumento no encontrado</div>;
     }
 
-    // Obtén la primera imagen del array de imágenes
-    const firstImage = instrumento.imagenes[0] || '/images/default-image.jpg'; // Ruta por defecto en caso de que no haya imagen
+    const firstImage = instrumento.imagenes[0] || '/images/default-image.jpg'; 
 
     const getIconForKey = (key) => {
         switch (key) {
-            case 'material de construccion': return 'tools'; // Icono de caja para material
-            case 'portabilidad': return 'suitcase'; // Icono de maleta para portabilidad
-            case 'tecnologia': return 'cogs'; // Icono de engranajes para tecnología
-            case 'clasificacion': return 'star'; // Icono de estrella para clasificación
-            case 'tamaño': return 'ruler'; // Icono de regla para tamaño
-            case 'peso': return 'weight'; // Icono de peso para peso
-            default: return 'info-circle'; // Icono por defecto
+            case 'material de construccion': return 'tools';
+            case 'portabilidad': return 'suitcase';
+            case 'tecnologia': return 'cogs';
+            case 'clasificacion': return 'star';
+            case 'tamaño': return 'ruler';
+            case 'peso': return 'weight';
+            default: return 'info-circle';
         }
     };
 
-    // Función para formatear la fecha en "día - mes - año"
     const formatDate = (date) => {
         if (!date) return 'No seleccionada';
         return date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
@@ -145,6 +148,7 @@ const Detail = () => {
                     <p><strong>Instrumento:</strong> {instrumento.nombre}</p>
                     <p><strong>Fecha de Inicio:</strong> {formatDate(selectedStartDate)}</p>
                     <p><strong>Fecha de Fin:</strong> {formatDate(selectedEndDate)}</p>
+                    {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={() => setShowModal(false)}>
@@ -157,7 +161,7 @@ const Detail = () => {
             </Modal>
 
             {/* Segundo Modal de confirmación */}
-            <Modal show={showConfirmationModal} onHide={() => setShowConfirmationModal(false)}>
+            <Modal show={showConfirmationModal} onHide={() => {}}>
                 <Modal.Header closeButton>
                     <Modal.Title>Reserva Confirmada</Modal.Title>
                 </Modal.Header>
@@ -168,8 +172,11 @@ const Detail = () => {
                     <p><strong>Fecha de Fin:</strong> {formatDate(selectedEndDate)}</p>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={() => setShowConfirmationModal(false)}>
-                        Cerrar
+                    <Button variant="primary" onClick={() => {
+                        setShowConfirmationModal(false);
+                        navigate('/');
+                    }}>
+                        Volver al inicio
                     </Button>
                 </Modal.Footer>
             </Modal>
