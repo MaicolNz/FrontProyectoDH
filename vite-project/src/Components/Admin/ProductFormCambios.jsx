@@ -1,10 +1,12 @@
+
+
 import React, { useState, useEffect } from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 import categoriasPermitidas from '../utils/categoriasPermitidas'; // Ajusta la ruta según donde esté tu archivo JSON
 
-const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editProductId,productoToEdit, setEditProductId }) => {
+const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editProductId, setEditProductId }) => {
     const [nombre, setNombre] = useState('');
-    const [precioDiario, setPrecioDiario] = useState('');
+    const [precio, setPrecio] = useState('');
     const [categoria, setCategoria] = useState('');
     const [detalle, setDetalle] = useState('');
     const [detalleview, setDetalleview] = useState('');
@@ -18,114 +20,70 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
         "peso": ''
     });
 
-    const token = localStorage.getItem('token'); // Obtener el token JWT
-
-    // useEffect(() => {
-    //     if (editProductId !== null) {
-    //         const product = productos.find(p => p.id === editProductId);
-    //         if (product) {
-    //             setNombre(product.nombre);
-    //             setPrecio(product.precio);
-    //             setCategoria(product.categoria);
-    //             setDetalle(product.detalle);
-    //             setDetalleview(product.detalleview);
-    //             setImagenes(product.imagenes);
-    //             setCaracteristicas(product.caracteristicas);
-    //         }
-    //     }
-    // }, [editProductId, productos]);
     useEffect(() => {
-        if (productoToEdit) {
-            setNombre(productoToEdit.nombre);
-            setPrecioDiario(productoToEdit.precioDiario);
-            setCategoria(productoToEdit.categoria);
-            setDetalle(productoToEdit.detalle);
-            setDetalleview(productoToEdit.detalleview);
-            setImagenes(productoToEdit.imagenes || ['', '', '', '']);
-            // setCaracteristicas(product.caracteristicas);
-        } else {
-            resetForm();
+        if (editProductId !== null) {
+            const product = productos.find(p => p.id === editProductId);
+            if (product) {
+                setNombre(product.nombre);
+                setPrecio(product.precio);
+                setCategoria(product.categoria);
+                setDetalle(product.detalle);
+                setDetalleview(product.detalleview);
+                setImagenes(product.imagenes);
+                setCaracteristicas(product.caracteristicas);
+            }
         }
-    }, [productoToEdit]);
+    }, [editProductId, productos]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
         const newProduct = {
             nombre,
             categoria,
-            precioDiario: parseFloat(precioDiario),
+            precioDiario: parseFloat(precio),
             imagenes,
             detalle,
             detalleview,
         };
-
-
+    
+        const token = localStorage.getItem('token'); // Obtener el token JWT
+    
         // Verificar si el token existe
         if (!token) {
             console.error('No se encontró un token en localStorage');
             return;
         }
-
+    
         // Mostrar el token y el JSON que se enviará en la solicitud
         console.log('Token enviado:', token);
         console.log('Producto enviado:', JSON.stringify(newProduct));
-
+    
         try {
-            let response;
-            if (editProductId) {
-                // Si estamos editando, enviamos un PUT request
-                response = await fetch('http://localhost:8080/api/admin/instrumento/modificarInstrumento/${editProductId}', {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}` // Enviar el token en el encabezado
-                    },
-                    body: JSON.stringify(newProduct), // Verifica el cuerpo de la solicitud
-                });
+            const response = await fetch('http://localhost:8080/api/admin/instrumento/registrarInstrumento', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Enviar el token en el encabezado
+                },
+                body: JSON.stringify(newProduct), // Verifica el cuerpo de la solicitud
+            });
+    
+            if (response.ok) {
+                const result = await response.json();
+                setProductos([...productos, result]);
+                resetForm();
+                setShowModal(false);
             } else {
-                // Si estamos agregando uno nuevo, enviar un POST request (puedes modificar esta parte si es necesario)
-                response = await fetch('http://localhost:8080/api/admin/instrumento/registrarInstrumento', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify(newProduct)
-                });
+                console.error('Error al registrar el producto', response.status);
             }
-
-            // if (response.ok) {
-            //     const result = await response.json();
-            //     setProductos([...productos, result]);
-            //     resetForm();
-            //     setShowModal(false);
-            // } else {
-            //     console.error('Error al registrar el producto', response.status);
-            // }
-            if (!response.ok) {
-                throw new Error('Error en la solicitud');
-            }
-
-            const data = await response.json();
-
-            if (editProductId) {
-                // Actualizar el producto en la lista de productos
-                setProductos(productos.map(producto => producto.id === editProductId ? data : producto));
-            } else {
-                // Agregar el nuevo producto a la lista
-                setProductos([...productos, data]);
-            }
-
-            setShowModal(false);
-            resetForm();
         } catch (error) {
             console.error('Error en la solicitud:', error);
         }
     };
-
-
-
+    
+    
+    
 
     const handleImageChange = (index, value) => {
         const newImagenes = [...imagenes];
@@ -139,7 +97,7 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
 
     const resetForm = () => {
         setNombre('');
-        setPrecioDiario('');
+        setPrecio('');
         setCategoria('');
         setDetalle('');
         setDetalleview('');
@@ -157,7 +115,7 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
     };
 
     return (
-        <Modal show={showModal} onHide={() => { setShowModal(false); resetForm(); }}>
+        <Modal show={showModal} onHide={resetForm}>
             <Modal.Header closeButton>
                 <Modal.Title>{editProductId ? 'Editar Producto' : 'Agregar Producto'}</Modal.Title>
             </Modal.Header>
@@ -190,8 +148,8 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
                         <Form.Control 
                             type="number" 
                             placeholder="Ingrese el precio del producto" 
-                            value={precioDiario} 
-                            onChange={(e) => setPrecioDiario(e.target.value)}
+                            value={precio} 
+                            onChange={(e) => setPrecio(e.target.value)}
                             required
                             className="form-control"
                         />

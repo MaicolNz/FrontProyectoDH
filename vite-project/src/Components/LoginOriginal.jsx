@@ -57,8 +57,6 @@ const Login = () => {
           const userData = await response.json();
           console.log('Datos del usuario:', userData);
 
-          const token = userData.token;
-          localStorage.setItem('token', token);
           // aca habria que deserializar el jwt y pasarlo al contexto ya "limpio" con la libreria correspondiente
            // Deserializa el JWT
       const decodedData = jwtDecode(userData.token);
