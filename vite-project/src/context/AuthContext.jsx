@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const AuthContext = createContext();
 
@@ -10,6 +11,7 @@ export const AuthProvider = ({ children }) => {
   });
 
   const login = (userData) => {
+    
     setUser(userData);
     setIsLoggedIn(true);
     localStorage.setItem('isLoggedIn', 'true');
@@ -52,6 +54,8 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
+    console.log("storedUser en ls" + storedUser)
+
     if (storedUser) {
       try {
         setUser(JSON.parse(storedUser));
@@ -68,5 +72,10 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 
 export const useAuth = () => useContext(AuthContext);
