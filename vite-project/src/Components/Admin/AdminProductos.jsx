@@ -28,11 +28,11 @@ const AdminProductos = () => {
         // Fetch data from the API instead of using JSON file
         const fetchProductos = async () => {
             try {
-                const response = await fetch('http://localhost:8080/api/admin/instrumentos', {
+                const response = await fetch('http://localhost:8080/instrumentos', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}` // Enviar el token en el encabezado
+                        // 'Authorization': `Bearer ${token}` // Enviar el token en el encabezado
                     },
                 });
 

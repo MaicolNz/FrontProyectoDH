@@ -8,10 +8,10 @@ const AdminUsuarios = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(1);
 
-    const fetchUsuarios = async () => {
+    const fetchUsuarios = async (page = 0, size = 8) => {
         try {
             // const response = await fetch(`http://localhost:8080/api/usuarios/paginated?page=${page}&size=${size}`);
-            const response = await fetch(`http://localhost:8080/api/admin/usuarios`);
+            const response = await fetch(`http://localhost:8080/api/admin/usuarios/paginated?page=${page}&size=${size}`);
             const data = await response.json();
             setUsuarios(data.content);
             setTotalPages(data.totalPages);
