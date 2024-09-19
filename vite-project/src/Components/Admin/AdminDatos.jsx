@@ -230,7 +230,7 @@ const MisDatos = () => {
         apellido: user.apellido,
         correo: user.sub,  // 'sub' sigue siendo el correo electrónico
         direccion: user.direccion || '',  // Si no tiene dirección, ponemos cadena vacía
-        telefono: user.celular || '',  // Si no tiene dirección, ponemos cadena vacía
+        celular: user.celular || '',  // Si no tiene dirección, ponemos cadena vacía
         contraseña: '', // Contraseña vacía para permitir la edición
         rol: user.role[0] === 'ADMINISTRADOR' ? 'Administrador' : 'Usuario'
       });
@@ -251,6 +251,15 @@ const MisDatos = () => {
         console.error('ID de usuario no encontrado');
         return;
       }
+
+
+      //console.log(user);
+
+      console.log(userData);
+      
+
+     // console.log(user.celular);
+      
   
       // Preparar el cuerpo de la solicitud, excluyendo la contraseña si no ha cambiado
       const body = {
@@ -259,7 +268,7 @@ const MisDatos = () => {
         apellido: userData.apellido,
         correo: userData.correo,
         direccion: userData.direccion,
-        telefono: userData.telefono,
+        celular: userData.celular,
         rol: userData.rol
       };
   
@@ -357,8 +366,8 @@ const MisDatos = () => {
                 <Form.Label>Teléfono</Form.Label>
                 <Form.Control
                   type="text"
-                  name="telefono"
-                  value={userData.telefono}
+                  name="celular"
+                  value={userData.celular}
                   onChange={handleChange}
                   readOnly={!isEditing}
                 />
