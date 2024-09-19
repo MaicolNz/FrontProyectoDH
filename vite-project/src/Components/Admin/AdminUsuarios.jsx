@@ -119,17 +119,17 @@ const AdminUsuarios = () => {
                     <tbody>
                         {usuarios.length > 0 ? (
                             usuarios.map((usuario) => (
-                                <tr key={usuario.id_usuario}>
-                                    <td>{usuario.id_usuario}</td>
+                                <tr key={usuario.id}>
+                                    <td>{usuario.id}</td>
                                     <td>{usuario.nombre}</td>
                                     <td>{usuario.apellido}</td>
                                     <td>{usuario.correo}</td>
-                                    <td>{usuario.esAdmin ? 'Admin' : 'Usuario'}</td>
+                                    <td>{usuario.role ? 'Administrador' : 'Usuario'}</td>
                                     <td>
-                                        {usuario.esAdmin ? (
+                                        {usuario.role ? (
                                             <Button 
                                                 variant="warning" 
-                                                onClick={() => handleRemoveAdmin(usuario.id_usuario)} 
+                                                onClick={() => handleRemoveAdmin(usuario.id)} 
                                                 className="me-2"
                                             >
                                                 -
@@ -137,7 +137,7 @@ const AdminUsuarios = () => {
                                         ) : (
                                             <Button 
                                                 variant="success" 
-                                                onClick={() => handleAddAdmin(usuario.id_usuario)} 
+                                                onClick={() => handleAddAdmin(usuario.id)} 
                                                 className="me-2"
                                             >
                                                 +
@@ -145,7 +145,7 @@ const AdminUsuarios = () => {
                                         )}
                                         <Button 
                                             variant="danger" 
-                                            onClick={() => handleDelete(usuario.id_usuario)}
+                                            onClick={() => handleDelete(usuario.id)}
                                         >
                                             Eliminar
                                         </Button>
