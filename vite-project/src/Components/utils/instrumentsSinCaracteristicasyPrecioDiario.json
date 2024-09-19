@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "nombre": "Guitarra Clásica",
+        "precioDiario": 5,
+        "categoria": "Cuerda",
+        "detalle": "Su sonido sorprende por su calidad.",
+        "detalleview": "El modelo C40 es altamente valorado por su excelente relación calidad-precio, sonido excepcional y confort, ideal para principiantes y profesores.",
+        "imagenes": [
+            "/images/jpeg/GuitarraYamaha.jpeg",
+            "/images/jpeg/GuitarraYamaha1.jpeg",
+            "/images/jpeg/GuitarraYamaha2.jpeg",
+            ""
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Piano Acústico",
+        "precioDiario": 5,
+        "categoria": "Teclado",
+        "detalle": "Piano de cola Yamaha GB1K-PE.",
+        "detalleview": "El Yamaha b3, con sistema SILENT Piano™ SC3, ofrece un diseño accesible con 88 teclas, materiales de calidad y conectividad USB, sin auriculares incluidos.",
+        "imagenes": [
+            "/images/jpeg/PianoYamaha.jpeg",
+            "/images/jpeg/PianoYamaha1.jpeg",
+            "/images/jpeg/PianoYamaha2.jpeg",
+            ""
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Violin Cervini",
+        "precioDiario": 5,
+        "categoria": "Cuerda",
+        "detalle": "Violín Cervini HV50, Ideal para estudio.",
+        "detalleview": "El Cervini By Cremona presenta una tapa de abeto y diapasón de madera, con mentonera estilo Stradivarius, acabado rojo tradicional y estuche de espuma.",
+        "imagenes": [
+            "/images/jpeg/ViolinCervini.jpeg",
+            "/images/jpeg/ViolinCervini1.jpeg",
+            "/images/jpeg/ViolinCervini2.jpeg",
+            ""
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Saxo Memphis",
+        "precioDiario": 4,
+        "categoria": "Viento",
+        "detalle": "Fina terminación dorada ideal para estudiantes.",
+        "detalleview": "El saxofón Memphis es ideal para principiantes, ofreciendo un buen equilibrio entre calidad y precio, con un kit completo para iniciarse en la música.",
+        "imagenes": [
+            "/images/jpeg/SaxoMemphis.jpeg",
+            "/images/jpeg/SaxoMemphis1.jpeg",
+            "/images/jpeg/SaxoMemphis2.jpeg",
+            ""
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "Bongo Memphis",
+        "precioDiario": 6,
+        "categoria": "Percusión",
+        "detalle": "Construído en madera resistente. Fina terminación.",
+        "detalleview": "Los bongos Memphis ZHB1011 son una opción básica para iniciarse en la percusión, con un diseño robusto y sonido adecuado para práctica y música casual.",
+        "imagenes": [
+            "/images/jpeg/BongoMemphis.jpeg",
+            "/images/jpeg/BongoMemphis1.jpeg",
+            "/images/jpeg/BongoMemphis2.jpeg",
+            ""
+        ]
+    },
+    {
+        "id": 6,
+        "nombre": "Bajo Eléctrico",
+        "precioDiario": 4,
+        "categoria": "Cuerda",
+        "detalle": "Electrónica activa polivalente y poderosa.",
+        "detalleview": "El Ibanez GSR180 destaca por su diseño elegante, tono dulce, mástil de arce y pastillas DXJ, ofreciendo una gran calidad en su rango de precios.",
+        "imagenes": [
+            "/images/jpeg/BajoIbanez.jpeg",
+            "/images/jpeg/BajoIbanez1.jpeg",
+            "/images/jpeg/BajoIbanez2.jpeg",
+            ""
+        ]
+    },
+    {
+        "id": 7,
+        "nombre": "Ukelele Mahalo",
+        "precioDiario": 3,
+        "categoria": "Cuerda",
+        "detalle": "Hay uno que está hecho especialmente para ti.",
+        "detalleview": "Los ukeleles Mahalo vienen en varios colores vibrantes, con funda de transporte, y ofrecen una excelente relación calidad-precio para músicos de todos los niveles.",
+        "imagenes": [
+            "/images/jpeg/UkeleleMahalo.jpeg",
+            "/images/jpeg/UkeleleMahalo1.jpeg",
+            "/images/jpeg/UkeleleMahalo2.jpeg",
+            ""
+        ]
+    },
+    {
+        "id": 8,
+        "nombre": "Trompeta Lincoln",
+        "precioDiario": 10,
+        "categoria": "Viento",
+        "detalle": "Material de latón y boquilla de acero inoxidable.",
+        "detalleview": "La trompeta Lincoln, hecha de latón con acabados de alta calidad, ofrece un sonido claro y potente, ideal para estudiantes y músicos avanzados.",
+        "imagenes": [
+            "/images/jpeg/TrompetaLincoln.jpeg",
+            "/images/jpeg/TrompetaLincoln1.jpeg",
+            "/images/jpeg/TrompetaLincoln2.jpeg",
+            ""
+        ]
+    },
+    {
+        "id": 9,
+        "nombre": "Batería Mapex",
+        "precioDiario": 12,
+        "categoria": "Percusión",
+        "detalle": "5 cuerpos. Incluye asiento, platillos y atriles.",
+        "detalleview": "La batería Tornado de Mapex, económica y completa con asiento, platillos y atriles, es ideal para estudiantes que buscan calidad a buen precio.",
+        "imagenes": [
+            "/images/jpeg/BateriaTornado.jpeg",
+            "/images/jpeg/BateriaTornado1.jpeg",
+            "/images/jpeg/BateriaTornado2.jpeg",
+            ""
+        ]
+    },
+    {
+        "id": 10,
+        "nombre": "Acordeón Memphis",
+        "precioDiario": 7,
+        "categoria": "Teclado",
+        "detalle": "Ideal para músicos de todos los niveles.",
+        "detalleview": "El acordeón Memphis de 80 bajos ofrece un sonido versátil con 37 teclas, 7 voces y estuche incluido, ideal para músicos de todos los niveles.",
+        "imagenes": [
+            "/images/jpeg/AcordeonMemphis.jpeg",
+            "/images/jpeg/AcordeonMemphis1.jpeg",
+            "/images/jpeg/AcordeonMemphis2.jpeg",
+            ""
+        ]
+    }
+]

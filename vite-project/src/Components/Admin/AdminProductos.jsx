@@ -58,8 +58,24 @@ const AdminProductos = () => {
         setShowModal(true);
     };
 
-    const handleDelete = (id) => {
-        setProductos(productos.filter(p => p.id !== id));
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:8080/api/admin/instrumento/eliminar/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`, // Enviar el token en el encabezado
+                },
+            });
+
+            if (response.ok) {
+                // Si la eliminación fue exitosa, actualizamos el estado local
+                setProductos(productos.filter(p => p.id !== id));
+            } else {
+                console.error('Error eliminando el producto:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
     };
 
     const handlePageChange = (pageNumber) => {

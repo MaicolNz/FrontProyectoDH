@@ -18,7 +18,7 @@ const ProductoTable = ({ productos, onEdit, onDelete }) => {
                     <tr key={producto.id}>
                         <td>{producto.id}</td>
                         <td>{producto.nombre}</td>
-                        <td>${producto.precio}</td>
+                        <td>${producto.precioDiario}</td>
                         <td>{producto.categoria}</td>
                         <td>
                             <Button 

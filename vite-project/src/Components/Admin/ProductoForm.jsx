@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 import categoriasPermitidas from '../utils/categoriasPermitidas'; // Ajusta la ruta según donde esté tu archivo JSON
 
-const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editProductId,productoToEdit, setEditProductId }) => {
+const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editProductId, productoToEdit, setEditProductId }) => {
     const [nombre, setNombre] = useState('');
     const [precioDiario, setPrecioDiario] = useState('');
     const [categoria, setCategoria] = useState('');
@@ -20,24 +20,10 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
 
     const token = localStorage.getItem('token'); // Obtener el token JWT
 
-    // useEffect(() => {
-    //     if (editProductId !== null) {
-    //         const product = productos.find(p => p.id === editProductId);
-    //         if (product) {
-    //             setNombre(product.nombre);
-    //             setPrecio(product.precio);
-    //             setCategoria(product.categoria);
-    //             setDetalle(product.detalle);
-    //             setDetalleview(product.detalleview);
-    //             setImagenes(product.imagenes);
-    //             setCaracteristicas(product.caracteristicas);
-    //         }
-    //     }
-    // }, [editProductId, productos]);
     useEffect(() => {
         if (productoToEdit) {
             setNombre(productoToEdit.nombre);
-            setPrecioDiario(productoToEdit.precioDiario);
+            setPrecioDiario(productoToEdit.precioDiario || '');
             setCategoria(productoToEdit.categoria);
             setDetalle(productoToEdit.detalle);
             setDetalleview(productoToEdit.detalleview);
@@ -54,12 +40,12 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
         const newProduct = {
             nombre,
             categoria,
-            precioDiario: parseFloat(precioDiario),
+            // precioDiario: parseFloat(precioDiario),
+            precioDiario,
             imagenes,
             detalle,
             detalleview,
         };
-
 
         // Verificar si el token existe
         if (!token) {
@@ -75,7 +61,7 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
             let response;
             if (editProductId) {
                 // Si estamos editando, enviamos un PUT request
-                response = await fetch('http://localhost:8080/api/admin/instrumento/modificarInstrumento/${editProductId}', {
+                response = await fetch(`http://localhost:8080/api/admin/instrumento/modificarInstrumento/${editProductId}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -95,14 +81,6 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
                 });
             }
 
-            // if (response.ok) {
-            //     const result = await response.json();
-            //     setProductos([...productos, result]);
-            //     resetForm();
-            //     setShowModal(false);
-            // } else {
-            //     console.error('Error al registrar el producto', response.status);
-            // }
             if (!response.ok) {
                 throw new Error('Error en la solicitud');
             }
@@ -123,9 +101,6 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
             console.error('Error en la solicitud:', error);
         }
     };
-
-
-
 
     const handleImageChange = (index, value) => {
         const newImagenes = [...imagenes];
@@ -166,9 +141,9 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
                     {editProductId && (
                         <Form.Group controlId="formProductId" className="mb-3">
                             <Form.Label>ID del Producto</Form.Label>
-                            <Form.Control 
-                                type="text" 
-                                value={editProductId} 
+                            <Form.Control
+                                type="text"
+                                value={editProductId}
                                 readOnly
                                 className="form-control"
                             />
@@ -176,21 +151,21 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
                     )}
                     <Form.Group controlId="formNombre" className="mb-3">
                         <Form.Label>Nombre</Form.Label>
-                        <Form.Control 
-                            type="text" 
-                            placeholder="Ingrese el nombre del producto" 
-                            value={nombre} 
+                        <Form.Control
+                            type="text"
+                            placeholder="Ingrese el nombre del producto"
+                            value={nombre}
                             onChange={(e) => setNombre(e.target.value)}
                             required
                             className="form-control"
                         />
                     </Form.Group>
-                    <Form.Group controlId="formPrecio" className="mb-3">
-                        <Form.Label>Precio</Form.Label>
-                        <Form.Control 
-                            type="number" 
-                            placeholder="Ingrese el precio del producto" 
-                            value={precioDiario} 
+                    <Form.Group controlId="formPrecioDiario" className="mb-3">
+                        <Form.Label>Precio Diario</Form.Label>
+                        <Form.Control
+                            type="number"
+                            placeholder="Ingrese el precio del producto"
+                            value={precioDiario}
                             onChange={(e) => setPrecioDiario(e.target.value)}
                             required
                             className="form-control"
@@ -198,9 +173,9 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
                     </Form.Group>
                     <Form.Group controlId="formCategoria" className="mb-3">
                         <Form.Label>Categoría</Form.Label>
-                        <Form.Control 
-                            as="select" 
-                            value={categoria} 
+                        <Form.Control
+                            as="select"
+                            value={categoria}
                             onChange={(e) => setCategoria(e.target.value)}
                             required
                             className="form-control"
@@ -213,22 +188,22 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
                     </Form.Group>
                     <Form.Group controlId="formDetalle" className="mb-3">
                         <Form.Label>Detalle</Form.Label>
-                        <Form.Control 
-                            as="textarea" 
-                            rows={3} 
-                            placeholder="Ingrese los detalles del producto" 
-                            value={detalle} 
+                        <Form.Control
+                            as="textarea"
+                            rows={3}
+                            placeholder="Ingrese los detalles del producto"
+                            value={detalle}
                             onChange={(e) => setDetalle(e.target.value)}
                             className="form-control"
                         />
                     </Form.Group>
                     <Form.Group controlId="formDetalleView" className="mb-3">
                         <Form.Label>Detalle de Vista</Form.Label>
-                        <Form.Control 
-                            as="textarea" 
-                            rows={3} 
-                            placeholder="Ingrese los detalles de vista del producto" 
-                            value={detalleview} 
+                        <Form.Control
+                            as="textarea"
+                            rows={3}
+                            placeholder="Ingrese los detalles de vista del producto"
+                            value={detalleview}
                             onChange={(e) => setDetalleview(e.target.value)}
                             className="form-control"
                         />
@@ -236,10 +211,10 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
                     {[0, 1, 2, 3].map(index => (
                         <Form.Group controlId={`formImagen${index}`} className="mb-3" key={index}>
                             <Form.Label>Imagen {index + 1}</Form.Label>
-                            <Form.Control 
-                                type="text" 
-                                placeholder={`Ingrese la URL de la imagen ${index + 1}`} 
-                                value={imagenes[index]} 
+                            <Form.Control
+                                type="text"
+                                placeholder={`Ingrese la URL de la imagen ${index + 1}`}
+                                value={imagenes[index]}
                                 onChange={(e) => handleImageChange(index, e.target.value)}
                                 className="form-control"
                             />
@@ -248,10 +223,10 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
                     {Object.entries(caracteristicas).map(([key, value]) => (
                         <Form.Group controlId={`form${key.replace(/\s+/g, '')}`} className="mb-3" key={key}>
                             <Form.Label>{key.charAt(0).toUpperCase() + key.slice(1)}</Form.Label>
-                            <Form.Control 
-                                type="text" 
-                                placeholder={`Ingrese ${key}`} 
-                                value={value} 
+                            <Form.Control
+                                type="text"
+                                placeholder={`Ingrese ${key}`}
+                                value={value}
                                 onChange={(e) => handleCaracteristicasChange(key, e.target.value)}
                                 className="form-control"
                             />
