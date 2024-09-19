@@ -232,7 +232,7 @@ const MisDatos = () => {
         direccion: user.direccion || '',  // Si no tiene dirección, ponemos cadena vacía
         celular: user.celular || '',  // Si no tiene dirección, ponemos cadena vacía
         contraseña: '', // Contraseña vacía para permitir la edición
-        rol: user.role[0] === 'ADMINISTRADOR' ? 'Administrador' : 'Usuario'
+        rol: user.role[0] === 'ADMIN' ? 'Administrador' : 'Usuario'
       });
       setOriginalPassword(user.contraseña); // Guardamos la contraseña original
     }

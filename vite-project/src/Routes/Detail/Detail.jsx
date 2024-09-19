@@ -11,6 +11,8 @@ const Detail = () => {
     const instrumento = instruments.find(item => item.id === parseInt(id));
     const navigate = useNavigate();
 
+    const usuarioLocalSt = localStorage.getItem("user")
+
     const [selectedStartDate, setSelectedStartDate] = useState(null);
     const [selectedEndDate, setSelectedEndDate] = useState(null);
     const [showModal, setShowModal] = useState(false);
@@ -21,6 +23,9 @@ const Detail = () => {
         navigate(`/`);
     };
 
+    const handleAuth = () => {
+        navigate("/login")
+    }
     const handleClickView = () => {
         navigate(`/DetailView/${id}`);
     };
@@ -120,12 +125,15 @@ const Detail = () => {
                                 >
                                     Ver más
                                 </button>
-                                <button
-                                    onClick={handleReserve}
-                                    className="btn btn-detail btn-rent"
-                                >
-                                    Iniciar Reserva
-                                </button>
+                              {  usuarioLocalSt ? (
+    <button onClick={handleReserve} className="btn btn-detail btn-rent">
+      Iniciar Reserva
+    </button>
+  ) : (
+    <button onClick={handleAuth}  className="btn btn-detail btn-rent">
+      Iniciar sesión
+    </button>
+  )}
                             </div>
                         </div>
                     </div>

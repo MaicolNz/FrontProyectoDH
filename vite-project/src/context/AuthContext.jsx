@@ -23,6 +23,9 @@ export const AuthProvider = ({ children }) => {
     setIsLoggedIn(false);
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('user');
+    localStorage.removeItem('jwt');
+    localStorage.removeItem('token');
+
   };
 
   const fetchUser = async (userId) => {
