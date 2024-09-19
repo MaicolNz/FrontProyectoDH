@@ -3,21 +3,24 @@ import { Table, Button, Container, Pagination, Row, Col } from 'react-bootstrap'
 import { useAuth } from '../../context/AuthContext';
 
 const AdminUsuarios = () => {
-    const { user, fetchUser, logout } = useAuth(); // Añadido logout
+    const { user, fetchUser, logout } = useAuth();
     const [usuarios, setUsuarios] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(1);
+    const [isLoading, setIsLoading] = useState(true); // Añadido para manejar el estado de carga
 
     const fetchUsuarios = async () => {
         try {
-            // const response = await fetch(`http://localhost:8080/api/usuarios/paginated?page=${page}&size=${size}`);
+            setIsLoading(true); // Indicamos que estamos cargando datos
             const response = await fetch(`http://localhost:8080/api/admin/usuarios`);
             const data = await response.json();
-            setUsuarios(data.content);
-            setTotalPages(data.totalPages);
-            setCurrentPage(data.currentPage);
+            setUsuarios(data.content || []); // Aseguramos que data.content sea un array
+            setTotalPages(data.totalPages || 1);
+            setCurrentPage(data.currentPage || 0);
         } catch (error) {
             console.error('Error fetching usuarios:', error);
+        } finally {
+            setIsLoading(false); // Indicamos que la carga ha terminado
         }
     };
 
@@ -27,7 +30,6 @@ const AdminUsuarios = () => {
 
     const handleAddAdmin = async (id) => {
         try {
-            // const response = await fetch(`http://localhost:8080/api/usuarios/${id}/admin`, {
             const response = await fetch(`http://localhost:8080/api/admin/usuarios/${id}/admin`, {
                 method: 'PATCH',
                 headers: {
@@ -37,7 +39,7 @@ const AdminUsuarios = () => {
             if (response.ok) {
                 fetchUsuarios(currentPage);
                 if (user && user.id_usuario === id) {
-                    fetchUser(id); // Actualizar el usuario actual si es el mismo que se está modificando
+                    fetchUser(id);
                 }
             } else {
                 console.error('Error assigning admin role');
@@ -49,7 +51,6 @@ const AdminUsuarios = () => {
 
     const handleRemoveAdmin = async (id) => {
         try {
-            // const response = await fetch(`http://localhost:8080/api/usuarios/${id}/remove-admin`, {
             const response = await fetch(`http://localhost:8080/api/admin/usuarios/${id}/remove-admin`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' }
@@ -57,7 +58,7 @@ const AdminUsuarios = () => {
             if (response.ok) {
                 fetchUsuarios(currentPage);
                 if (user && user.id_usuario === id) {
-                    fetchUser(id); // Actualizar el usuario actual si es el mismo que se está modificando
+                    fetchUser(id);
                 }
             } else {
                 console.error('Error removing admin role');
@@ -69,14 +70,12 @@ const AdminUsuarios = () => {
 
     const handleDelete = async (id) => {
         try {
-            // const response = await fetch(`http://localhost:8080/api/usuarios/${id}`, {
             const response = await fetch(`http://localhost:8080/api/admin/usuarios/${id}`, {
                 method: 'DELETE'
             });
             if (response.ok) {
                 fetchUsuarios(currentPage);
                 if (user && user.id_usuario === id) {
-                    // Opcional: hacer logout si el usuario eliminado es el usuario actual
                     logout();
                 }
             } else {
@@ -92,6 +91,10 @@ const AdminUsuarios = () => {
             setCurrentPage(pageNumber);
         }
     };
+
+    if (isLoading) {
+        return <p>Cargando...</p>; // Muestra un mensaje mientras los datos se están cargando
+    }
 
     return (
         <Container className="d-flex flex-column min-vh-100">
@@ -113,40 +116,46 @@ const AdminUsuarios = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {usuarios.map((usuario) => (
-                            <tr key={usuario.id_usuario}>
-                                <td>{usuario.id_usuario}</td>
-                                <td>{usuario.nombre}</td>
-                                <td>{usuario.apellido}</td>
-                                <td>{usuario.correo}</td>
-                                <td>{usuario.esAdmin ? 'Admin' : 'Usuario'}</td>
-                                <td>
-                                    {usuario.esAdmin ? (
+                        {usuarios.length > 0 ? (
+                            usuarios.map((usuario) => (
+                                <tr key={usuario.id_usuario}>
+                                    <td>{usuario.id_usuario}</td>
+                                    <td>{usuario.nombre}</td>
+                                    <td>{usuario.apellido}</td>
+                                    <td>{usuario.correo}</td>
+                                    <td>{usuario.esAdmin ? 'Admin' : 'Usuario'}</td>
+                                    <td>
+                                        {usuario.esAdmin ? (
+                                            <Button 
+                                                variant="warning" 
+                                                onClick={() => handleRemoveAdmin(usuario.id_usuario)} 
+                                                className="me-2"
+                                            >
+                                                -
+                                            </Button>
+                                        ) : (
+                                            <Button 
+                                                variant="success" 
+                                                onClick={() => handleAddAdmin(usuario.id_usuario)} 
+                                                className="me-2"
+                                            >
+                                                +
+                                            </Button>
+                                        )}
                                         <Button 
-                                            variant="warning" 
-                                            onClick={() => handleRemoveAdmin(usuario.id_usuario)} 
-                                            className="me-2"
+                                            variant="danger" 
+                                            onClick={() => handleDelete(usuario.id_usuario)}
                                         >
-                                            -
+                                            Eliminar
                                         </Button>
-                                    ) : (
-                                        <Button 
-                                            variant="success" 
-                                            onClick={() => handleAddAdmin(usuario.id_usuario)} 
-                                            className="me-2"
-                                        >
-                                            +
-                                        </Button>
-                                    )}
-                                    <Button 
-                                        variant="danger" 
-                                        onClick={() => handleDelete(usuario.id_usuario)}
-                                    >
-                                        Eliminar
-                                    </Button>
-                                </td>
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="6" className="text-center">No hay usuarios disponibles</td>
                             </tr>
-                        ))}
+                        )}
                     </tbody>
                 </Table>
                 <Pagination className="justify-content-center">
@@ -169,7 +178,6 @@ const AdminUsuarios = () => {
                     />
                 </Pagination>
             </div>
-            {/* Aquí puedes agregar un footer si el layout no lo tiene */}
         </Container>
     );
 };

@@ -13,26 +13,26 @@ const AdminProductos = () => {
     const [editProductId, setEditProductId] = useState(null);
     const [productoToEdit, setProductoToEdit] = useState(null); // Nuevo estado para almacenar el producto a editar
 
-    const token = localStorage.getItem('token'); // Obtener el token JWT
-
-    // Verificar si el token existe
-    if (!token) {
-        console.error('No se encontró un token en localStorage');
-        return;
-    }
-
-    // Mostrar el token y el JSON que se enviará en la solicitud
-    console.log('Token enviado:', token);
-
+    // Mover el token dentro del useEffect
     useEffect(() => {
-        // Fetch data from the API instead of using JSON file
+        const token = localStorage.getItem('token'); // Obtener el token JWT
+
+        // Verificar si el token existe
+        if (!token) {
+            console.error('No se encontró un token en localStorage');
+            return; // Salir si no hay token
+        }
+
+        // Mostrar el token y el JSON que se enviará en la solicitud
+        console.log('Token enviado:', token);
+
         const fetchProductos = async () => {
             try {
                 const response = await fetch('http://localhost:8080/instrumentos', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        // 'Authorization': `Bearer ${token}` // Enviar el token en el encabezado
+                        // 'Authorization': `Bearer ${token}` // Enviar el token en el encabezado si es necesario
                     },
                 });
 
@@ -59,6 +59,12 @@ const AdminProductos = () => {
     };
 
     const handleDelete = async (id) => {
+        const token = localStorage.getItem('token'); // Asegurarse de obtener el token al hacer delete
+        if (!token) {
+            console.error('No se encontró un token en localStorage');
+            return;
+        }
+
         try {
             const response = await fetch(`http://localhost:8080/api/admin/instrumento/eliminar/${id}`, {
                 method: 'DELETE',

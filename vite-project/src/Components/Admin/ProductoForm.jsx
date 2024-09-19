@@ -71,7 +71,7 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
                 });
             } else {
                 // Si estamos agregando uno nuevo, enviar un POST request (puedes modificar esta parte si es necesario)
-                response = await fetch('http://localhost:8080/api/admin/instrumento/registrarInstrumento', {
+                response = await fetch(`http://localhost:8080/api/admin/instrumento/registrarInstrumento`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
