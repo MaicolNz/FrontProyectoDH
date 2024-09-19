@@ -123,8 +123,8 @@ const AdminUsuarios = () => {
                                     <td>{usuario.id}</td>
                                     <td>{usuario.nombre}</td>
                                     <td>{usuario.apellido}</td>
-                                    <td>{usuario.correo}</td>
-                                    <td>{usuario.role ? 'Administrador' : 'Usuario'}</td>
+                                    <td>{usuario.email}</td>
+                                    <td>{usuario.role === "ADMIN" ? "Administrador" : "Usuario" }</td>
                                     <td>
                                         {usuario.role ? (
                                             <Button 
