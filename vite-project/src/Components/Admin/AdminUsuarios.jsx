@@ -14,7 +14,8 @@ const AdminUsuarios = () => {
             setIsLoading(true); // Indicamos que estamos cargando datos
             const response = await fetch(`http://localhost:8080/api/admin/usuarios`);
             const data = await response.json();
-            setUsuarios(data.content || []); // Aseguramos que data.content sea un array
+            console.log(data)
+            setUsuarios(data); // Aseguramos que data.content sea un array
             setTotalPages(data.totalPages || 1);
             setCurrentPage(data.currentPage || 0);
         } catch (error) {
