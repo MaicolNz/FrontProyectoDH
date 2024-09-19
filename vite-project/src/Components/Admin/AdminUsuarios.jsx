@@ -126,13 +126,12 @@ const AdminUsuarios = () => {
                                     <td>{usuario.email}</td>
                                     <td>{usuario.role === "ADMIN" ? "Administrador" : "Usuario" }</td>
                                     <td>
-                                        {usuario.role ? (
+                                        {usuario.role === "ADMIN" ? (
                                             <Button 
-                                                variant="warning" 
                                                 onClick={() => handleRemoveAdmin(usuario.id)} 
                                                 className="me-2"
                                             >
-                                                -
+                                                Quitar Administrador
                                             </Button>
                                         ) : (
                                             <Button 
@@ -140,14 +139,14 @@ const AdminUsuarios = () => {
                                                 onClick={() => handleAddAdmin(usuario.id)} 
                                                 className="me-2"
                                             >
-                                                +
+                                                Agregar Administrador
                                             </Button>
                                         )}
                                         <Button 
                                             variant="danger" 
                                             onClick={() => handleDelete(usuario.id)}
                                         >
-                                            Eliminar
+                                            Eliminar Usuario
                                         </Button>
                                     </td>
                                 </tr>
