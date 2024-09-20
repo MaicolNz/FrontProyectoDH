@@ -8,7 +8,7 @@ const AdminUsuarios = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
-
+    const token = localStorage.getItem('token');
     const fetchUsuarios = async () => {
         setIsLoading(true);
         try {
@@ -33,7 +33,8 @@ const AdminUsuarios = () => {
             const response = await fetch(`http://localhost:8080/api/admin/modificarRole/${id}/role`, {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 },
                 body: (role)
             });
