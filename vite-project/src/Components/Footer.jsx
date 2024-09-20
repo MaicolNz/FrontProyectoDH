@@ -1,5 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faYoutube, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Footer = () => {
@@ -14,14 +16,15 @@ const Footer = () => {
           </Col>
           <Col xs={12} md={3} className="d-flex justify-content-center mb-3 mb-md-0">
             <ul className="list-unstyled d-flex gap-3 justify-content-center m-0">
-              <li><a href="#"><img src="/public/images/icons/Facebook.svg" alt="Facebook" className="img-fluid" /></a></li>
-              <li><a href="#"><img src="/public/images/icons/Youtube.svg" alt="YouTube" className="img-fluid" /></a></li>
-              <li><a href="#"><img src="/public/images/icons/Twitter.svg" alt="Twitter" className="img-fluid" /></a></li>
-              <li><a href="#"><img src="/public/images/icons/Instagram.svg" alt="Instagram" className="img-fluid" /></a></li>
+            <li><a href="#"><FontAwesomeIcon icon={faFacebook} size="2x" className="text-white" /></a></li>
+              <li><a href="#"><FontAwesomeIcon icon={faYoutube} size="2x" className="text-white" /></a></li>
+              <li><a href="#"><FontAwesomeIcon icon={faTwitter} size="2x" className="text-white" /></a></li>
+              <li><a href="#"><FontAwesomeIcon icon={faInstagram} size="2x" className="text-white" /></a></li>
             </ul>
           </Col>
           <Col xs={12} md={3} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
-          <p className="copy-text mb-2 text-center text-md-end">Copyright © 2024. All rights reserved.</p>          </Col>
+            <p className="copy-text mb-2 text-center text-md-end">Copyright © 2024. All rights reserved.</p>
+          </Col>
 
           <Col xs={12} md={3} className="d-flex flex-column align-items-center align-items-md-end">
             <div className="d-flex">
