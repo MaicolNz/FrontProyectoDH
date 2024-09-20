@@ -12,7 +12,7 @@ const AdminUsuarios = () => {
     const fetchUsuarios = async () => {
         try {
             setIsLoading(true); // Indicamos que estamos cargando datos
-            const response = await fetch(`backendproyectodh-production.up.railway.app/api/admin/usuarios`);
+            const response = await fetch(`http://localhost:8080/api/admin/usuarios`);
             const data = await response.json();
             console.log(data)
             setUsuarios(data); // Aseguramos que data.content sea un array
@@ -31,7 +31,7 @@ const AdminUsuarios = () => {
 
     const handleAddAdmin = async (id) => {
         try {
-            const response = await fetch(`backendproyectodh-production.up.railway.app/api/admin/usuarios/${id}/admin`, {
+            const response = await fetch(`http://localhost:8080/api/admin/usuarios/${id}/admin`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ const AdminUsuarios = () => {
 
     const handleRemoveAdmin = async (id) => {
         try {
-            const response = await fetch(`backendproyectodh-production.up.railway.app/api/admin/usuarios/${id}/remove-admin`, {
+            const response = await fetch(`http://localhost:8080/api/admin/usuarios/${id}/remove-admin`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -71,7 +71,7 @@ const AdminUsuarios = () => {
 
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`backendproyectodh-production.up.railway.app/api/admin/usuarios/${id}`, {
+            const response = await fetch(`http://localhost:8080/api/admin/usuarios/${id}`, {
                 method: 'DELETE'
             });
             if (response.ok) {

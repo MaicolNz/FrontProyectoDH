@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     try {
-      const response = await fetch(`backendproyectodh-production.up.railway.app/api/usuarios/${userId}`, {
+      const response = await fetch(`http://localhost:8080/api/usuarios/${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

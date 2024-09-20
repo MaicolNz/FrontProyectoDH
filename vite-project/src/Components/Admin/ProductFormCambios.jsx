@@ -60,7 +60,7 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
         console.log('Producto enviado:', JSON.stringify(newProduct));
     
         try {
-            const response = await fetch('backendproyectodh-production.up.railway.app/api/admin/instrumento/registrarInstrumento', {
+            const response = await fetch('http://localhost:8080/api/admin/instrumento/registrarInstrumento', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
