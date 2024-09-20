@@ -28,7 +28,7 @@ const AdminProductos = () => {
         // Fetch data from the API instead of using JSON file
         const fetchProductos = async () => {
             try {
-                const response = await fetch('http://localhost:8080/instrumentos', {
+                const response = await fetch('backendproyectodh-production.up.railway.app/instrumentos', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ const AdminProductos = () => {
 
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/admin/instrumento/eliminar/${id}`, {
+            const response = await fetch(`backendproyectodh-production.up.railway.app/api/admin/instrumento/eliminar/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`, // Enviar el token en el encabezado

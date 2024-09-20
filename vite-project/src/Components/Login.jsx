@@ -42,7 +42,7 @@ const Login = () => {
     if (!emailError && email && password) {
       try {
         // const response = await fetch('http://localhost:8080/api/login', {
-        const response = await fetch('http://localhost:8080/auth/login', {
+        const response = await fetch('backendproyectodh-production.up.railway.app/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

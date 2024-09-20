@@ -61,7 +61,7 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
             let response;
             if (editProductId) {
                 // Si estamos editando, enviamos un PUT request
-                response = await fetch(`http://localhost:8080/api/admin/instrumento/modificarInstrumento/${editProductId}`, {
+                response = await fetch(`backendproyectodh-production.up.railway.app/api/admin/instrumento/modificarInstrumento/${editProductId}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const ProductoForm = ({ showModal, setShowModal, productos, setProductos, editPr
                 });
             } else {
                 // Si estamos agregando uno nuevo, enviar un POST request (puedes modificar esta parte si es necesario)
-                response = await fetch(`http://localhost:8080/api/admin/instrumento/registrarInstrumento`, {
+                response = await fetch(`backendproyectodh-production.up.railway.app/api/admin/instrumento/registrarInstrumento`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
