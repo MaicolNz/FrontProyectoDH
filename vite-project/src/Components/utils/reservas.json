@@ -1,0 +1,33 @@
+{
+    "reservas": [
+      {
+        "id": 1,
+        "producto": "Guitarra Acústica Fender",
+        "fechaInicio": "2023-10-10T00:00:00Z",
+        "fechaFin": "2023-10-15T00:00:00Z",
+        "estado": "Confirmada"
+      },
+      {
+        "id": 2,
+        "producto": "Piano Yamaha Clavinova",
+        "fechaInicio": "2023-09-01T00:00:00Z",
+        "fechaFin": "2023-09-05T00:00:00Z",
+        "estado": "Finalizada"
+      },
+      {
+        "id": 3,
+        "producto": "Batería Pearl Roadshow",
+        "fechaInicio": "2023-11-05T00:00:00Z",
+        "fechaFin": "2023-11-10T00:00:00Z",
+        "estado": "Pendiente"
+      },
+      {
+        "id": 4,
+        "producto": "Violín Stradivarius",
+        "fechaInicio": "2023-11-15T00:00:00Z",
+        "fechaFin": "2023-11-20T00:00:00Z",
+        "estado": "Cancelada"
+      }
+    ]
+  }
+  
