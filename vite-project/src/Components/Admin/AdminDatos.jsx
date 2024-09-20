@@ -61,7 +61,7 @@ const MisDatos = () => {
   
       // Preparar el cuerpo de la solicitud, excluyendo la contraseña si no ha cambiado
       const body = {
-        id: userData.idUsuario,  // Usamos 'id_usuario' correctamente aquí
+        id: userData.userId,  // Usamos 'id_usuario' correctamente aquí
         nombre: userData.nombre,
         apellido: userData.apellido,
         correo: userData.correo,
