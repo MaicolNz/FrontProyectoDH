@@ -292,17 +292,35 @@ input[type="email"], input[type="password"], .form-check-label, input[type="text
 /* Boton de whatsapp*/
 
 .whatsapp-button {
-  position: fixed; 
-  right: 40px;
-  bottom: 160px;
-  z-index: 1000; 
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1000;
+  animation: bounce 2s infinite; 
 }
-
 
 .fa-whatsapp {
   color: var(--color-success);
   font-size: 36px;
   cursor: pointer;
+  transition: transform 0.2s ease-in-out; 
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+
+.whatsapp-button:hover .fa-whatsapp {
+  transform: scale(1.1);
 }
 
 
