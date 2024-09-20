@@ -7,67 +7,46 @@ const AdminUsuarios = () => {
     const [usuarios, setUsuarios] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(1);
-    const [isLoading, setIsLoading] = useState(true); // Añadido para manejar el estado de carga
+    const [isLoading, setIsLoading] = useState(true);
 
     const fetchUsuarios = async () => {
+        setIsLoading(true);
         try {
-            setIsLoading(true); // Indicamos que estamos cargando datos
-            const response = await fetch(`http://localhost:8080/api/admin/usuarios`);
+            const response = await fetch("http://localhost:8080/api/admin/usuarios");
             const data = await response.json();
-            console.log(data)
-            setUsuarios(data); // Aseguramos que data.content sea un array
+            setUsuarios(data);
             setTotalPages(data.totalPages || 1);
             setCurrentPage(data.currentPage || 0);
         } catch (error) {
             console.error('Error fetching usuarios:', error);
         } finally {
-            setIsLoading(false); // Indicamos que la carga ha terminado
+            setIsLoading(false);
         }
     };
 
     useEffect(() => {
-        fetchUsuarios(currentPage);
+        fetchUsuarios();
     }, [currentPage]);
 
-    const handleAddAdmin = async (id) => {
+    const handleRoleChange = async (id, role) => {
         try {
             const response = await fetch(`http://localhost:8080/api/admin/modificarRole/${id}/role`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify("ADMIN" ) 
+                body: (role)
             });
             if (response.ok) {
-                fetchUsuarios(currentPage);
+                await fetchUsuarios();
                 if (user && user.id_usuario === id) {
                     fetchUser(id);
                 }
             } else {
-                console.error('Error assigning admin role');
+                console.error(`Error modifying role to ${role}`);
             }
         } catch (error) {
-            console.error('Error adding admin:', error);
-        }
-    };
-
-    const handleRemoveAdmin = async (id) => {
-        try {
-            const response = await fetch(`http://localhost:8080/api/admin/modificarRole/${id}/role`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' }, 
-                body: JSON.stringify("USUARIO" )
-            });
-            if (response.ok) { 
-                fetchUsuarios(currentPage);
-                if (user && user.id_usuario === id) {
-                    fetchUser(id);
-                }
-            } else {
-                console.error('Error al remover el rol de Administrador');
-            }
-        } catch (error) {
-            console.error('Error removing admin:', error);
+            console.error(`Error changing role for user ${id}:`, error);
         }
     };
 
@@ -77,7 +56,7 @@ const AdminUsuarios = () => {
                 method: 'DELETE'
             });
             if (response.ok) {
-                fetchUsuarios(currentPage);
+                await fetchUsuarios();
                 if (user && user.id_usuario === id) {
                     logout();
                 }
@@ -96,7 +75,7 @@ const AdminUsuarios = () => {
     };
 
     if (isLoading) {
-        return <p>Cargando...</p>; // Muestra un mensaje mientras los datos se están cargando
+        return <p>Cargando...</p>;
     }
 
     return (
@@ -128,22 +107,13 @@ const AdminUsuarios = () => {
                                     <td>{usuario.email}</td>
                                     <td>{usuario.role === "ADMIN" ? "Administrador" : "Usuario" }</td>
                                     <td>
-                                        {usuario.role === "ADMIN" ? (
-                                            <Button 
-                                                onClick={() => handleRemoveAdmin(usuario.id)} 
-                                                className="me-2"
-                                            >
-                                                Quitar Administrador
-                                            </Button>
-                                        ) : (
-                                            <Button 
-                                                variant="success" 
-                                                onClick={() => handleAddAdmin(usuario.id)} 
-                                                className="me-2"
-                                            >
-                                                Agregar Administrador
-                                            </Button>
-                                        )}
+                                        <Button 
+                                            onClick={() => handleRoleChange(usuario.id, usuario.role === "ADMIN" ? "USUARIO" : "ADMIN")} 
+                                            variant={usuario.role === "ADMIN" ? "warning" : "success"} 
+                                            className="me-2"
+                                        >
+                                            {usuario.role === "ADMIN" ? "Quitar Administrador" : "Agregar Administrador"}
+                                        </Button>
                                         <Button 
                                             variant="danger" 
                                             onClick={() => handleDelete(usuario.id)}
@@ -185,3 +155,5 @@ const AdminUsuarios = () => {
 };
 
 export default AdminUsuarios;
+
+
