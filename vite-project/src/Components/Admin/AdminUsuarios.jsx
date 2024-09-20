@@ -12,7 +12,7 @@ const AdminUsuarios = () => {
     const fetchUsuarios = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch("http://localhost:8080/api/admin/usuarios");
+            const response = await fetch("https://backendproyectodh-production.up.railway.app/api/admin/usuarios");
             const data = await response.json();
             setUsuarios(data);
             setTotalPages(data.totalPages || 1);

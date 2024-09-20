@@ -28,7 +28,7 @@ const AdminProductos = () => {
         // Fetch data from the API instead of using JSON file
         const fetchProductos = async () => {
             try {
-                const response = await fetch('http://localhost:8080/instrumentos', {
+                const response = await fetch('https://backendproyectodh-production.up.railway.app/instrumentos', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

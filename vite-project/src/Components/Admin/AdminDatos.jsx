@@ -76,7 +76,7 @@ const MisDatos = () => {
         body.contraseña = originalPassword; // Mantener la contraseña original si no se ha cambiado
       }
   
-      const response = await fetch(`http://localhost:8080/modificarUsuario/${userData.id_usuario}`, {
+      const response = await fetch(`https://backendproyectodh-production.up.railway.app/modificarUsuario/${userData.id_usuario}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

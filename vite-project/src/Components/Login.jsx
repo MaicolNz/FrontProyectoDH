@@ -42,7 +42,7 @@ const Login = () => {
     if (!emailError && email && password) {
       try {
         // const response = await fetch('http://localhost:8080/api/login', {
-        const response = await fetch('http://localhost:8080/auth/login', {
+        const response = await fetch('https://backendproyectodh-production.up.railway.app/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ const Login = () => {
             <a href="#" className="text-white">¿Olvidaste tu contraseña?</a>
           </div>
           <div className="d-flex justify-content-between">
-            <button type="button" className="btn btn-secondary" onClick={handleCancel}>Cancelar</button>
+            <button type="button" className="btn btn-secondary" onClick={handleCancel} href="/">Cancelar</button>
             <button type="submit" className="btn btn-dark">Aceptar</button>
           </div>
         </form>
