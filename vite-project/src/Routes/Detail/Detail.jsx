@@ -11,7 +11,17 @@ const Detail = () => {
     const instrumento = instruments.find(item => item.id === parseInt(id));
     const navigate = useNavigate();
 
-    const usuarioLocalSt = localStorage.getItem("user")
+    const usuarioLocalSt = localStorage.getItem("user");
+    let usuario = null;
+
+    // Verifica si el usuario está logueado
+    if (usuarioLocalSt) {
+        try {
+            usuario = JSON.parse(usuarioLocalSt);
+        } catch (error) {
+            console.error("Error al parsear los datos del usuario", error);
+        }
+    }
 
     const [selectedStartDate, setSelectedStartDate] = useState(null);
     const [selectedEndDate, setSelectedEndDate] = useState(null);
@@ -125,25 +135,29 @@ const Detail = () => {
                                 >
                                     Ver más
                                 </button>
-                              {  usuarioLocalSt ? (
-    <button onClick={handleReserve} className="btn btn-detail btn-rent">
-      Iniciar Reserva
-    </button>
-  ) : (
-    <button onClick={handleAuth}  className="btn btn-detail btn-rent">
-      Iniciar sesión
-    </button>
-  )}
+                              {usuarioLocalSt ? (
+                                  <button onClick={handleReserve} className="btn btn-detail btn-rent">
+                                      Iniciar Reserva
+                                  </button>
+                                ) : (
+                                  <button onClick={handleAuth} className="btn btn-detail btn-rent">
+                                      Iniciar sesión
+                                  </button>
+                              )}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="mt-4">
                     <h4>Fechas Disponibles</h4>
-                    <OccupiedDatesManager 
-                        instrumentId={id} 
-                        onDatesSelected={handleDatesSelected} 
-                    />
+                    {usuarioLocalSt ? (
+                        <OccupiedDatesManager 
+                            instrumentId={id} 
+                            onDatesSelected={handleDatesSelected} 
+                        />
+                    ) : (
+                        <p>Por favor, <span style={{ cursor: 'pointer', color: 'blue' }} onClick={handleAuth}>inicie sesión</span> para ver las fechas disponibles.</p>
+                    )}
                 </div>
             </div>
 
@@ -176,6 +190,14 @@ const Detail = () => {
                 <Modal.Body>
                     <p>¡La reserva ha sido confirmada exitosamente!</p>
                     <p><strong>Instrumento seleccionado:</strong> {instrumento.nombre}</p>
+                    {usuario && usuario.nombre ? (
+                        <>
+                            <p><strong>Nombre:</strong> {usuario.nombre + " " + usuario.apellido}</p>
+                            <p><strong>Email:</strong> {usuario.sub}</p>
+                        </>
+                    ) : (
+                        <p>Usuario no autenticado</p>
+                    )}
                     <p><strong>Fecha de Inicio:</strong> {formatDate(selectedStartDate)}</p>
                     <p><strong>Fecha de Fin:</strong> {formatDate(selectedEndDate)}</p>
                 </Modal.Body>
