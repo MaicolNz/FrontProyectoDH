@@ -30,7 +30,7 @@ const AdminUsuarios = () => {
 
     const handleRoleChange = async (id, role) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/admin/modificarRole/${id}/role`, {
+            const response = await fetch(`https://backendproyectodh-production.up.railway.app/api/admin/modificarRole/${id}/role`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
