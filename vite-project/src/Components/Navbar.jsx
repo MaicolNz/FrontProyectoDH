@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom"; // Importa useLocation
+import { useLocation } from "react-router-dom"; 
 import HamburgerMenu from "./HamburgerMenu";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import UserMenu from "./Sesion";
+import UserMenu from "./Sesion"; 
 
 const Navbar = () => {
-  const location = useLocation(); // Obtén la ruta actual
-  const isAdminPanel = location.pathname.startsWith('/Admin'); // Ajusta la condición según necesites
+  const location = useLocation(); 
+  const isAdminPanel = location.pathname.startsWith('/Admin'); 
+  const isUserPanel = location.pathname.startsWith('/profile'); // Detectar si es un usuario registrado
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -25,12 +27,21 @@ const Navbar = () => {
           />
         </a>
         
-        
+        {/* Mostrar la sección correspondiente al administrador o usuario */}
         {isAdminPanel ? (
-          <><h1 className="text-light">Administrador</h1>
-          <div className="d-flex">
-            <UserMenu />
-          </div></>
+          <>
+            <h1 className="text-light">Administrador</h1>
+            <div className="d-flex">
+              <UserMenu />
+            </div>
+          </>
+        ) : isUserPanel ? (
+          <>
+            <h1 className="text-light">Usuario</h1>
+            <div className="d-flex">
+              <UserMenu />
+            </div>
+          </>
         ) : (
           <>
             <HamburgerMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />

@@ -10,8 +10,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Login from './Components/Login';
 import Register from './Components/Register';
-import AdminDatos from './Components/Admin/AdminDatos';
 import AdminRoutes from './Routes/AdminRoutes';
+import UsuarioPanel from './Routes/UsuarioPanel';
 
 const App = () => {
   return (
@@ -25,7 +25,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path='/Admin' element={<AdminRoutes />} />
-              <Route path="/profile" element={<AdminDatos />} />
+              <Route path="/profile" element={<UsuarioPanel />} />
             </Routes>
           </Layout>
         </Router>

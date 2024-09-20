@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import AdminMisDatos from '../Components/Admin/AdminDatos';
 import AdminUsuarios from '../Components/Admin/AdminUsuarios';
 import AdminProductos from '../Components/Admin/AdminProductos';
-import AdminCategorias from '../Components/Admin/AdminCategorias'; // Asegúrate de importar el nuevo componente
-import AdminCaracteristicas from '../Components/Admin/AdminCaracteristicas'; // Asegúrate de importar el nuevo componente
+import AdminCategorias from '../Components/Admin/AdminCategorias'; 
+import AdminCaracteristicas from '../Components/Admin/AdminCaracteristicas'; 
 import { Button, Col, Container, Row, Offcanvas } from 'react-bootstrap';
-import '../Components/Admin/Admin.css'; // Asegúrate de que este archivo está importado
+import '../Components/Admin/Admin.css'; 
 
 const AdminPanel = () => {
     const [selectedSection, setSelectedSection] = useState('MisDatos');
@@ -13,6 +13,8 @@ const AdminPanel = () => {
 
     const renderView = () => {
         switch (selectedSection) {
+            case 'MisDatos':
+                return <AdminMisDatos />;
             case 'Usuarios':
                 return <AdminUsuarios />;
             case 'Productos':
@@ -21,16 +23,12 @@ const AdminPanel = () => {
                 return <AdminCategorias />;
             case 'Caracteristicas':
                 return <AdminCaracteristicas />;
-            case 'MisDatos':
-            default:
-                return <AdminMisDatos />;
         }
     };
 
     return (
         <Container fluid>
             <Row>
-                {/* Sidebar for larger screens */}
                 <Col md={3} className="d-none d-md-block sidebar bg-dark p-3">
                     <Button
                         variant="primary"
