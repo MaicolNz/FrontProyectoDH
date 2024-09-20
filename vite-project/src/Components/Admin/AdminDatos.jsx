@@ -23,7 +23,7 @@ const MisDatos = () => {
       console.log('Direccion:', user.direccion);
       console.log('Telefono:', user.celular);
       setUserData({
-        id_usuario: user.idUsuario,  // Usamos 'user.idUsuario' tal como aparece en el token
+        id_usuario: user.id_usuario,  // Usamos 'user.idUsuario' tal como aparece en el token
         nombre: user.nombre,
         apellido: user.apellido,
         correo: user.sub,  // 'sub' sigue siendo el correo electrónico
