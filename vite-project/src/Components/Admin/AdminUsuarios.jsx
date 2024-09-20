@@ -53,7 +53,7 @@ const AdminUsuarios = () => {
 
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/admin/eliminarUsuario/${id}`, {
+            const response = await fetch(`https://backendproyectodh-production.up.railway.app/api/admin/eliminarUsuario/${id}`, {
                 method: 'DELETE'
             });
             if (response.ok) {

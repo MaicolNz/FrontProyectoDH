@@ -11,7 +11,7 @@ const Footer = () => {
         <Row className="align-items-center">
           <Col xs={12} md={3} className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
             <a href="/">
-              <img src="/public/images/Logos/Logo_White.png" alt="Logo" className="logo-footer img-fluid" />
+              <img src="/public/images/Logos/Logo White.png" alt="Logo" className="logo-footer img-fluid" />
             </a>
           </Col>
           <Col xs={12} md={3} className="d-flex justify-content-center mb-3 mb-md-0">
