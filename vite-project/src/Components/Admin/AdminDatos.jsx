@@ -23,7 +23,7 @@ const MisDatos = () => {
       console.log('Direccion:', user.direccion);
       console.log('Telefono:', user.celular);
       setUserData({
-        id_usuario: user.id_usuario,  // Usamos 'user.idUsuario' tal como aparece en el token
+        id_usuario: user.idUsuario,  // Usamos 'user.idUsuario' tal como aparece en el token
         nombre: user.nombre,
         apellido: user.apellido,
         correo: user.sub,  // 'sub' sigue siendo el correo electrónico
@@ -61,7 +61,7 @@ const MisDatos = () => {
   
       // Preparar el cuerpo de la solicitud, excluyendo la contraseña si no ha cambiado
       const body = {
-        id: userData.id_usuario,  // Usamos 'id_usuario' correctamente aquí
+        id: userData.idUsuario,  // Usamos 'id_usuario' correctamente aquí
         nombre: userData.nombre,
         apellido: userData.apellido,
         correo: userData.correo,
