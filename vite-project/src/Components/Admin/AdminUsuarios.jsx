@@ -31,11 +31,12 @@ const AdminUsuarios = () => {
 
     const handleAddAdmin = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/admin/usuarios/${id}/admin`, {
-                method: 'PATCH',
+            const response = await fetch(`http://localhost:8080/api/admin/modificarRole/${id}/role`, {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                body: JSON.stringify("ADMIN" ) 
             });
             if (response.ok) {
                 fetchUsuarios(currentPage);
@@ -52,17 +53,18 @@ const AdminUsuarios = () => {
 
     const handleRemoveAdmin = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/admin/usuarios/${id}/remove-admin`, {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json' }
+            const response = await fetch(`http://localhost:8080/api/admin/modificarRole/${id}/role`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' }, 
+                body: JSON.stringify("USUARIO" )
             });
-            if (response.ok) {
+            if (response.ok) { 
                 fetchUsuarios(currentPage);
                 if (user && user.id_usuario === id) {
                     fetchUser(id);
                 }
             } else {
-                console.error('Error removing admin role');
+                console.error('Error al remover el rol de Administrador');
             }
         } catch (error) {
             console.error('Error removing admin:', error);
@@ -71,7 +73,7 @@ const AdminUsuarios = () => {
 
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/admin/usuarios/${id}`, {
+            const response = await fetch(`http://localhost:8080/api/admin/eliminarUsuario/${id}`, {
                 method: 'DELETE'
             });
             if (response.ok) {
