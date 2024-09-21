@@ -44,6 +44,7 @@ const Register = () => {
             apellido,
             email: email,
             password: password,
+            role:'USUARIO'
           }),
         });
 
