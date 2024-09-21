@@ -27,6 +27,12 @@ const Register = () => {
 
     if (!emailError && email && nombre && apellido && password) {
       try {
+        console.log(JSON.stringify({
+          nombre,
+          apellido,
+          email: email,
+          password: password,
+        }))
         const response = await fetch('https://backendproyectodh-production.up.railway.app/auth/register', {
           method: 'POST',
           headers: {
