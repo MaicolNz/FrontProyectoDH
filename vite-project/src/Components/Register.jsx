@@ -43,7 +43,7 @@ const Register = () => {
             nombre,
             apellido,
             email: email,
-            password: password
+            password: password,
           }),
         });
 
