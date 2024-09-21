@@ -43,8 +43,7 @@ const Register = () => {
             nombre,
             apellido,
             email: email,
-            password: password,
-            role:'USUARIO'
+            password: password
           }),
         });
 
