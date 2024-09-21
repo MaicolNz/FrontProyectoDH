@@ -32,6 +32,7 @@ const Register = () => {
           apellido,
           email: email,
           password: password,
+          role:'USUARIO'
         }))
         const response = await fetch('https://backendproyectodh-production.up.railway.app/auth/register', {
           method: 'POST',
